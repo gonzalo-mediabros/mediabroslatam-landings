@@ -1,0 +1,374 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/ContactForm.astro";
+import styles from "../styles/auditoria.module.css";
+
+const title = "Auditoría Gratuita - Google Ads y SEO | MediaBros";
+const description =
+  "Descubre dónde estás perdiendo dinero con Google Ads y SEO. Auditoría profesional en 48 horas.";
+---
+
+<Layout title={title} description={description}>
+  <main>
+    <!-- Hero -->
+    <section class={styles.hero}>
+      <div class="container">
+        <div class={styles.grid2Hero}>
+          <div>
+            <img
+              src={`${import.meta.env.BASE_URL}logo.svg`}
+              alt="MediaBros"
+              width="206"
+              class={styles.heroLogo}
+            />
+            <h1 class={styles.title}>
+              Descubre dónde estás perdiendo dinero con <span
+                class={styles.titleHighlight}>Google Ads y SEO</span
+              >
+            </h1>
+            <p class={styles.subtitle}>
+              Realizamos una auditoría profesional de tu cuenta publicitaria o
+              posicionamiento orgánico para identificar errores clave y
+              oportunidades concretas de mejora, en solo 48 horas.
+            </p>
+
+            <ul class={styles.featureList}>
+              <li>
+                <span class="material-icons">search</span>
+                <div>
+                  🔎 Revisión completa de tus campañas en Google Ads o tu
+                  posicionamiento SEO.
+                </div>
+              </li>
+              <li>
+                <span class="material-icons">warning</span>
+                <div>
+                  ⚠️ Identificación de los 3 errores que más impactan en tu
+                  rendimiento.
+                </div>
+              </li>
+              <li>
+                <span class="material-icons">rocket_launch</span>
+                <div>
+                  🚀 Plan de acción para mejorar resultados en menos de 30 días.
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class={styles.formCard}>
+            <div class={styles.formCardHeader}>
+              <div class={styles.heroBadgeHighlight}>
+                <span class="material-icons">payments</span> Auditoría gratis
+              </div>
+              <h2 class={styles.formTitle}>Solicita tu auditoría</h2>
+              <p class={styles.formSubtitle}>
+                Completa el formulario así nos contactamos contigo para
+                coordinar.
+              </p>
+            </div>
+
+            <ContactForm
+              source="Auditoria"
+              buttonText="Solicitar Auditoría Gratis"
+              showTitle={false}
+              className={styles.nakedForm}
+            />
+
+            <div class={styles.formBadges}>
+              <div class={styles.formBadge}>
+                <span class="material-icons">monetization_on</span> Gratuito
+              </div>
+              <div class={styles.formBadge}>
+                <span class="material-icons">workspace_premium</span> Certificado
+              </div>
+              <div class={styles.formBadge}>
+                <span class="material-icons">lock</span> Confidencial
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section class={styles.deliverables}>
+      <div class="container">
+        <h2 class={`text-center ${styles.sectionTitle}`}>
+          Lo que vas a recibir en 48 horas:
+        </h2>
+        <p class={`text-center ${styles.sectionSubtitle}`}>
+          Auditoría profesional para detectar errores críticos y darte una hoja
+          de ruta clara para mejorar tus resultados.
+        </p>
+
+        <div class={styles.deliverablesGrid}>
+          <div class={styles.deliverableItem}>
+            <span class={`material-icons ${styles.checkIcon}`}
+              >check_circle</span
+            >
+            <div class={styles.deliverableContent}>
+              <h3>Análisis de tu cuenta de Google Ads ó posicionamiento SEO</h3>
+              <p>
+                Revisamos campañas activas, estructura, configuraciones,
+                inversión y rendimiento actual.
+              </p>
+            </div>
+          </div>
+          <div class={styles.deliverableItem}>
+            <span class={`material-icons ${styles.checkIcon}`}
+              >check_circle</span
+            >
+            <div class={styles.deliverableContent}>
+              <h3>
+                Detección de 3 errores críticos que afectan tus resultados
+              </h3>
+              <p>
+                Te mostramos qué está mal configurado, qué está frenando tu
+                alcance o aumentando tu costo por lead.
+              </p>
+            </div>
+          </div>
+          <div class={styles.deliverableItem}>
+            <span class={`material-icons ${styles.checkIcon}`}
+              >check_circle</span
+            >
+            <div class={styles.deliverableContent}>
+              <h3>Identificación de oportunidades concretas de mejora</h3>
+              <p>
+                Detectamos ajustes rápidos que puedes aplicar para optimizar tus
+                resultados sin aumentar presupuesto.
+              </p>
+            </div>
+          </div>
+          <div class={styles.deliverableItem}>
+            <span class={`material-icons ${styles.checkIcon}`}
+              >check_circle</span
+            >
+            <div class={styles.deliverableContent}>
+              <h3>Plan de acción claro y personalizado</h3>
+              <p>
+                Te entregamos un documento con recomendaciones prácticas,
+                inversión sugerida y próximos pasos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class={styles.testimonials}>
+      <div class="container">
+        <div class={styles.testimonialGrid}>
+          <!-- José Antonio -->
+          <div class={styles.testimonialCard}>
+            <div class={styles.testimonialHeader}>
+              <img
+                src={`${import.meta.env.BASE_URL}jpse.png`}
+                alt="José Antonio"
+                class={styles.authorImg}
+              />
+              <div class={styles.starsMui}>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+              </div>
+            </div>
+            <p class={styles.quote}>
+              “Nos ayudaron a optimizar las campañas activas, mejorar la calidad
+              de los leads y también entender mejor qué métricas analizar para
+              tomar decisiones.”
+            </p>
+            <div class={styles.authorInfo}>
+              <strong>José Antonio Nader Ríos</strong>
+              <span>Founder, Transvecto Logistics</span>
+            </div>
+          </div>
+          <!-- José -->
+          <div class={styles.testimonialCard}>
+            <div class={styles.testimonialHeader}>
+              <img
+                src={`${import.meta.env.BASE_URL}jose.png`}
+                alt="José"
+                class={styles.authorImg}
+              />
+              <div class={styles.starsMui}>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+              </div>
+            </div>
+            <p class={styles.quote}>
+              “Con su asesoramiento y tecnología logramos más leads calificados
+              y optimizamos la inversión desde el primer mes de trabajo
+              conjunto.”
+            </p>
+            <div class={styles.authorInfo}>
+              <strong>José Caragol</strong>
+              <span>Marketing Digital, Rentokil Initial</span>
+            </div>
+          </div>
+          <!-- Victoria -->
+          <div class={styles.testimonialCard}>
+            <div class={styles.testimonialHeader}>
+              <img
+                src={`${import.meta.env.BASE_URL}victoria.png`}
+                alt="Victoria"
+                class={styles.authorImg}
+              />
+              <div class={styles.starsMui}>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+                <span class="material-icons">star</span>
+              </div>
+            </div>
+            <p class={styles.quote}>
+              “Mejoramos la performance de nuestras campañas, bajamos el costo
+              por contacto y aumentamos las oportunidades comerciales reales.”
+            </p>
+            <div class={styles.authorInfo}>
+              <strong>Victoria Vallas</strong>
+              <span>CMO, EV Chargers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class={styles.process}>
+      <div class="container">
+        <h2 class={`text-center ${styles.sectionTitle}`} style="color: white;">
+          ¿Cómo funciona?
+        </h2>
+        <p
+          class={`text-center ${styles.sectionSubtitle}`}
+          style="color: rgba(255,255,255,0.7);"
+        >
+          Es simple, rápido y sin compromiso. Te entregamos el diagnóstico en 48
+          horas.
+        </p>
+
+        <div class={styles.stepsGrid}>
+          <div class={styles.stepItem}>
+            <div class={styles.stepNumber}>1</div>
+            <h3>Completá el formulario</h3>
+            <p>
+              Contanos brevemente sobre tu empresa y el canal que querés
+              auditar: Google Ads, SEO o ambos.
+            </p>
+          </div>
+          <div class={styles.stepItem}>
+            <div class={styles.stepNumber}>2</div>
+            <h3>Diagnóstico profesional</h3>
+            <p>
+              Nuestro equipo revisa tu cuenta ó sitio web y detecta errores
+              críticos, oportunidades de mejora y posibles fugas de presupuesto.
+            </p>
+          </div>
+          <div class={styles.stepItem}>
+            <div class={styles.stepNumber}>3</div>
+            <h3>Recibí tu reporte</h3>
+            <p>
+              En 48 horas te entregamos un reporte claro con problemas
+              detectados, soluciones sugeridas y mejoras estimadas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class={styles.faq}>
+      <div class="container">
+        <h2 class={`text-center ${styles.sectionTitle}`}>
+          Preguntas frecuentes
+        </h2>
+        <p class={`text-center ${styles.sectionSubtitle}`}>
+          Respuestas a las dudas más comunes sobre nuestra auditoría gratuita
+        </p>
+        <div class={styles.faqList}>
+          <details class={styles.faqItem}>
+            <summary>
+              ¿Realmente es gratis o hay algún costo oculto?
+              <span class="material-icons">add</span>
+            </summary>
+            <div class={styles.faqContent}>
+              <p>
+                Sí, es 100% gratuita y sin compromiso. No hay ningún cargo por
+                el análisis ni obligación de contratar nuestros servicios
+                después. Queremos mostrarte el valor que podemos aportar.
+              </p>
+            </div>
+          </details>
+          <details class={styles.faqItem}>
+            <summary>
+              ¿Qué incluye exactamente la auditoría?
+              <span class="material-icons">add</span>
+            </summary>
+            <div class={styles.faqContent}>
+              <p>
+                Revisamos tus campañas actuales en Google Ads o tu
+                posicionamiento SEO. Detectamos errores críticos, oportunidades
+                de mejora y te entregamos un informe con recomendaciones
+                prácticas.
+              </p>
+            </div>
+          </details>
+          <details class={styles.faqItem}>
+            <summary>
+              ¿Cuánto tarda en estar lista?
+              <span class="material-icons">add</span>
+            </summary>
+            <div class={styles.faqContent}>
+              <p>
+                Recibirás el diagnóstico completo en un plazo máximo de 48 horas
+                hábiles desde que completas el formulario.
+              </p>
+            </div>
+          </details>
+          <details class={styles.faqItem}>
+            <summary>
+              ¿Qué tipo de empresas pueden solicitarla?
+              <span class="material-icons">add</span>
+            </summary>
+            <div class={styles.faqContent}>
+              <p>
+                Está pensada para empresas B2B, B2C y negocios que ya estén
+                invirtiendo o tengan interés en mejorar su presencia digital.
+                (No aplica a sitios de Ecommerce)
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class={styles.finalCta}>
+      <div class="container">
+        <div class={styles.finalCtaBox}>
+          <h2 class={styles.finalCtaTitle}>
+            ¿Listo para mejorar tus resultados?
+          </h2>
+          <p class={styles.finalCtaSubtitle}>
+            Completa el formulario y recibí tu auditoría sin costo en solo 48
+            horas.
+          </p>
+          <a href="#" class={styles.btnPrimaryLarge}
+            >Solicitar Auditoría Gratis</a
+          >
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

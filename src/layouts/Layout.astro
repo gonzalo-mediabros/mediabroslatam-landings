@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image = "assets/og-image.jpg" } = Astro.props;
+const socialImage = new URL(image, Astro.site || Astro.url).href;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- Remove before production if indexable -->
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={`${import.meta.env.BASE_URL}favicon.svg`}
+    />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+
+    <!-- Google Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="https://www.mediabroslatam.com/">Mediabros</a>
+    <a href="https://www.mediabroslatam.com/guia">Guía</a>
+    <a href="https://www.mediabroslatam.com/auditoria">Auditoría</a>
+    <a href="https://www.mediabroslatam.com/diagnostico">Diagnóstico</a>
+    <slot />
+  </body>
+</html>

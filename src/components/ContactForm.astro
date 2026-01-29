@@ -1,0 +1,160 @@
+---
+import styles from "../styles/ContactForm.module.css";
+
+const {
+  title = "Solicitar Información",
+  buttonText = "Enviar Solicitud",
+  source = "Landing General",
+  className = "",
+  showTitle = true,
+} = Astro.props;
+
+const SCRIPT_URL = import.meta.env.PUBLIC_SCRIPT_URL;
+const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
+---
+
+<div class={`${styles.contactFormContainer} ${className}`}>
+  {showTitle && <h3 class={styles.title}>{title}</h3>}
+
+  <form
+    id="contact-form"
+    class={styles.mzForm}
+    data-url={SCRIPT_URL}
+    data-apikey={API_KEY}
+    data-source={source}
+  >
+    <div class={styles.formGroup}>
+      <label for="name" class={styles.label}>Nombre</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Nombre"
+        class={styles.input}
+      />
+    </div>
+
+    <div class={styles.formGroup}>
+      <label for="email" class={styles.label}>Correo Electrónico</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="Correo"
+        class={styles.input}
+      />
+    </div>
+
+    <div class={styles.formGroup}>
+      <label for="phone" class={styles.label}>Teléfono (WhatsApp)</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="Teléfono"
+        class={styles.input}
+      />
+    </div>
+
+    <div class={styles.formGroup}>
+      <label for="company" class={styles.label}>Empresa / Sitio Web</label>
+      <input
+        type="text"
+        id="company"
+        name="company"
+        placeholder="Sitio Web de tu empresa"
+        class={styles.input}
+      />
+    </div>
+
+    <!-- Honeypot field (hidden) -->
+    <div style="display:none;">
+      <label for="website">Website</label>
+      <input
+        type="text"
+        id="website"
+        name="website"
+        tabindex="-1"
+        autocomplete="off"
+      />
+    </div>
+
+    <button type="submit" class={styles.btnPrimary}>{buttonText}</button>
+  </form>
+
+  <div id="form-feedback" class={`${styles.formFeedback} hidden`}>
+    <div class={`${styles.successMessage} hidden`}>
+      <span class="material-icons">check_circle</span>
+      <p>¡Gracias! Tu solicitud ha sido enviada correctamente.</p>
+    </div>
+    <div class={`${styles.errorMessage} hidden`}>
+      <span class="material-icons">error</span>
+      <p>Hubo un error al enviar. Por favor intenta nuevamente.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const feedback = document.getElementById("form-feedback");
+  const successMsg = feedback?.querySelector('[class*="successMessage"]');
+  const errorMsg = feedback?.querySelector('[class*="errorMessage"]');
+
+  if (form) {
+    const SCRIPT_URL = form.dataset.url;
+    const API_KEY = form.dataset.apikey;
+    const SOURCE = form.dataset.source;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector(
+        'button[type="submit"]',
+      ) as HTMLButtonElement;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Enviando...";
+      }
+
+      // Hide previous feedback
+      if (feedback) feedback.classList.add("hidden");
+      if (successMsg) successMsg.classList.add("hidden");
+      if (errorMsg) errorMsg.classList.add("hidden");
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      // Metadata
+      data.origin = window.location.origin;
+      data.api_key = API_KEY || "";
+      data.source_page = SOURCE || window.location.pathname;
+
+      try {
+        if (!SCRIPT_URL) throw new Error("Script URL not configured");
+
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        // Show success
+        form.style.display = "none";
+        if (feedback) feedback.classList.remove("hidden");
+        if (successMsg) successMsg.classList.remove("hidden");
+      } catch (error) {
+        console.error("Error al enviar:", error);
+        if (feedback) feedback.classList.remove("hidden");
+        if (errorMsg) errorMsg.classList.remove("hidden");
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Reintentar";
+        }
+      }
+    });
+  }
+</script>

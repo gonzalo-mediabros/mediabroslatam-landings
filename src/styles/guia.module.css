@@ -1,0 +1,179 @@
+/* src/styles/guia.module.css */
+.hero {
+  background: #f0f4f8;
+  padding: 6rem 1rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.mt2 {
+  margin-top: 2rem;
+}
+.mb2 {
+  margin-bottom: 2rem;
+}
+.textMuted {
+  font-size: 0.8em;
+  color: #6c757d;
+  font-weight: normal;
+}
+
+.badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+}
+
+.grid2,
+.grid2Hero,
+.grid2Alt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.grid2Hero {
+  align-items: center;
+}
+
+.checkList {
+  list-style: none;
+  padding: 0;
+}
+.checkList li {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.checkList .icon {
+  color: var(--primary);
+}
+
+.bgLight {
+  background: #fff;
+}
+.bgDark {
+  background: #212529;
+  color: white;
+}
+.bgPrimary {
+  background: var(--primary);
+  color: white;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 8px;
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.cardError {
+  background: #fff5f5;
+  border-top: 4px solid #ff6b6b;
+}
+.cardSuccess {
+  background: #f0fff4;
+  border-top: 4px solid #51cf66;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+}
+.card li {
+  margin-bottom: 0.5rem;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.transItem {
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.transItem .icon {
+  font-size: 3rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+.transItem ul {
+  text-align: left;
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.stepCard {
+  background: white;
+  padding: 1rem;
+  border-left: 3px solid var(--primary);
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.btnCtaWhite {
+  background: white;
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Form wrapper overrides explicitly white bg for form */
+.formWrapper :global(.contact-form-container) {
+  background: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .grid2,
+  .grid2Hero,
+  .grid2Alt {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    text-align: center;
+  }
+  .badges {
+    justify-content: center;
+  }
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}

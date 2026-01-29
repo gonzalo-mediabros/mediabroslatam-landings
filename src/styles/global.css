@@ -1,0 +1,72 @@
+/* Importar fuentes de Google */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;600;700&display=swap");
+/* Material Symbols */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+:root {
+  /* Colores Globales */
+  --primary: #158bef; /* Azul Mediabros */
+  --secondary: #6c757d;
+  --text: #0f172a; /* Purpura oscuro/Blue */
+  --bg: #fff;
+  --accent: #ff6b6b;
+  --dark: #1f213d;
+
+  /* Layout MZL */
+  --container-max-width: 1440px;
+  --container-padding: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+/* MZL: Estandarización de Layout */
+section {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+/* Material Icons Customization */
+.material-icons {
+  font-size: 24px;
+  vertical-align: middle;
+}
+
+/* Utilities */
+.text-center {
+  text-align: center;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none !important;
+}
