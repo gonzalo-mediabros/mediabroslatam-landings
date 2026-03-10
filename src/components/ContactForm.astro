@@ -1,11 +1,11 @@
 ---
-import styles from "../styles/ContactForm.module.css";
+/* src/components/ContactForm.astro - RECONSTRUCCIÓN TOTAL ZERO-BASE */
+import styles from "./ContactForm.module.css";
 
 const {
-  title = "Solicitar Información",
-  buttonText = "Enviar Solicitud",
+  title = "Acceder al curso",
+  buttonText = "Acceder al curso gratuito",
   source = "Landing General",
-  className = "",
   showTitle = true,
 } = Astro.props;
 
@@ -13,64 +13,64 @@ const SCRIPT_URL = import.meta.env.PUBLIC_SCRIPT_URL;
 const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
 ---
 
-<div class={`${styles.contactFormContainer} ${className}`}>
-  {showTitle && <h3 class={styles.title}>{title}</h3>}
+<div class={styles.contactFormContainer}>
+  {showTitle && <h3 class="text-3xl font-black mb-8">{title}</h3>}
 
   <form
     id="contact-form"
-    class={styles.mzForm}
     data-url={SCRIPT_URL}
     data-apikey={API_KEY}
     data-source={source}
+    class={styles.mzForm}
   >
     <div class={styles.formGroup}>
-      <label for="name" class={styles.label}>Nombre</label>
+      <label for="name" class={styles.label}>Nombre Completo</label>
       <input
         type="text"
         id="name"
         name="name"
         required
-        placeholder="Nombre"
+        placeholder="Tu nombre"
         class={styles.input}
       />
     </div>
 
     <div class={styles.formGroup}>
-      <label for="email" class={styles.label}>Correo Electrónico</label>
+      <label for="email" class={styles.label}>Correo Corporativo</label>
       <input
         type="email"
         id="email"
         name="email"
         required
-        placeholder="Correo"
+        placeholder="ejemplo@empresa.com"
         class={styles.input}
       />
     </div>
 
     <div class={styles.formGroup}>
-      <label for="phone" class={styles.label}>Teléfono (WhatsApp)</label>
+      <label for="phone" class={styles.label}>Teléfono / WhatsApp</label>
       <input
         type="tel"
         id="phone"
         name="phone"
-        placeholder="Teléfono"
+        placeholder="+54 9 11 ..."
         class={styles.input}
       />
     </div>
 
     <div class={styles.formGroup}>
-      <label for="company" class={styles.label}>Empresa / Sitio Web</label>
+      <label for="company" class={styles.label}>Sitio Web de la Empresa</label>
       <input
         type="text"
         id="company"
         name="company"
-        placeholder="Sitio Web de tu empresa"
+        placeholder="www.tuempresa.com"
         class={styles.input}
       />
     </div>
 
     <!-- Honeypot field (hidden) -->
-    <div style="display:none;">
+    <div class={styles.srOnly}>
       <label for="website">Website</label>
       <input
         type="text"
@@ -81,17 +81,19 @@ const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
       />
     </div>
 
-    <button type="submit" class={styles.btnPrimary}>{buttonText}</button>
+    <button type="submit" class={styles.btnPrimary}>
+      {buttonText}
+    </button>
   </form>
 
-  <div id="form-feedback" class={`${styles.formFeedback} hidden`}>
-    <div class={`${styles.successMessage} hidden`}>
+  <div id="form-feedback" class="hidden">
+    <div class={`${styles.successMessage} hidden success-msg`}>
       <span class="material-icons">check_circle</span>
-      <p>¡Gracias! Tu solicitud ha sido enviada correctamente.</p>
+      <p>¡Listo! Te contactaremos a la brevedad.</p>
     </div>
-    <div class={`${styles.errorMessage} hidden`}>
+    <div class={`${styles.errorMessage} hidden error-msg`}>
       <span class="material-icons">error</span>
-      <p>Hubo un error al enviar. Por favor intenta nuevamente.</p>
+      <p>Error al enviar. Intenta de nuevo.</p>
     </div>
   </div>
 </div>
@@ -99,8 +101,8 @@ const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
 <script>
   const form = document.getElementById("contact-form") as HTMLFormElement;
   const feedback = document.getElementById("form-feedback");
-  const successMsg = feedback?.querySelector('[class*="successMessage"]');
-  const errorMsg = feedback?.querySelector('[class*="errorMessage"]');
+  const successMsg = feedback?.querySelector(".success-msg");
+  const errorMsg = feedback?.querySelector(".error-msg");
 
   if (form) {
     const SCRIPT_URL = form.dataset.url;
@@ -115,18 +117,12 @@ const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
       ) as HTMLButtonElement;
       if (submitBtn) {
         submitBtn.disabled = true;
+        const originalText = submitBtn.innerText;
         submitBtn.innerText = "Enviando...";
       }
 
-      // Hide previous feedback
-      if (feedback) feedback.classList.add("hidden");
-      if (successMsg) successMsg.classList.add("hidden");
-      if (errorMsg) errorMsg.classList.add("hidden");
-
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
-
-      // Metadata
       data.origin = window.location.origin;
       data.api_key = API_KEY || "";
       data.source_page = SOURCE || window.location.pathname;
@@ -134,25 +130,23 @@ const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
       try {
         if (!SCRIPT_URL) throw new Error("Script URL not configured");
 
-        const response = await fetch(SCRIPT_URL, {
+        await fetch(SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
 
-        // Show success
         form.style.display = "none";
         if (feedback) feedback.classList.remove("hidden");
         if (successMsg) successMsg.classList.remove("hidden");
       } catch (error) {
-        console.error("Error al enviar:", error);
+        console.error("Error:", error);
         if (feedback) feedback.classList.remove("hidden");
         if (errorMsg) errorMsg.classList.remove("hidden");
-
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerText = "Reintentar";
+          submitBtn.innerText = "Reintentar envío";
         }
       }
     });

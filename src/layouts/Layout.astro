@@ -1,13 +1,20 @@
 ---
+import "../styles/reset.css";
 import "../styles/global.css";
 
 interface Props {
   title: string;
   description: string;
   image?: string;
+  canonicalURL?: string;
 }
 
-const { title, description, image = "assets/og-image.jpg" } = Astro.props;
+const {
+  title,
+  description,
+  image = "assets/og-image.jpg",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
 const socialImage = new URL(image, Astro.site || Astro.url).href;
 ---
 
@@ -16,7 +23,6 @@ const socialImage = new URL(image, Astro.site || Astro.url).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex,nofollow" />
-    <!-- Remove before production if indexable -->
     <meta name="viewport" content="width=device-width" />
     <link
       rel="icon"
@@ -27,6 +33,7 @@ const socialImage = new URL(image, Astro.site || Astro.url).href;
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
 
     <!-- OpenGraph -->
     <meta property="og:title" content={title} />
@@ -42,10 +49,14 @@ const socialImage = new URL(image, Astro.site || Astro.url).href;
     />
   </head>
   <body>
-    <a href="https://www.mediabroslatam.com/">Mediabros</a>
-    <a href="https://www.mediabroslatam.com/guia">Guía</a>
-    <a href="https://www.mediabroslatam.com/auditoria">Auditoría</a>
-    <a href="https://www.mediabroslatam.com/diagnostico">Diagnóstico</a>
+    <!-- Menú de Navegación Dev (Se ocultará en build final) -->
+    <nav class="dev-nav">
+      <a href={import.meta.env.BASE_URL}>Home</a>
+      <a href={`${import.meta.env.BASE_URL}guia`}>Guía</a>
+      <a href={`${import.meta.env.BASE_URL}auditoria`}>Auditoría</a>
+      <a href={`${import.meta.env.BASE_URL}diagnostico`}>Diagnóstico</a>
+    </nav>
+
     <slot />
   </body>
 </html>

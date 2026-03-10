@@ -1,20 +1,39 @@
 ---
-import styles from "../styles/Header.module.css";
+import styles from "./Header.module.css";
 ---
 
 <header class={styles.header}>
-  <div class={`container ${styles.headerContent}`}>
-    <a href="/" class={styles.logo}>
-      <span class="material-icons">all_inclusive</span>
-      MediaBros Latam
-    </a>
-    <nav>
-      <ul class={styles.navUl}>
-        <li><a href="/" class={styles.navLink}>Curso</a></li>
-        <li><a href="/guia" class={styles.navLink}>Guía</a></li>
-        <li><a href="/auditoria" class={styles.navLink}>Auditoría</a></li>
-        <li><a href="/diagnostico" class={styles.navLink}>Diagnóstico</a></li>
-      </ul>
-    </nav>
+  <div class="container">
+    <div class={styles.headerContent}>
+      <a href={import.meta.env.BASE_URL} class={styles.logo}>
+        <img
+          src={`${import.meta.env.BASE_URL}logo.svg`}
+          alt="MediaBros Latam"
+          class={styles.logoImg}
+        />
+      </a>
+      <nav class={styles.nav}>
+        <ul class={styles.navUl}>
+          <li>
+            <a href={`${import.meta.env.BASE_URL}`} class={styles.navLink}
+              >Cursos</a>
+          </li>
+          <li>
+            <a href={`${import.meta.env.BASE_URL}guia`} class={styles.navLink}
+              >Guía B2B</a>
+          </li>
+          <li>
+            <a
+              href={`${import.meta.env.BASE_URL}auditoria`}
+              class={styles.navLink}>Auditoría</a>
+          </li>
+          <li>
+            <a
+              href={`${import.meta.env.BASE_URL}diagnostico`}
+              class={styles.btnNav}>Diagnóstico Gratis</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
