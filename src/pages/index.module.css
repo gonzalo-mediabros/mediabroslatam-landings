@@ -83,14 +83,19 @@
 }
 
 .form_wrapper {
-  margin: 0 auto -10rem auto;
+  margin: 0 auto;
   position: relative;
   z-index: 30;
 }
 
+.hero + section {
+  background: linear-gradient(to bottom, var(--navy) 50%, var(--white) 50%);
+  padding: 3rem 1rem;
+}
+
 /* --- AGITADOR --- */
 .agitador {
-  padding: 14rem 0 8rem 0;
+  padding: 3rem 1rem;
   background-color: var(--white);
   text-align: center;
 }
@@ -133,7 +138,7 @@
 
 /* --- SOBRE EL CURSO --- */
 .sobre {
-  padding: 8rem 0;
+  padding: 3rem 1rem;
   background-color: var(--bg-light);
 }
 
@@ -176,7 +181,7 @@
 
 /* --- BRANDS --- */
 .formula {
-  padding: 6rem 0;
+  padding: 3rem 1rem;
   background-color: var(--white);
   text-align: center;
 }
@@ -202,7 +207,7 @@
 
 /* --- GRID INFORMATIVO --- */
 .info_grid {
-  padding: 8rem 0;
+  padding: 3rem 1rem;
   background-color: var(--bg-light);
 }
 
@@ -234,7 +239,7 @@
 
 /* --- PROPS --- */
 .props {
-  padding: 8rem 0;
+  padding: 3rem 1rem;
   background-color: var(--white);
 }
 
@@ -258,7 +263,7 @@
 
 /* --- CTA FINAL --- */
 .cta_final {
-  padding: 10rem 0;
+  padding: 3rem 1rem;
   background-color: var(--navy);
   text-align: center;
   position: relative;
@@ -323,7 +328,7 @@
 
 /* --- FOOTER --- */
 .footer {
-  padding: 4rem 0;
+  padding: 3rem 1rem;
   background-color: var(--white);
   border-top: 1px solid var(--slate-100);
 }

@@ -20,7 +20,6 @@ const formulaImgUrl = `${import.meta.env.BASE_URL}iconos.png`;
   <main>
     <!-- HERO SECTION -->
     <div class={styles.hero}>
-      <div class={`${styles.hero_pattern} gridPattern`}></div>
       <m-container>
         <!-- NAV ROW -->
         <m-row>
@@ -35,24 +34,22 @@ const formulaImgUrl = `${import.meta.env.BASE_URL}iconos.png`;
         <!-- MAIN HERO ROW (2 Columns) -->
         <m-row flex class={styles.hero_row}>
           <m-col>
-            <article>
-              <span class={styles.hero_badge}>Exclusivo para B2B</span>
-              <h1>Cómo multiplicar tus <span>leads calificados</span></h1>
-              <p>
-                Estrategias avanzadas para transformar tu presencia digital en
-                un motor de generación de demanda real. Sin fórmulas mágicas,
-                solo resultados.
-              </p>
-              <m-row flex>
-                <m-col>
-                  <Button text="Ver video introductorio" href="#video">
-                    <span slot="before" class="material-symbols-outlined"
-                      >play_circle</span
-                    >
-                  </Button>
-                </m-col>
-              </m-row>
-            </article>
+            <span class={styles.hero_badge}>Exclusivo para B2B</span>
+            <h1>Cómo multiplicar tus <span>leads calificados</span></h1>
+            <p>
+              Estrategias avanzadas para transformar tu presencia digital en un
+              motor de generación de demanda real. Sin fórmulas mágicas, solo
+              resultados.
+            </p>
+            <m-row flex>
+              <m-col>
+                <Button text="Ver video introductorio" href="#video">
+                  <span slot="before" class="material-symbols-outlined"
+                    >play_circle</span
+                  >
+                </Button>
+              </m-col>
+            </m-row>
           </m-col>
 
           <m-col>
@@ -61,15 +58,20 @@ const formulaImgUrl = `${import.meta.env.BASE_URL}iconos.png`;
             </figure>
           </m-col>
         </m-row>
+      </m-container>
+    </div>
 
-        <!-- FORM ROW -->
+    <!-- FORM ROW -->
+    <section>
+      <m-container>
         <m-row>
-          <m-col id="registro" class={styles.form_wrapper}>
+          <m-col>
             <CourseForm />
           </m-col>
         </m-row>
       </m-container>
-    </div>
+    </section>
+
     <!-- FORMULA -->
     <section class={styles.formula}>
       <m-container>
@@ -81,6 +83,7 @@ const formulaImgUrl = `${import.meta.env.BASE_URL}iconos.png`;
         </m-row>
       </m-container>
     </section>
+
     <!-- AGITADOR / PROBLEMA -->
     <section class={styles.agitador}>
       <m-container>
