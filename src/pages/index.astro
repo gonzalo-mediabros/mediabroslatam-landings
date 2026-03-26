@@ -1,226 +1,274 @@
 ---
-/* s:\Proyectos\01_Clientes\Mediabros\Mediabros\Landings\src\pages\index.astro - FINAL JEFE VERSION */
 import Layout from "../layouts/Layout.astro";
-import ContactForm from "../components/ContactForm.astro";
+import Button from "../components/ui/Button.astro";
+import IconCard from "../components/landing/IconCard.astro";
+import CheckItem from "../components/landing/CheckItem.astro";
+import CourseForm from "../components/landing/CourseForm.astro";
 import styles from "./index.module.css";
 
-const title = "Curso Online Gratuito - Multiplica tus Leads | MediaBros";
+const title = "Generación de Leads B2B - Curso Online Gratuito | Mediabros";
 const description =
-  "De la confusión a la claridad en tan solo 45 minutos. Te contamos como aplicarlo a tu empresa.";
+  "Descubre cómo multiplicar tus leads calificados y profesionalizar tu estrategia de marketing digital en tan solo 45 minutos.";
+
+const logoUrl = `${import.meta.env.BASE_URL}logo.svg`;
+const heroImgUrl = `${import.meta.env.BASE_URL}cursos.png`;
+const badgesImgUrl = `${import.meta.env.BASE_URL}badges.jpg`;
+const formulaImgUrl = `${import.meta.env.BASE_URL}iconos.png`;
 ---
 
 <Layout title={title} description={description}>
   <main>
-    <!-- HERO SECTION (NAVY) -->
-    <section class={styles.hero}>
-      <div class="container">
-        <div class={styles.heroContent}>
-          <div>
-            <img
-              src={`${import.meta.env.BASE_URL}logo.svg`}
-              alt="Mediabros"
-              style="height: 50px; margin-bottom: 3.5rem; filter: brightness(0) invert(1);"
-            />
-            <h1 class={styles.titleLg}>
-              Cómo multiplicar tus leads calificados
-            </h1>
-            <p class={styles.subtitleLg}>
-              De la confusión a la claridad en tan solo 45 minutos. Te contamos
-              cómo aplicarlo a tu empresa para profesionalizar tu generación de
-              demanda.
+    <!-- HERO SECTION -->
+    <div class={styles.hero}>
+      <div class={`${styles.hero_pattern} gridPattern`}></div>
+      <m-container>
+        <!-- NAV ROW -->
+        <m-row>
+          <m-col>
+            <nav class={styles.hero_nav}>
+              <img src={logoUrl} alt="Mediabros" class={styles.logo_inv} />
+              <Button text="Acceder gratis" href="#registro" />
+            </nav>
+          </m-col>
+        </m-row>
+
+        <!-- MAIN HERO ROW (2 Columns) -->
+        <m-row flex class={styles.hero_row}>
+          <m-col>
+            <article>
+              <span class={styles.hero_badge}>Exclusivo para B2B</span>
+              <h1>Cómo multiplicar tus <span>leads calificados</span></h1>
+              <p>
+                Estrategias avanzadas para transformar tu presencia digital en
+                un motor de generación de demanda real. Sin fórmulas mágicas,
+                solo resultados.
+              </p>
+              <m-row flex>
+                <m-col>
+                  <Button text="Ver video introductorio" href="#video">
+                    <span slot="before" class="material-symbols-outlined"
+                      >play_circle</span
+                    >
+                  </Button>
+                </m-col>
+              </m-row>
+            </article>
+          </m-col>
+
+          <m-col>
+            <figure class={styles.hero_media}>
+              <img src={heroImgUrl} alt="Dashboard" />
+            </figure>
+          </m-col>
+        </m-row>
+
+        <!-- FORM ROW -->
+        <m-row>
+          <m-col id="registro" class={styles.form_wrapper}>
+            <CourseForm />
+          </m-col>
+        </m-row>
+      </m-container>
+    </div>
+    <!-- FORMULA -->
+    <section class={styles.formula}>
+      <m-container>
+        <m-row>
+          <m-col>
+            <p>Formula del éxito</p>
+            <img src={formulaImgUrl} alt="formula" />
+          </m-col>
+        </m-row>
+      </m-container>
+    </section>
+    <!-- AGITADOR / PROBLEMA -->
+    <section class={styles.agitador}>
+      <m-container>
+        <m-row>
+          <m-col>
+            <h2>
+              Deja de perder clientes y dinero <br />
+              <span class="text-slate-400">sin rumbo ni estrategia.</span>
+            </h2>
+            <h3>
+              Tu empresa no necesita más <span>likes</span>. Necesita
+              oportunidades reales de negocio.
+            </h3>
+            <p>
+              Si hoy tenés un sitio web, invertís en campañas o hacés algo de
+              marketing digital, pero los resultados no llegan — o llegan mal —
+              probablemente el problema no sea la inversión, sino la falta de un
+              plan claro.
             </p>
+          </m-col>
+        </m-row>
+      </m-container>
+    </section>
 
-            <div class={styles.heroVisuals}>
-              <!-- Imagen del Curso (Muy importante en Hero) -->
-              <img
-                src={`${import.meta.env.BASE_URL}cursos.png`}
-                alt="MediaBros Cursos"
-                class={styles.cursoImg}
+    <!-- SOBRE EL CURSO -->
+    <section class={styles.sobre}>
+      <m-container>
+        <m-row>
+          <m-col>
+            <h2>¿Sobre qué trata el curso?</h2>
+            <p>
+              Este curso online gratuito te permite <strong
+                >descubrir cómo generar leads de calidad</strong
+              > para tu empresa en tiempo récord con una sólida estrategia de marketing
+              digital y está diseñado como una guía práctica para empresas que buscan
+              profesionalizar su generación de demanda.
+            </p>
+            <p>
+              En tan solo <strong>45 minutos</strong>, este entrenamiento
+              gratuito ofrece una visión clara sobre el universo del marketing
+              digital, los diferentes tipos de proveedores, cómo hacer un
+              diagnóstico inicial del estado actual de tu empresa, y cómo
+              diseñar una estrategia de generación de leads efectiva.
+            </p>
+            <blockquote class={styles.sobre_quote}>
+              <p>
+                "Está especialmente dirigido a decisores en empresas que quieren
+                dejar de improvisar y comenzar a tomar decisiones basadas en
+                resultados medibles."
+              </p>
+            </blockquote>
+          </m-col>
+        </m-row>
+      </m-container>
+    </section>
+
+    <!-- GRID INFORMATIVO -->
+    <section class={styles.info_grid}>
+      <m-container>
+        <!-- 1 Fila, 2 Columnas -->
+        <m-row flex>
+          <m-col>
+            <h3>¿Para quién es este curso?</h3>
+            <ul class={styles.column_list}>
+              <CheckItem
+                text="Dueños de empresas con un producto consolidado o un servicio para vender."
               />
-
-              <!-- Trust Badges -->
-              <div class={styles.trustRow}>
-                <div class={styles.chipHero}>
-                  <span class="material-icons">paid</span> Gratuito
-                </div>
-                <div class={styles.chipHero}>
-                  <span class="material-icons">verified</span> Validado
-                </div>
-                <div class={styles.chipHero}>
-                  <span class="material-icons">security</span> Asegurado
-                </div>
-              </div>
-
-              <!-- Iconos (Trust Row en Hero) -->
-              <img
-                src={`${import.meta.env.BASE_URL}iconos.png`}
-                alt="Toolset Mediabros"
-                class={styles.iconosHero}
+              <CheckItem
+                text="Responsables de marketing que desean desarrollar su estrategia."
               />
-            </div>
-          </div>
+              <CheckItem
+                text="Gerentes comerciales que desean incrementar su facturación."
+              />
+              <CheckItem
+                text="Personas que están buscando el crecimiento sustentable de su empresa."
+              />
+              <CheckItem
+                text="Personas que están buscando mejorar sus habilidades de marketing."
+              />
+            </ul>
+          </m-col>
 
-          <div class={styles.formContainer}>
-            <div class="text-center mb-10">
-              <span class="chip">Curso online gratuito</span>
-              <div
-                class="flex items-center justify-center gap-2 font-bold mt-4"
-                style="color: var(--blue)"
-              >
-                <span class="material-icons">schedule</span>
-                <span>Duración: 45 min</span>
-              </div>
-            </div>
+          <m-col>
+            <h3>¿Qué vas a aprender?</h3>
+            <ul class={styles.column_list}>
+              <CheckItem text="Cómo crear una estrategia digital real." />
+              <CheckItem text="En que medios y cómo invertir." />
+              <CheckItem
+                text="Cómo evitar errores comunes que frenan resultados."
+              />
+              <CheckItem text="Qué tipo de proveedor o equipo te conviene." />
+              <CheckItem text="Ejemplos reales con resultados medibles." />
+            </ul>
+          </m-col>
+        </m-row>
+      </m-container>
+    </section>
 
-            <ContactForm
-              title="Acceder al curso"
-              buttonText="Acceder al curso gratuito"
-              source="Cursos - Hero Final"
-              showTitle={false}
+    <!-- PROPUESTAS DE VALOR -->
+    <section class={styles.props}>
+      <m-container>
+        <m-row flex>
+          <m-col>
+            <IconCard
+              icon="psychology"
+              title="Diagnóstico Guiado"
+              description="Aprenderás a identificar errores comunes."
             />
-          </div>
-        </div>
-      </div>
+          </m-col>
+          <m-col>
+            <IconCard
+              icon="map"
+              title="Claridad estratégica"
+              description="Descubrirás qué canales son los adecuados."
+            />
+          </m-col>
+          <m-col>
+            <IconCard
+              icon="fact_check"
+              title="Casos reales"
+              description="Casos concretos en sectores logísticos y construcción."
+            />
+          </m-col>
+          <m-col>
+            <IconCard
+              icon="bolt"
+              title="Acción inmediata"
+              description="Llamado a la acción claro para avanzar con solidez."
+            />
+          </m-col>
+        </m-row>
+      </m-container>
     </section>
 
-    <!-- VISION SECTION (WHITE BASE PARA BADGES.JPG) -->
-    <section class={styles.whiteSection}>
-      <div class="container">
-        <div class={styles.visionGrid}>
-          <span class="chip">Visión Estratégica</span>
-          <h2>
-            Una oportunidad única para desarrollar tu estrategia de marketing
-            digital
-          </h2>
+    <!-- CTA FINAL -->
+    <section class={styles.cta_final}>
+      <div class={`${styles.cta_pattern} gridPattern`}></div>
+      <m-container>
+        <m-row>
+          <m-col>
+            <h2>¿Listo para transformar tu generación de leads?</h2>
+            <p>
+              No dejes que otro trimestre pase con un pipeline vacío. Únete a
+              los +500 profesionales que ya están usando esta metodología.
+            </p>
+            <m-row flex>
+              <m-col>
+                <Button text="Empezar curso ahora" href="#registro" />
+              </m-col>
+            </m-row>
 
-          <div class={styles.quoteBlock}>
-            Tu empresa no necesita más likes. <br />
-            Necesita oportunidades reales de negocio.
-          </div>
-
-          <p class="text-xl text-slate-600 leading-relaxed mb-12">
-            Si hoy tenés un sitio web, invertís en campañas o hacés algo de
-            marketing digital, pero los resultados no llegan — o llegan mal —
-            probablemente el problema no sea la inversión, sino la falta de un
-            plan claro.
-          </p>
-
-          <!-- Badges Section (Integrado en fondo blanco) -->
-          <img
-            src={`${import.meta.env.BASE_URL}badges.jpg`}
-            alt="Trusted Partners"
-            class={styles.badgesImg}
-          />
-        </div>
-      </div>
+            <div class={styles.social_proof}>
+              <div class={styles.avatars}>
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE5tUvozgyAKhXsq-KaEZB_U3kmQB3Q5u-blFNkBl5Ww4qdbCZPCWENiMQJRa0yL96PLTwjKZ6IzG7BSjQQ8jCaMKx0so8wQLnD9GN8nef6tqy95pVFpkXZUC1uW7jqkfZUrPKgZx_LnjPuKtFjjxWxGs7BDmgyYe67gfbNIww-9riptPF6FsYx3u80Zfs02S7s_9ZGil1CX3rxlDFrLAKMOEKRjkwWl0PwVP6PdxnCD7ne9124JSIdSHW1_qHX6B7QwY_oYMFtg"
+                  alt="User"
+                  class={styles.avatar}
+                />
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3vtR2OFdvfn_5Q39sbihqUR80238OqIW2nSxFt5rYuiQZRFD563vmHBxP6oEmZbm0ixhIVqsVq_Y91ArvC2rtQthpp4v65nfymS778yigku1Fc9bVHwkyvL1Zu7FGK3oYnLouJ3OEOdYVGGir_qxWHWk4BLJbDpoiYY5WkzjcB53p56F70jgBd5s-Lz-QE5RlyoLDxOKUbuv2kBa7W8-HeBGVEU4GaXQxBa2mJb8V3ehyOCgOWYWVl-H-o39njRvRIZnehKJ3zQ"
+                  alt="User"
+                  class={styles.avatar}
+                />
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv7advdcPnDpsqn2E82mxCXq1eCi06sBEKoLL8gN1ko3F9iYn1LQ5vj56ZKPoO7Rl0VaNYTXcYKI1lETGhHA5F15ohBBpjwMJ4ZRO5CYNh2bp1VkgRysKFxXjQ_vLWCPdOPus4mDep4YT0JEvS0rhetv07xl2tbYHkIFp_LHmoKbuRo9RK5YQOZUJQlq4qf3dtNPJJOtebYEwPvkfT9_GwnpT1yDNSu4OJvyMZnBpQ9MxPspZqlr48hRpwkBmJITByCYHsNvu8Rw"
+                  alt="User"
+                  class={styles.avatar}
+                />
+              </div>
+              <p>Únete a <span>500+</span> líderes B2B</p>
+            </div>
+          </m-col>
+        </m-row>
+      </m-container>
     </section>
 
-    <!-- MODULES & CUSOS.WEBP (SLATE) -->
-    <section class={styles.modulesSection}>
-      <div class="container">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl">¿Sobre qué trata el curso?</h2>
-          <p class="text-xl text-slate-600 mt-6 max-w-3xl mx-auto">
-            Este curso online gratuito te permite descubrir cómo generar leads
-            de calidad para tu empresa en tiempo récord. Diseñado como una guía
-            práctica para decisores que buscan profesionalizar su generación de
-            demanda. Ofrece una visión clara sobre el universo del marketing
-            digital, los diferentes tipos de proveedores, cómo hacer un
-            diagnóstico inicial y cómo diseñar una estrategia efectiva.
-          </p>
-        </div>
-
-        <div class={styles.moduleGrid}>
-          <div class={styles.moduleCard}>
-            <h3 class="mb-8 flex items-center gap-3">
-              <span class="material-icons" style="color: var(--blue)"
-                >groups</span
-              >
-              ¿Para quién es este curso?
-            </h3>
-            <div class={styles.listRow}>
-              <span>✓</span> Dueños de empresas con producto o servicio consolidado.
+    <!-- FOOTER -->
+    <footer class={styles.footer}>
+      <m-container>
+        <m-row>
+          <m-col>
+            <div class={styles.footer_inner}>
+              <img src={logoUrl} alt="Mediabros" />
+              <p>© 2026 mediabroslatam.com Todos los derechos reservados.</p>
             </div>
-            <div class={styles.listRow}>
-              <span>✓</span> Responsables de marketing que desean desarrollar su estrategia.
-            </div>
-            <div class={styles.listRow}>
-              <span>✓</span> Gerentes comerciales que desean incrementar facturación.
-            </div>
-            <div class={styles.listRow}>
-              <span>✓</span> Buscando crecimiento sustentable de su empresa.
-            </div>
-            <div class={styles.listRow}>
-              <span>✓</span> Mejorar sus habilidades de marketing.
-            </div>
-          </div>
-          <div class={styles.moduleCard}>
-            <h3 class="mb-8 flex items-center gap-3">
-              <span class="material-icons" style="color: var(--blue)"
-                >verified</span
-              >
-              ¿Qué vas a aprender?
-            </h3>
-            <div class={styles.listRow}>
-              <span>✓</span> Cómo crear una estrategia digital real.
-            </div>
-            <div class={styles.listRow}>
-              <span>✓</span> En qué medios y cómo invertir.
-            </div>
-            <div class={styles.listRow}>
-              <span>✓</span> Evitar errores comunes que frenan resultados.
-            </div>
-            <div class={styles.listRow}>
-              <span>✓</span> Qué tipo de proveedor o equipo te conviene.
-            </div>
-            <div class={styles.listRow}>
-              <span>✓</span> Ejemplos reales con resultados medibles.
-            </div>
-          </div>
-        </div>
-
-        <!-- cusos.webp en el cuerpo -->
-        <div class="text-center mt-20">
-          <img
-            src={`${import.meta.env.BASE_URL}cusos.webp`}
-            alt="Detalles del Curso"
-            class={styles.cusosWebp}
-            style="margin: 0 auto;"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA (NAVY) -->
-    <section class={styles.ctaFooter}>
-      <div class="container">
-        <h2 class="text-5xl mb-8">
-          Genera leads de calidad para tu empresa en tiempo record
-        </h2>
-        <p class="text-2xl opacity-70 mb-12">
-          Accede al curso de MediaBros y descubre cómo elegir los canales
-          adecuados y evitar errores comunes. Ideal para decisores que buscan
-          resultados en el corto plazo.
-        </p>
-        <a href="#top" class="btn text-xl"
-          >¡Accede al curso online gratuito ahora!</a
-        >
-      </div>
-    </section>
-
-    <footer class={styles.legalFooter}>
-      <div class="container text-center">
-        <img
-          src={`${import.meta.env.BASE_URL}logo.svg`}
-          alt="Mediabros"
-          style="height: 35px; margin-bottom: 3rem; opacity: 0.5; filter: grayscale(1);"
-        />
-        <p class="mb-4 opacity-70 max-w-2xl mx-auto">
-          This site is not part of the Meta website or Meta Inc. Additionally,
-          this site is NOT endorsed by Meta in any way.
-        </p>
-        <p class="font-bold">© 2025 mediabroslatam.com ALL RIGHTS RESERVED.</p>
-      </div>
+          </m-col>
+        </m-row>
+      </m-container>
     </footer>
   </main>
 </Layout>

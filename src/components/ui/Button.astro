@@ -1,0 +1,65 @@
+---
+interface Props {
+  text: string;
+  href?: string;
+  variant?: 'primary' | 'outline' | 'ghost';
+  class?: string;
+}
+
+const { text, href, variant = 'primary', class: className } = Astro.props;
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element
+  href={href}
+  class:list={[
+    'btn',
+    `btn--${variant}`,
+    className
+  ]}
+>
+  <slot name="before" />
+  <span>{text}</span>
+  <slot name="after" />
+</Element>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem 2.5rem;
+    border-radius: var(--radius-lg);
+    font-family: "Red Hat Display", sans-serif;
+    font-weight: 800;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  .btn--primary {
+    background-color: var(--primary);
+    color: var(--white);
+    box-shadow: 0 10px 20px rgba(20, 139, 239, 0.2);
+  }
+
+  .btn--primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(20, 139, 239, 0.3);
+    background-color: white;
+    color: var(--navy);
+  }
+
+  /* Variantes adicionales si se requieren según landing.html */
+  .btn--outline {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+  }
+</style>

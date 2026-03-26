@@ -3,11 +3,14 @@
 
 :root {
   --navy: #1f213d;
-  --blue: #158bef;
+  --blue: #148bef;
   --white: #ffffff;
+  --bg-light: #f6f8f8;
   --slate-50: #f8fafc;
   --slate-100: #f1f5f9;
   --slate-200: #e2e8f0;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
   --slate-600: #475569;
 
   --primary: var(--blue);
@@ -15,6 +18,7 @@
 
   --radius-md: 12px;
   --radius-lg: 24px;
+  --radius-xl: 32px;
   --radius-full: 9999px;
 
   --shadow-premium: 0 20px 40px -10px rgba(31, 33, 61, 0.12);
@@ -39,21 +43,57 @@ h3 {
   margin: 0;
 }
 
-.container {
+/* --- ESTRUCTURA SEMÁNTICA (W3C Custom Elements) --- */
+m-container {
+  display: block;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1452px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
 }
 
-section {
-  padding: 8rem 0;
+m-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  m-row[flex] {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+}
+
+m-col {
+  display: block;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Soporte para que las tarjetas se envuelvan en el sistema de 4 */
+@media (min-width: 768px) and (max-width: 1023px) {
+  m-row[flex] m-col {
+    flex-basis: calc(50% - 2rem);
+  }
+}
+
+.gridPattern {
+  background-image: radial-gradient(
+    circle,
+    rgba(20, 139, 239, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
 }
 
 .chip {
   display: inline-flex;
   padding: 0.5rem 1rem;
-  background: rgba(21, 139, 239, 0.1);
+  background: rgba(20, 139, 239, 0.1);
   color: var(--blue);
   border-radius: var(--radius-full);
   font-weight: 700;

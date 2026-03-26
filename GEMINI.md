@@ -28,6 +28,8 @@ npm run deploy  # Desplegar a GitHub Pages
 ## Referencias Locales
 
 - Leer `.agent/project-rules.md` para las reglas técnicas y de negocio detalladas.
+- Leer `spec/design-brief-cursos.md` para la especificación de diseño actual.
+- Leer `spec/live-references.md` para el historial de versiones en vivo.
 - Leer `.agent/project-lessons.md` para el historial de decisiones.
 - Leer `.agent/task.md` para el progreso actual.
 

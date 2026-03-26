@@ -1,9 +1,11 @@
 {
 	"folders": [
 		{
+			"name": "Landings",
 			"path": "."
 		},
 		{
+			"name": "Antigravity_Agents",
 			"path": "../../../../Antigravity_Agents"
 		}
 	],
