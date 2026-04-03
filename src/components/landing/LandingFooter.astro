@@ -1,0 +1,69 @@
+---
+interface Props {
+  year?: number;
+  brand?: string;
+}
+const { year = new Date().getFullYear(), brand = "Mediabros" } = Astro.props;
+---
+
+<footer class="landing-footer">
+  <m-container>
+    <m-row>
+      <div class="footer-inner">
+        <img
+          src={`${import.meta.env.BASE_URL}logo.svg`}
+          alt={brand}
+          class="footer-logo"
+        />
+        <p class="footer-copy">
+          &copy; {year}
+          {brand}. Todos los derechos reservados.
+        </p>
+      </div>
+    </m-row>
+    <m-row>
+      <p class="footer-copy">
+        This site is not part of the Meta website or Meta Inc. Additionally,
+        this site is NOT endorsed by Meta in any way. META is a trademark of
+        META, Inc.
+      </p>
+    </m-row>
+  </m-container>
+</footer>
+
+<style>
+  .landing-footer {
+    background: white;
+    border-top: 1px solid #f3f4f6;
+    padding: 2rem 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .footer-logo {
+    height: 2rem;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+  }
+
+  .footer-copy {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+</style>

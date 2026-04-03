@@ -16,36 +16,35 @@ const { text } = Astro.props;
 <style>
   .item {
     display: flex;
-    align-items: flex-start;
     gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: flex-start;
   }
 
   .icon-box {
     flex-shrink: 0;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2rem;
+    height: 2rem;
     background: rgba(20, 139, 239, 0.1);
     color: var(--primary);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.25rem;
-    box-shadow: 0 4px 10px rgba(20, 139, 239, 0.1);
+    margin-top: 0.1rem;
   }
 
   .icon-box span {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 700;
   }
 
   .item-text {
     margin: 0;
-    color: var(--slate-600); /* Slate 700 en landing.html original */
-    font-size: 1.125rem;
+    color: var(--slate-600);
+    font-size: 1rem;
     line-height: 1.6;
     font-weight: 500;
   }

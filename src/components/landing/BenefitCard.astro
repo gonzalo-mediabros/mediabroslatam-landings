@@ -1,0 +1,71 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+}
+const { icon, title, description } = Astro.props;
+---
+
+<div class="card">
+  <div class="icon-box">
+    <span class="material-symbols-outlined">{icon}</span>
+  </div>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-desc">{description}</p>
+</div>
+
+<style>
+  .card {
+    background: white;
+    border-radius: var(--radius-lg);
+    border: 1px solid #f3f4f6;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    background: #eff6ff;
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-base), color var(--transition-base);
+  }
+
+  .card:hover .icon-box {
+    background: var(--brand-blue);
+    color: white;
+  }
+
+  .icon-box .material-symbols-outlined {
+    font-size: 1.75rem;
+  }
+
+  .card-title {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+</style>

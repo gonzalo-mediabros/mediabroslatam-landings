@@ -22,7 +22,8 @@ const { icon, title, description } = Astro.props;
     padding: 2rem;
     border-radius: var(--radius-lg);
     border: 1px solid var(--slate-100);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-card);
+    transition: all var(--transition-base);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -30,27 +31,27 @@ const { icon, title, description } = Astro.props;
   }
 
   .card:hover {
-    box-shadow: var(--shadow-premium);
-    transform: translateY(-5px);
-    border-color: rgba(20, 139, 239, 0.2);
+    box-shadow: var(--shadow-card-hover), 0 0 0 1px rgba(20, 139, 239, 0.1);
+    transform: translateY(-6px);
+    border-color: transparent;
   }
 
   .icon-box {
     width: 3.5rem;
     height: 3.5rem;
-    background: var(--slate-50);
-    color: var(--slate-400);
+    background: rgba(20, 139, 239, 0.08);
+    color: var(--primary);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
+    transition: all var(--transition-base);
   }
 
   .card:hover .icon-box {
-    background: rgba(20, 139, 239, 0.1);
-    color: var(--primary);
+    background: rgba(20, 139, 239, 0.16);
+    transform: scale(1.05);
   }
 
   .icon-box span {

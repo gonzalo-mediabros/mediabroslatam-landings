@@ -20,3 +20,5 @@ export default defineConfig({
     assets: "assets",
   },
 });
+
+// EJEMPLO URL https://gonzalo-mediabros.github.io/mediabroslatam-landings/

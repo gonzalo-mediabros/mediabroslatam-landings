@@ -1,277 +1,362 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/ui/Button.astro";
-import IconCard from "../components/landing/IconCard.astro";
-import CheckItem from "../components/landing/CheckItem.astro";
 import CourseForm from "../components/landing/CourseForm.astro";
+import BenefitCard from "../components/landing/BenefitCard.astro";
+import CheckItemSvg from "../components/landing/CheckItemSvg.astro";
+import LandingFooter from "../components/landing/LandingFooter.astro";
 import styles from "./index.module.css";
-
-const title = "Generación de Leads B2B - Curso Online Gratuito | Mediabros";
-const description =
-  "Descubre cómo multiplicar tus leads calificados y profesionalizar tu estrategia de marketing digital en tan solo 45 minutos.";
-
-const logoUrl = `${import.meta.env.BASE_URL}logo.svg`;
-const heroImgUrl = `${import.meta.env.BASE_URL}cursos.png`;
-const badgesImgUrl = `${import.meta.env.BASE_URL}badges.jpg`;
-const formulaImgUrl = `${import.meta.env.BASE_URL}iconos.png`;
 ---
 
-<Layout title={title} description={description}>
-  <main>
-    <!-- HERO SECTION -->
-    <div class={styles.hero}>
-      <m-container>
-        <!-- NAV ROW -->
-        <m-row>
-          <m-col>
-            <nav class={styles.hero_nav}>
-              <img src={logoUrl} alt="Mediabros" class={styles.logo_inv} />
-              <Button text="Acceder gratis" href="#registro" />
-            </nav>
-          </m-col>
-        </m-row>
+<Layout
+  title="Mediabros - Multiplica tus leads"
+  description="Descubrí cómo multiplicar tus leads calificados en 45 minutos con una metodología probada."
+>
+  <!-- 1. HERO -->
+  <section class={styles.hero}>
+    <div class={styles.heroBgGlow}></div>
+    <m-container>
+      <div class={styles.heroInner}>
+        <div class={styles.heroHeader}>
+          <img
+            src={`${import.meta.env.BASE_URL}logo.svg`}
+            alt="Mediabros"
+            class={styles.logo}
+          />
+        </div>
 
-        <!-- MAIN HERO ROW (2 Columns) -->
-        <m-row flex class={styles.hero_row}>
-          <m-col>
-            <span class={styles.hero_badge}>Exclusivo para B2B</span>
-            <h1>Cómo multiplicar tus <span>leads calificados</span></h1>
-            <p>
-              Estrategias avanzadas para transformar tu presencia digital en un
-              motor de generación de demanda real. Sin fórmulas mágicas, solo
-              resultados.
+        <div class={styles.heroGrid}>
+          <div class={styles.heroContent}>
+            <span class={styles.badgeB2b}>
+              <svg fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              Multiplica tus leads
+            </span>
+
+            <h1 class={styles.heroTitle}>
+              Cómo multiplicar tus
+              <span class={styles.highlightBlue}>
+                leads calificados
+                <svg
+                  viewBox="0 0 200 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M2 10C65.5 -2.5 136 -2.5 198 10"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"></path>
+                </svg>
+              </span>
+            </h1>
+
+            <p class={styles.heroSubtitle}>
+              De la confusión a la claridad en tan solo 45 minutos. Te contamos
+              cómo aplicarlo a tu empresa con un método probado.
             </p>
-            <m-row flex>
-              <m-col>
-                <Button text="Ver video introductorio" href="#video">
-                  <span slot="before" class="material-symbols-outlined"
-                    >play_circle</span
-                  >
-                </Button>
-              </m-col>
-            </m-row>
-          </m-col>
+          </div>
 
-          <m-col>
-            <figure class={styles.hero_media}>
-              <img src={heroImgUrl} alt="Dashboard" />
-            </figure>
-          </m-col>
-        </m-row>
-      </m-container>
+          <div class={styles.heroVisual}>
+            <img
+              src={`${import.meta.env.BASE_URL}hero-img.png`}
+              alt="Curso Mediabros"
+            />
+          </div>
+        </div>
+      </div>
+    </m-container>
+  </section>
+
+  <!-- 2. FORM SECTION -->
+  <section class={styles.formSection} id="registro">
+    <div class={styles.formContainer}>
+      <CourseForm />
     </div>
+  </section>
 
-    <!-- FORM ROW -->
-    <section>
-      <m-container>
-        <m-row>
-          <m-col>
-            <CourseForm />
-          </m-col>
-        </m-row>
-      </m-container>
-    </section>
+  <!-- 3. LOGOS SECTION -->
+  <section class={styles.logosSection}>
+    <m-container>
+      <p class={styles.sectionEyebrow}>Fórmula del éxito</p>
+      <div class={styles.logosGrid}>
+        <img
+          src={`${import.meta.env.BASE_URL}iconos.png`}
+          alt="Fórmula del éxito"
+        />
+      </div>
+    </m-container>
+  </section>
 
-    <!-- FORMULA -->
-    <section class={styles.formula}>
-      <m-container>
-        <m-row>
-          <m-col>
-            <p>Formula del éxito</p>
-            <img src={formulaImgUrl} alt="formula" />
-          </m-col>
-        </m-row>
-      </m-container>
-    </section>
+  <!-- 4. PROBLEM SECTION -->
+  <section class={styles.problemSection}>
+    <m-container>
+      <div class={styles.problemContent}>
+        <h2 class={styles.problemTitle}>
+          Deja de perder clientes y dinero
+          <span class={styles.problemTitleMuted}>sin rumbo ni estrategia.</span>
+        </h2>
+        <div class={styles.problemDivider}></div>
+        <p class={styles.problemSubtitle}>
+          Tu empresa no necesita más <span class={styles.highlightGray}
+            >likes
+            <svg viewBox="0 0 100 10" preserveAspectRatio="none">
+              <path
+                d="M0 5 Q 50 10 100 5"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"></path>
+            </svg>
+          </span>. <br />
+          Necesita oportunidades reales de negocio.
+        </p>
+        <p class={styles.problemText}>
+          Si hoy tenés un sitio web, invertís en campañas o hacés algo de
+          marketing digital, pero los resultados no llegan — o llegan mal —
+          probablemente el problema no sea la inversión, sino la falta de un
+          plan claro.
+        </p>
+      </div>
+    </m-container>
+  </section>
 
-    <!-- AGITADOR / PROBLEMA -->
-    <section class={styles.agitador}>
-      <m-container>
-        <m-row>
-          <m-col>
-            <h2>
-              Deja de perder clientes y dinero <br />
-              <span class="text-slate-400">sin rumbo ni estrategia.</span>
-            </h2>
-            <h3>
-              Tu empresa no necesita más <span>likes</span>. Necesita
-              oportunidades reales de negocio.
-            </h3>
-            <p>
-              Si hoy tenés un sitio web, invertís en campañas o hacés algo de
-              marketing digital, pero los resultados no llegan — o llegan mal —
-              probablemente el problema no sea la inversión, sino la falta de un
-              plan claro.
-            </p>
-          </m-col>
-        </m-row>
-      </m-container>
-    </section>
+  <!-- 5. COURSE SECTION -->
+  <section class={styles.courseSection}>
+    <m-container>
+      <div class={styles.courseInner}>
+        <h2 class={styles.sectionTitle}>
+          ¿Sobre qué trata <span class={styles.textBrand}>el curso</span>?
+        </h2>
 
-    <!-- SOBRE EL CURSO -->
-    <section class={styles.sobre}>
-      <m-container>
-        <m-row>
-          <m-col>
-            <h2>¿Sobre qué trata el curso?</h2>
+        <div class={styles.courseGrid}>
+          <div class={styles.courseTextCol}>
             <p>
               Este curso online gratuito te permite <strong
+                class={styles.textBrand}
                 >descubrir cómo generar leads de calidad</strong
               > para tu empresa en tiempo récord con una sólida estrategia de marketing
               digital y está diseñado como una guía práctica para empresas que buscan
               profesionalizar su generación de demanda.
             </p>
             <p>
-              En tan solo <strong>45 minutos</strong>, este entrenamiento
-              gratuito ofrece una visión clara sobre el universo del marketing
-              digital, los diferentes tipos de proveedores, cómo hacer un
-              diagnóstico inicial del estado actual de tu empresa, y cómo
-              diseñar una estrategia de generación de leads efectiva.
+              En tan solo <strong class={styles.strongDark}>45 minutos</strong>,
+              este entrenamiento gratuito ofrece una visión clara sobre el
+              universo del marketing digital, los diferentes tipos de
+              proveedores, cómo hacer un diagnóstico inicial del estado actual
+              de tu empresa, y cómo diseñar una estrategia de generación de
+              leads efectiva.
             </p>
-            <blockquote class={styles.sobre_quote}>
+          </div>
+
+          <div class={styles.courseQuoteCol}>
+            <blockquote class={styles.modernQuote}>
               <p>
                 "Está especialmente dirigido a decisores en empresas que quieren
                 dejar de improvisar y comenzar a tomar decisiones basadas en
                 resultados medibles."
               </p>
             </blockquote>
-          </m-col>
-        </m-row>
-      </m-container>
-    </section>
+          </div>
+        </div>
 
-    <!-- GRID INFORMATIVO -->
-    <section class={styles.info_grid}>
-      <m-container>
-        <!-- 1 Fila, 2 Columnas -->
-        <m-row flex>
-          <m-col>
-            <h3>¿Para quién es este curso?</h3>
-            <ul class={styles.column_list}>
-              <CheckItem
+        <div class={styles.certifications}>
+          <p class={styles.sectionEyebrow}>Nuestras Certificaciones</p>
+          <div class={styles.certBadges}>
+            <img
+              src={`${import.meta.env.BASE_URL}badges.jpg`}
+              alt="Certificaciones Mediabros"
+            />
+          </div>
+        </div>
+      </div>
+    </m-container>
+  </section>
+
+  <!-- 6. INFO CARDS SECTION -->
+  <section class={styles.infoCardsSection}>
+    <m-container>
+      <div class={styles.infoCardsGrid}>
+        <!-- Card 1 -->
+        <div class={styles.infoCard}>
+          <h3 class={styles.infoCardTitle}>
+            <span class={styles.infoCardMarker}></span>
+            ¿Para quién es este curso?
+          </h3>
+          <ul class={styles.infoList}>
+            <li>
+              <CheckItemSvg
                 text="Dueños de empresas con un producto consolidado o un servicio para vender."
               />
-              <CheckItem
+            </li>
+            <li>
+              <CheckItemSvg
                 text="Responsables de marketing que desean desarrollar su estrategia."
               />
-              <CheckItem
+            </li>
+            <li>
+              <CheckItemSvg
                 text="Gerentes comerciales que desean incrementar su facturación."
               />
-              <CheckItem
+            </li>
+            <li>
+              <CheckItemSvg
                 text="Personas que están buscando el crecimiento sustentable de su empresa."
               />
-              <CheckItem
-                text="Personas que están buscando mejorar sus habilidades de marketing."
-              />
-            </ul>
-          </m-col>
+            </li>
+          </ul>
+        </div>
 
-          <m-col>
-            <h3>¿Qué vas a aprender?</h3>
-            <ul class={styles.column_list}>
-              <CheckItem text="Cómo crear una estrategia digital real." />
-              <CheckItem text="En que medios y cómo invertir." />
-              <CheckItem
+        <!-- Card 2 -->
+        <div class={styles.infoCard}>
+          <h3 class={styles.infoCardTitle}>
+            <span class={styles.infoCardMarker}></span>
+            ¿Qué vas a aprender?
+          </h3>
+          <ul class={styles.infoList}>
+            <li>
+              <CheckItemSvg text="Cómo crear una estrategia digital real." />
+            </li>
+            <li><CheckItemSvg text="En qué medios y cómo invertir." /></li>
+            <li>
+              <CheckItemSvg
                 text="Cómo evitar errores comunes que frenan resultados."
               />
-              <CheckItem text="Qué tipo de proveedor o equipo te conviene." />
-              <CheckItem text="Ejemplos reales con resultados medibles." />
-            </ul>
-          </m-col>
-        </m-row>
-      </m-container>
-    </section>
+            </li>
+            <li>
+              <CheckItemSvg
+                text="Qué tipo de proveedor o equipo te conviene."
+              />
+            </li>
+            <li>
+              <CheckItemSvg text="Ejemplos reales con resultados medibles." />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </m-container>
+  </section>
 
-    <!-- PROPUESTAS DE VALOR -->
-    <section class={styles.props}>
-      <m-container>
-        <m-row flex>
-          <m-col>
-            <IconCard
-              icon="psychology"
-              title="Diagnóstico Guiado"
-              description="Aprenderás a identificar errores comunes."
-            />
-          </m-col>
-          <m-col>
-            <IconCard
-              icon="map"
-              title="Claridad estratégica"
-              description="Descubrirás qué canales son los adecuados."
-            />
-          </m-col>
-          <m-col>
-            <IconCard
-              icon="fact_check"
-              title="Casos reales"
-              description="Casos concretos en sectores logísticos y construcción."
-            />
-          </m-col>
-          <m-col>
-            <IconCard
-              icon="bolt"
-              title="Acción inmediata"
-              description="Llamado a la acción claro para avanzar con solidez."
-            />
-          </m-col>
-        </m-row>
-      </m-container>
-    </section>
+  <!-- 7. BENEFITS SECTION -->
+  <section class={styles.benefitsSection}>
+    <m-container>
+      <div class={styles.benefitsTitleWrapper}>
+        <h2 class={styles.benefitsTitle}>
+          <span class={styles.highlightBlue}>
+            Beneficios
+            <svg
+              viewBox="0 0 200 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 10C65.5 -2.5 136 -2.5 198 10"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"></path>
+            </svg>
+          </span>
+          de realizar el curso
+        </h2>
+      </div>
 
-    <!-- CTA FINAL -->
-    <section class={styles.cta_final}>
-      <div class={`${styles.cta_pattern} gridPattern`}></div>
-      <m-container>
-        <m-row>
-          <m-col>
-            <h2>¿Listo para transformar tu generación de leads?</h2>
-            <p>
-              No dejes que otro trimestre pase con un pipeline vacío. Únete a
-              los +500 profesionales que ya están usando esta metodología.
-            </p>
-            <m-row flex>
-              <m-col>
-                <Button text="Empezar curso ahora" href="#registro" />
-              </m-col>
-            </m-row>
+      <div class={styles.benefitsGrid}>
+        <BenefitCard
+          icon="vital_signs"
+          title="Diagnóstico Guiado"
+          description="Aprenderás a identificar errores comunes en tu estrategia digital."
+        />
+        <BenefitCard
+          icon="map"
+          title="Claridad estratégica"
+          description="Descubrirás qué canales son los adecuados para tu empresa."
+        />
+        <BenefitCard
+          icon="stacks"
+          title="Casos reales"
+          description="Casos concretos en sectores logísticos y construcción."
+        />
+        <BenefitCard
+          icon="bolt"
+          title="Acción inmediata"
+          description="Llamado a la acción claro para avanzar con solidez."
+        />
+      </div>
+    </m-container>
+  </section>
 
-            <div class={styles.social_proof}>
-              <div class={styles.avatars}>
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE5tUvozgyAKhXsq-KaEZB_U3kmQB3Q5u-blFNkBl5Ww4qdbCZPCWENiMQJRa0yL96PLTwjKZ6IzG7BSjQQ8jCaMKx0so8wQLnD9GN8nef6tqy95pVFpkXZUC1uW7jqkfZUrPKgZx_LnjPuKtFjjxWxGs7BDmgyYe67gfbNIww-9riptPF6FsYx3u80Zfs02S7s_9ZGil1CX3rxlDFrLAKMOEKRjkwWl0PwVP6PdxnCD7ne9124JSIdSHW1_qHX6B7QwY_oYMFtg"
-                  alt="User"
-                  class={styles.avatar}
-                />
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3vtR2OFdvfn_5Q39sbihqUR80238OqIW2nSxFt5rYuiQZRFD563vmHBxP6oEmZbm0ixhIVqsVq_Y91ArvC2rtQthpp4v65nfymS778yigku1Fc9bVHwkyvL1Zu7FGK3oYnLouJ3OEOdYVGGir_qxWHWk4BLJbDpoiYY5WkzjcB53p56F70jgBd5s-Lz-QE5RlyoLDxOKUbuv2kBa7W8-HeBGVEU4GaXQxBa2mJb8V3ehyOCgOWYWVl-H-o39njRvRIZnehKJ3zQ"
-                  alt="User"
-                  class={styles.avatar}
-                />
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv7advdcPnDpsqn2E82mxCXq1eCi06sBEKoLL8gN1ko3F9iYn1LQ5vj56ZKPoO7Rl0VaNYTXcYKI1lETGhHA5F15ohBBpjwMJ4ZRO5CYNh2bp1VkgRysKFxXjQ_vLWCPdOPus4mDep4YT0JEvS0rhetv07xl2tbYHkIFp_LHmoKbuRo9RK5YQOZUJQlq4qf3dtNPJJOtebYEwPvkfT9_GwnpT1yDNSu4OJvyMZnBpQ9MxPspZqlr48hRpwkBmJITByCYHsNvu8Rw"
-                  alt="User"
-                  class={styles.avatar}
-                />
-              </div>
-              <p>Únete a <span>500+</span> líderes B2B</p>
+  <!-- 8. CTA SECTION -->
+  <section class={styles.ctaSection}>
+    <div class={styles.ctaGlow1}></div>
+    <div class={styles.ctaGlow2}></div>
+    <m-container>
+      <div class={styles.ctaContent}>
+        <h2 class={styles.ctaTitle}>
+          ¿Listo para transformar tu generación de leads?
+        </h2>
+        <p class={styles.ctaDesc}>
+          No dejes que otro trimestre pase con un pipeline vacío. Únete a los
+          +500 profesionales que ya están usando esta metodología.
+        </p>
+        <div class={styles.ctaActions}>
+          <a href="#registro" class={styles.btnCta}>EMPEZAR CURSO AHORA</a>
+          <div class={styles.socialProof}>
+            <div class={styles.avatarGroup}>
+              <div class={styles.avatar}></div>
+              <div class={styles.avatar}></div>
+              <div class={styles.avatar}></div>
+              <div class={styles.avatarMore}>+</div>
             </div>
-          </m-col>
-        </m-row>
-      </m-container>
-    </section>
+            <span class={styles.socialProofText}
+              >Únete a <strong>500+</strong> líderes B2B</span
+            >
+          </div>
+        </div>
+      </div>
+    </m-container>
+  </section>
 
-    <!-- FOOTER -->
-    <footer class={styles.footer}>
-      <m-container>
-        <m-row>
-          <m-col>
-            <div class={styles.footer_inner}>
-              <img src={logoUrl} alt="Mediabros" />
-              <p>© 2026 mediabroslatam.com Todos los derechos reservados.</p>
-            </div>
-          </m-col>
-        </m-row>
-      </m-container>
-    </footer>
-  </main>
+  <!-- 9. PROMO SECTION -->
+  <section class={styles.promoSection}>
+    <m-container>
+      <div class={styles.promoBanner}>
+        <svg
+          class={styles.promoBgSvg}
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path d="M0 100 L100 0 L100 100 Z" fill="currentColor"></path>
+        </svg>
+
+        <div class={styles.promoContent}>
+          <p class={styles.promoEyebrow}>
+            Construye una estrategia de marketing digital efectiva
+          </p>
+          <h2 class={styles.promoTitle}>
+            Genera leads de calidad para tu empresa en tiempo record
+          </h2>
+          <p class={styles.promoDesc}>
+            Accede al curso gratuito de MediaBros y descubre cómo elegir los
+            canales adecuados y evitar errores comunes en la generación de
+            demanda. Ideal para decisores que buscan resultados concretos en el
+            corto plazo.
+          </p>
+          <a href="#registro" class={styles.btnPromo}>¡Accede ahora!</a>
+        </div>
+
+        <div class={styles.promoVisual}>
+          <img
+            src={`${import.meta.env.BASE_URL}cursos.webp`}
+            alt="Curso Mediabros"
+            class={styles.promoImg}
+          />
+        </div>
+      </div>
+    </m-container>
+  </section>
+
+  <!-- 10. FOOTER -->
+  <LandingFooter year={2026} brand="Mediabros" />
 </Layout>

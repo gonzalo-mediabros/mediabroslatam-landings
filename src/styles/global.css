@@ -1,5 +1,9 @@
-/* s:\Proyectos\01_Clientes\Mediabros\Mediabros\Landings\src\styles\global.css - MASTER ZERO-BASE */
+/* s:\Proyectos\01_Clientes\Mediabros\Mediabros\Landings\src\styles\global.css - MASTER ZERO-BASE INDUSTRIAL */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap");
+
+html {
+  font-size: 18px;
+}
 
 :root {
   --navy: #1f213d;
@@ -22,6 +26,27 @@
   --radius-full: 9999px;
 
   --shadow-premium: 0 20px 40px -10px rgba(31, 33, 61, 0.12);
+
+  /* Extended tokens */
+  --navy-deep: #14162a;
+  --shadow-card: 0 1px 3px rgba(31, 33, 61, 0.05), 0 4px 16px rgba(31, 33, 61, 0.08);
+  --shadow-card-hover: 0 8px 30px rgba(31, 33, 61, 0.14);
+  --shadow-blue: 0 12px 40px rgba(20, 139, 239, 0.3);
+  --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Tokens index2 / nuevo sistema */
+  --brand-dark: #141724;
+  --brand-blue: #1e88e5;
+  --brand-blue-hover: #1565c0;
+  --brand-graybg: #f8fafc;
+  --text-dark: #111827;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+}
+
+/* --- RESET SEMÁNTICO INDUSTRIAL --- */
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -40,10 +65,16 @@ h3 {
   font-family: "Red Hat Display", sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin: 0;
 }
 
-/* --- ESTRUCTURA SEMÁNTICA (W3C Custom Elements) --- */
+/* --- ESTRUCTURA SEMÁNTICA (GAP PROTOCOL) --- */
+section {
+  padding: 6rem 1rem;
+}
+
+footer {
+  padding: 2rem 1rem;
+}
 m-container {
   display: block;
   width: 100%;
@@ -55,7 +86,7 @@ m-container {
 m-row {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -63,59 +94,34 @@ m-row {
   m-row[flex] {
     flex-direction: row;
     align-items: flex-start;
-    gap: 4rem;
+    gap: 1rem;
   }
 }
 
 m-col {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   flex: 1;
   width: 100%;
   min-width: 0;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
-/* Soporte para que las tarjetas se envuelvan en el sistema de 4 */
+/* Adaptación responsiva para grids */
 @media (min-width: 768px) and (max-width: 1023px) {
   m-row[flex] m-col {
     flex-basis: calc(50% - 2rem);
   }
 }
 
-.gridPattern {
-  background-image: radial-gradient(
-    circle,
-    rgba(20, 139, 239, 0.1) 1px,
-    transparent 1px
-  );
-  background-size: 30px 30px;
-}
-
-.chip {
-  display: inline-flex;
-  padding: 0.5rem 1rem;
-  background: rgba(20, 139, 239, 0.1);
-  color: var(--blue);
-  border-radius: var(--radius-full);
-  font-weight: 700;
-  font-size: 0.85rem;
+.titleCapitalice {
+  color: var(--slate-400);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
   text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-
-.btn {
-  display: inline-flex;
-  padding: 1.25rem 2.5rem;
-  background: var(--blue);
-  color: var(--white);
-  border-radius: var(--radius-full);
-  font-family: "Red Hat Display", sans-serif;
-  font-weight: 800;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 20px rgba(21, 139, 239, 0.3);
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(21, 139, 239, 0.4);
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
 }

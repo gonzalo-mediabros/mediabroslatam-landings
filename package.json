@@ -10,7 +10,9 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "astro": "^5.16.16"
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^5.16.16",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
