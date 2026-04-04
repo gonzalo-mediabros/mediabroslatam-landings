@@ -1,7 +1,4 @@
 ---
-/* src/components/ContactForm.astro - RECONSTRUCCIÓN TOTAL ZERO-BASE */
-import styles from "./ContactForm.module.css";
-
 const {
   title = "Acceder al curso",
   buttonText = "Acceder al curso gratuito",
@@ -13,7 +10,7 @@ const SCRIPT_URL = import.meta.env.PUBLIC_SCRIPT_URL;
 const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
 ---
 
-<div class={styles.contactFormContainer}>
+<div class="w-full">
   {showTitle && <h3 class="text-3xl font-black mb-8">{title}</h3>}
 
   <form
@@ -21,56 +18,56 @@ const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
     data-url={SCRIPT_URL}
     data-apikey={API_KEY}
     data-source={source}
-    class={styles.mzForm}
+    class="flex flex-col gap-6"
   >
-    <div class={styles.formGroup}>
-      <label for="name" class={styles.label}>Nombre Completo</label>
+    <div class="flex flex-col gap-2.5">
+      <label for="name" class="block font-display text-sm font-bold text-slate-600 uppercase tracking-wide">Nombre Completo</label>
       <input
         type="text"
         id="name"
         name="name"
         required
         placeholder="Tu nombre"
-        class={styles.input}
+        class="w-full py-4.5 px-6 border-2 border-slate-100 rounded-md font-[inherit] text-base transition-all duration-300 bg-slate-50 text-navy focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/15"
       />
     </div>
 
-    <div class={styles.formGroup}>
-      <label for="email" class={styles.label}>Correo Corporativo</label>
+    <div class="flex flex-col gap-2.5">
+      <label for="email" class="block font-display text-sm font-bold text-slate-600 uppercase tracking-wide">Correo Corporativo</label>
       <input
         type="email"
         id="email"
         name="email"
         required
         placeholder="ejemplo@empresa.com"
-        class={styles.input}
+        class="w-full py-4.5 px-6 border-2 border-slate-100 rounded-md font-[inherit] text-base transition-all duration-300 bg-slate-50 text-navy focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/15"
       />
     </div>
 
-    <div class={styles.formGroup}>
-      <label for="phone" class={styles.label}>Teléfono / WhatsApp</label>
+    <div class="flex flex-col gap-2.5">
+      <label for="phone" class="block font-display text-sm font-bold text-slate-600 uppercase tracking-wide">Teléfono / WhatsApp</label>
       <input
         type="tel"
         id="phone"
         name="phone"
         placeholder="+54 9 11 ..."
-        class={styles.input}
+        class="w-full py-4.5 px-6 border-2 border-slate-100 rounded-md font-[inherit] text-base transition-all duration-300 bg-slate-50 text-navy focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/15"
       />
     </div>
 
-    <div class={styles.formGroup}>
-      <label for="company" class={styles.label}>Sitio Web de la Empresa</label>
+    <div class="flex flex-col gap-2.5">
+      <label for="company" class="block font-display text-sm font-bold text-slate-600 uppercase tracking-wide">Sitio Web de la Empresa</label>
       <input
         type="text"
         id="company"
         name="company"
         placeholder="www.tuempresa.com"
-        class={styles.input}
+        class="w-full py-4.5 px-6 border-2 border-slate-100 rounded-md font-[inherit] text-base transition-all duration-300 bg-slate-50 text-navy focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/15"
       />
     </div>
 
     <!-- Honeypot field (hidden) -->
-    <div class={styles.srOnly}>
+    <div class="sr-only">
       <label for="website">Website</label>
       <input
         type="text"
@@ -81,17 +78,17 @@ const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
       />
     </div>
 
-    <button type="submit" class={styles.btnPrimary}>
+    <button type="submit" class="w-full bg-blue text-white py-5 border-none rounded-full font-display text-lg font-extrabold cursor-pointer transition-all duration-300 mt-6 shadow-[0_12px_24px_-5px_rgba(21,139,239,0.4)] hover:bg-navy hover:-translate-y-0.5 hover:shadow-[0_15px_30px_-10px_rgba(31,33,61,0.3)]">
       {buttonText}
     </button>
   </form>
 
   <div id="form-feedback" class="hidden">
-    <div class={`${styles.successMessage} hidden success-msg`}>
+    <div class="hidden success-msg bg-green-50 text-green-800 p-6 rounded-md mt-8 font-bold border border-green-200 items-center gap-4 shadow-sm">
       <span class="material-icons">check_circle</span>
       <p>¡Listo! Te contactaremos a la brevedad.</p>
     </div>
-    <div class={`${styles.errorMessage} hidden error-msg`}>
+    <div class="hidden error-msg bg-red-50 text-red-800 p-6 rounded-md mt-8 font-bold border border-red-200 items-center gap-4 shadow-sm">
       <span class="material-icons">error</span>
       <p>Error al enviar. Intenta de nuevo.</p>
     </div>
@@ -138,12 +135,12 @@ const API_KEY = import.meta.env.PUBLIC_SCRIPT_API_KEY;
         });
 
         form.style.display = "none";
-        if (feedback) feedback.classList.remove("hidden");
-        if (successMsg) successMsg.classList.remove("hidden");
+        feedback?.classList.replace("hidden", "block");
+        successMsg?.classList.replace("hidden", "flex");
       } catch (error) {
         console.error("Error:", error);
-        if (feedback) feedback.classList.remove("hidden");
-        if (errorMsg) errorMsg.classList.remove("hidden");
+        feedback?.classList.replace("hidden", "block");
+        errorMsg?.classList.replace("hidden", "flex");
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.innerText = "Reintentar envío";

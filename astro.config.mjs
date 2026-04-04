@@ -1,11 +1,12 @@
 import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
 
 /*
 * DEPLOY GITHUB PAGES DOMINIO TEMPORAL
 */
-let DEPLOY_DOMAIN = "https://gonzalo-mediabros.github.io"; 
-let DEPLOY_PATH = "/mediabroslatam-landings/";   
+let DEPLOY_DOMAIN = "https://gonzalo-mediabros.github.io";
+let DEPLOY_PATH = "/mediabroslatam-landings/";
 
 /* ⚠️ DESCOMENTAR Y COMPLETAR SI DEPLOY ES UN CUSTOM DOMAIN ⚠️ */
 
@@ -18,6 +19,9 @@ export default defineConfig({
   base: DEPLOY_PATH,
   build: {
     assets: "assets",
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
 

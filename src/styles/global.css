@@ -1,73 +1,88 @@
-/* s:\Proyectos\01_Clientes\Mediabros\Mediabros\Landings\src\styles\global.css - MASTER ZERO-BASE INDUSTRIAL */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Red+Hat+Display:wght@400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
 
-html {
-  font-size: 18px;
-}
+/* ===== DESIGN TOKENS ===== */
+@theme {
+  /* Colors */
+  --color-navy: #1f213d;
+  --color-navy-deep: #14162a;
+  --color-blue: #148bef;
+  --color-white: #ffffff;
+  --color-bg-light: #f6f8f8;
 
-:root {
-  --navy: #1f213d;
-  --blue: #148bef;
-  --white: #ffffff;
-  --bg-light: #f6f8f8;
-  --slate-50: #f8fafc;
-  --slate-100: #f1f5f9;
-  --slate-200: #e2e8f0;
-  --slate-400: #94a3b8;
-  --slate-500: #64748b;
-  --slate-600: #475569;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
 
-  --primary: var(--blue);
-  --text-main: var(--navy);
+  --color-brand-dark: #141724;
+  --color-brand-blue: #1e88e5;
+  --color-brand-blue-hover: #1565c0;
+  --color-brand-graybg: #f8fafc;
 
+  --color-text-dark: #111827;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+
+  /* Radius */
   --radius-md: 12px;
   --radius-lg: 24px;
   --radius-xl: 32px;
-  --radius-full: 9999px;
 
+  /* Shadows */
   --shadow-premium: 0 20px 40px -10px rgba(31, 33, 61, 0.12);
-
-  /* Extended tokens */
-  --navy-deep: #14162a;
-  --shadow-card: 0 1px 3px rgba(31, 33, 61, 0.05), 0 4px 16px rgba(31, 33, 61, 0.08);
+  --shadow-card:
+    0 1px 3px rgba(31, 33, 61, 0.05), 0 4px 16px rgba(31, 33, 61, 0.08);
   --shadow-card-hover: 0 8px 30px rgba(31, 33, 61, 0.14);
   --shadow-blue: 0 12px 40px rgba(20, 139, 239, 0.3);
+
+  /* Widths */
+  --width-content: 1200px;
+  --width-wide: 90rem;
+  --width-full: 100%;
+
+  /* Fonts */
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Red Hat Display", sans-serif;
+
+  /* Transitions */
   --transition-base: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Tokens index2 / nuevo sistema */
-  --brand-dark: #141724;
-  --brand-blue: #1e88e5;
-  --brand-blue-hover: #1565c0;
-  --brand-graybg: #f8fafc;
-  --text-dark: #111827;
-  --text-muted: #6b7280;
-  --text-light: #9ca3af;
 }
 
-/* --- RESET SEMÁNTICO INDUSTRIAL --- */
-* {
-  box-sizing: border-box;
-}
-
+/* ===== BASE STYLES ===== */
 body {
-  font-family: "Inter", sans-serif;
-  color: var(--text-main);
-  background-color: var(--white);
+  font-family: var(--font-sans);
+  color: var(--color-navy);
+  background-color: var(--color-white);
   line-height: 1.5;
   margin: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
+img,
+video {
+  border-radius: var(--radius-md);
+}
+
+button,
+input,
+select,
+textarea {
+  border-radius: var(--radius-md);
+}
+
 h1,
 h2,
 h3 {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-/* --- ESTRUCTURA SEMÁNTICA (GAP PROTOCOL) --- */
+/* ===== LAYOUT WEB COMPONENTS ===== */
 section {
   padding: 6rem 1rem;
 }
@@ -75,10 +90,11 @@ section {
 footer {
   padding: 2rem 1rem;
 }
+
 m-container {
   display: block;
   width: 100%;
-  max-width: 1452px;
+  max-width: var(--width-content);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -93,7 +109,7 @@ m-row {
 @media (min-width: 1024px) {
   m-row[flex] {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 1rem;
   }
 }
@@ -106,19 +122,19 @@ m-col {
   width: 100%;
   min-width: 0;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
-/* Adaptación responsiva para grids */
 @media (min-width: 768px) and (max-width: 1023px) {
   m-row[flex] m-col {
     flex-basis: calc(50% - 2rem);
   }
 }
 
+/* ===== UTILITY CLASSES ===== */
 .titleCapitalice {
-  color: var(--slate-400);
-  font-family: "Inter", sans-serif;
+  color: var(--color-slate-400);
+  font-family: var(--font-sans);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.14em;

@@ -1,25 +1,22 @@
 ---
-import styles from "./Footer.module.css";
 const year = new Date().getFullYear();
 ---
 
-<footer class={styles.footer}>
+<footer class="bg-brand-dark text-white pt-16 pb-8 mt-auto">
   <div class="container">
-    <div class={styles.footerContent}>
-      <div class={styles.brand}>
-        <h4>MediaBros Latam</h4>
+    <div class="flex justify-between items-center mb-8 max-md:flex-col max-md:gap-8 max-md:text-center">
+      <div>
+        <h4 class="text-white mb-2">MediaBros Latam</h4>
         <p>Expertos en generación de demanda B2B.</p>
       </div>
-      <div class={styles.links}>
-        <a href="https://www.linkedin.com/company/mediabros" target="_blank"
-          >LinkedIn</a
-        >
-        <a href="mailto:hola@mediabroslatam.com">Contacto</a>
+      <div>
+        <a href="https://www.linkedin.com/company/mediabros" target="_blank" class="text-gray-400 no-underline ml-8 transition-colors duration-200 hover:text-white max-md:mx-4">LinkedIn</a>
+        <a href="mailto:hola@mediabroslatam.com" class="text-gray-400 no-underline ml-8 transition-colors duration-200 hover:text-white max-md:mx-4">Contacto</a>
       </div>
     </div>
-    <div class={styles.copyright}>
+    <div class="border-t border-gray-700 pt-8 text-center text-[0.9rem] text-gray-400">
       <p>&copy; {year} Mediabros Latam. Todos los derechos reservados.</p>
-      <p class={styles.disclaimer}>
+      <p class="text-[0.8rem] mt-4 opacity-70 max-w-xl mx-auto">
         This site is not part of the Meta website or Meta Inc. Additionally,
         this site is NOT endorsed by Meta in any way. META is a trademark of
         META, Inc.

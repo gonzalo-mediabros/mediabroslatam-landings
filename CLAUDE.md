@@ -70,6 +70,15 @@ The workflow is supported by specialized Astro agents, each responsible for a sp
 
 Deliver a clean, scalable, and high-converting landing page system aligned with Mediabros' growth and marketing needs.
 
+## Component Isolation per Landing
+
+Each landing page is **independent**. Components (Header, Footer, forms, etc.) belong to the landing they were built for and must **not be shared or modified** across landings.
+
+- Every landing has its own component copies inside its own folder or namespace (e.g., `src/components/landing/`, `src/components/curso/`).
+- If a component from another landing serves as a starting point, **copy it** — never modify the original.
+- Forms are always landing-specific. Never reuse a form component across landings.
+- Headers and footers may differ in style, color, or structure per landing — treat them as independent.
+
 ## Rules
 
 - Use **Tailwind CSS v4** with `@theme` tokens for all styling.

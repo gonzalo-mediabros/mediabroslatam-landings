@@ -7,65 +7,10 @@ interface Props {
 const { icon, title, description } = Astro.props;
 ---
 
-<div class="card">
-  <div class="icon-box">
-    <span class="material-symbols-outlined">{icon}</span>
+<div class="group bg-white rounded-lg border border-slate-100 p-8 flex flex-col gap-4 transition-all duration-[--transition-base] hover:-translate-y-1 hover:shadow-card-hover">
+  <div class="w-14 h-14 rounded-[1rem] bg-blue-50 text-brand-blue flex items-center justify-center transition-all duration-[--transition-base] group-hover:bg-brand-blue group-hover:text-white">
+    <span class="material-symbols-outlined text-[1.75rem]">{icon}</span>
   </div>
-  <h3 class="card-title">{title}</h3>
-  <p class="card-desc">{description}</p>
+  <h3 class="font-display text-[1.1rem] font-bold text-text-dark m-0 tracking-tight">{title}</h3>
+  <p class="text-[0.9rem] text-text-muted m-0 leading-relaxed">{description}</p>
 </div>
-
-<style>
-  .card {
-    background: white;
-    border-radius: var(--radius-lg);
-    border: 1px solid #f3f4f6;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-  }
-
-  .card:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: var(--shadow-card-hover);
-  }
-
-  .icon-box {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 1rem;
-    background: #eff6ff;
-    color: var(--brand-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background var(--transition-base), color var(--transition-base);
-  }
-
-  .card:hover .icon-box {
-    background: var(--brand-blue);
-    color: white;
-  }
-
-  .icon-box .material-symbols-outlined {
-    font-size: 1.75rem;
-  }
-
-  .card-title {
-    font-family: "Red Hat Display", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
-
-  .card-desc {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin: 0;
-    line-height: 1.6;
-  }
-</style>

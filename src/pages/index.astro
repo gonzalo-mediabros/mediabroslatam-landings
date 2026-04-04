@@ -4,30 +4,29 @@ import CourseForm from "../components/landing/CourseForm.astro";
 import BenefitCard from "../components/landing/BenefitCard.astro";
 import CheckItemSvg from "../components/landing/CheckItemSvg.astro";
 import LandingFooter from "../components/landing/LandingFooter.astro";
-import styles from "./index.module.css";
 ---
 
 <Layout
   title="Mediabros - Multiplica tus leads"
   description="Descubrí cómo multiplicar tus leads calificados en 45 minutos con una metodología probada."
 >
-  <!-- 1. HERO -->
-  <section class={styles.hero}>
-    <div class={styles.heroBgGlow}></div>
+  <!-- ----- HERO ----- -->
+  <section id="hero" class="relative overflow-hidden bg-brand-dark pt-12 pb-48">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-brand-blue opacity-5 blur-[100px] rounded-full pointer-events-none"></div>
     <m-container>
-      <div class={styles.heroInner}>
-        <div class={styles.heroHeader}>
+      <div class="relative z-10">
+        <div class="mb-16 md:mb-24">
           <img
             src={`${import.meta.env.BASE_URL}logo.svg`}
             alt="Mediabros"
-            class={styles.logo}
+            class="h-10 w-auto"
           />
         </div>
 
-        <div class={styles.heroGrid}>
-          <div class={styles.heroContent}>
-            <span class={styles.badgeB2b}>
-              <svg fill="currentColor" viewBox="0 0 20 20">
+        <div class="grid gap-12 items-center lg:grid-cols-12 lg:gap-8">
+          <div class="lg:col-span-6 lg:pr-8">
+            <span class="inline-flex items-center gap-2 border border-brand-blue/30 bg-brand-blue/10 text-blue-400 rounded-full px-4 py-1.5 text-xs font-bold tracking-wide uppercase mb-6">
+              <svg class="w-3 h-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path
                   fill-rule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -36,11 +35,12 @@ import styles from "./index.module.css";
               Multiplica tus leads
             </span>
 
-            <h1 class={styles.heroTitle}>
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] font-extrabold text-white mb-6 tracking-tight">
               Cómo multiplicar tus
-              <span class={styles.highlightBlue}>
+              <span class="relative text-brand-blue">
                 leads calificados
                 <svg
+                  class="absolute w-full h-3 -bottom-1 left-0 text-brand-blue/30"
                   viewBox="0 0 200 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -54,16 +54,17 @@ import styles from "./index.module.css";
               </span>
             </h1>
 
-            <p class={styles.heroSubtitle}>
+            <p class="text-lg sm:text-xl text-text-light font-medium max-w-xl leading-relaxed">
               De la confusión a la claridad en tan solo 45 minutos. Te contamos
               cómo aplicarlo a tu empresa con un método probado.
             </p>
           </div>
 
-          <div class={styles.heroVisual}>
+          <div class="lg:col-span-6">
             <img
               src={`${import.meta.env.BASE_URL}hero-img.png`}
               alt="Curso Mediabros"
+              class="w-[800px] h-auto rounded-lg max-w-none"
             />
           </div>
         </div>
@@ -71,39 +72,39 @@ import styles from "./index.module.css";
     </m-container>
   </section>
 
-  <!-- 2. FORM SECTION -->
-  <section class={styles.formSection} id="registro">
-    <div class={styles.formContainer}>
+  <!-- ----- FORM ----- -->
+  <section id="registro" class="relative z-20 -mt-24 lg:-mt-28 px-6 !py-0">
+    <div class="max-w-4xl mx-auto">
       <CourseForm />
     </div>
   </section>
 
-  <!-- 3. LOGOS SECTION -->
-  <section class={styles.logosSection}>
+  <!-- ----- LOGOS ----- -->
+  <section id="logos" class="py-16 bg-white border-b border-slate-100">
     <m-container>
-      <p class={styles.sectionEyebrow}>Fórmula del éxito</p>
-      <div class={styles.logosGrid}>
+      <p class="text-center text-xs font-bold text-text-light uppercase tracking-widest mb-8">Fórmula del éxito</p>
+      <div class="flex flex-wrap justify-center items-center">
         <img
           src={`${import.meta.env.BASE_URL}iconos.png`}
           alt="Fórmula del éxito"
+          class="max-w-full h-auto"
         />
       </div>
     </m-container>
   </section>
 
-  <!-- 4. PROBLEM SECTION -->
-  <section class={styles.problemSection}>
+  <!-- ----- PROBLEM ----- -->
+  <section id="problema" class="py-24 md:py-32 bg-brand-graybg relative overflow-hidden">
     <m-container>
-      <div class={styles.problemContent}>
-        <h2 class={styles.problemTitle}>
+      <div class="text-center relative z-10 max-w-4xl mx-auto">
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-extrabold text-text-dark tracking-tight leading-tight mb-8">
           Deja de perder clientes y dinero
-          <span class={styles.problemTitleMuted}>sin rumbo ni estrategia.</span>
+          <span class="text-text-muted block">sin rumbo ni estrategia.</span>
         </h2>
-        <div class={styles.problemDivider}></div>
-        <p class={styles.problemSubtitle}>
-          Tu empresa no necesita más <span class={styles.highlightGray}
-            >likes
-            <svg viewBox="0 0 100 10" preserveAspectRatio="none">
+        <div class="w-24 h-1 bg-brand-blue mx-auto mb-8 rounded-full"></div>
+        <p class="text-xl md:text-2xl font-medium text-slate-600 mb-6">
+          Tu empresa no necesita más <span class="relative text-brand-blue font-bold">likes
+            <svg class="absolute w-full h-2 -bottom-1 left-0 text-brand-blue/40" viewBox="0 0 100 10" preserveAspectRatio="none">
               <path
                 d="M0 5 Q 50 10 100 5"
                 stroke="currentColor"
@@ -113,7 +114,7 @@ import styles from "./index.module.css";
           </span>. <br />
           Necesita oportunidades reales de negocio.
         </p>
-        <p class={styles.problemText}>
+        <p class="text-lg text-text-muted max-w-2xl mx-auto leading-relaxed">
           Si hoy tenés un sitio web, invertís en campañas o hacés algo de
           marketing digital, pero los resultados no llegan — o llegan mal —
           probablemente el problema no sea la inversión, sino la falta de un
@@ -123,26 +124,26 @@ import styles from "./index.module.css";
     </m-container>
   </section>
 
-  <!-- 5. COURSE SECTION -->
-  <section class={styles.courseSection}>
+  <!-- ----- COURSE ----- -->
+  <section id="curso" class="py-24 bg-white border-b border-slate-100">
     <m-container>
-      <div class={styles.courseInner}>
-        <h2 class={styles.sectionTitle}>
-          ¿Sobre qué trata <span class={styles.textBrand}>el curso</span>?
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-text-dark text-center mb-16">
+          ¿Sobre qué trata <span class="text-brand-blue">el curso</span>?
         </h2>
 
-        <div class={styles.courseGrid}>
-          <div class={styles.courseTextCol}>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          <div class="md:col-span-7 flex flex-col gap-6 text-lg text-slate-600 leading-relaxed">
             <p>
               Este curso online gratuito te permite <strong
-                class={styles.textBrand}
+                class="text-brand-blue font-semibold"
                 >descubrir cómo generar leads de calidad</strong
               > para tu empresa en tiempo récord con una sólida estrategia de marketing
               digital y está diseñado como una guía práctica para empresas que buscan
               profesionalizar su generación de demanda.
             </p>
             <p>
-              En tan solo <strong class={styles.strongDark}>45 minutos</strong>,
+              En tan solo <strong class="text-text-dark font-semibold">45 minutos</strong>,
               este entrenamiento gratuito ofrece una visión clara sobre el
               universo del marketing digital, los diferentes tipos de
               proveedores, cómo hacer un diagnóstico inicial del estado actual
@@ -151,9 +152,9 @@ import styles from "./index.module.css";
             </p>
           </div>
 
-          <div class={styles.courseQuoteCol}>
-            <blockquote class={styles.modernQuote}>
-              <p>
+          <div class="md:col-span-5">
+            <blockquote class="bg-brand-graybg p-8 md:p-10 rounded-2xl border-l-4 border-brand-blue">
+              <p class="text-xl font-medium italic text-gray-800 leading-snug pt-4 m-0">
                 "Está especialmente dirigido a decisores en empresas que quieren
                 dejar de improvisar y comenzar a tomar decisiones basadas en
                 resultados medibles."
@@ -162,12 +163,13 @@ import styles from "./index.module.css";
           </div>
         </div>
 
-        <div class={styles.certifications}>
-          <p class={styles.sectionEyebrow}>Nuestras Certificaciones</p>
-          <div class={styles.certBadges}>
+        <div class="mt-24 text-center">
+          <p class="text-center text-xs font-bold text-text-light uppercase tracking-widest mb-8">Nuestras Certificaciones</p>
+          <div class="flex flex-wrap justify-center items-center">
             <img
               src={`${import.meta.env.BASE_URL}badges.jpg`}
               alt="Certificaciones Mediabros"
+              class="max-w-full h-auto"
             />
           </div>
         </div>
@@ -175,17 +177,17 @@ import styles from "./index.module.css";
     </m-container>
   </section>
 
-  <!-- 6. INFO CARDS SECTION -->
-  <section class={styles.infoCardsSection}>
+  <!-- ----- INFO CARDS ----- -->
+  <section id="info" class="py-24 bg-brand-graybg">
     <m-container>
-      <div class={styles.infoCardsGrid}>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
         <!-- Card 1 -->
-        <div class={styles.infoCard}>
-          <h3 class={styles.infoCardTitle}>
-            <span class={styles.infoCardMarker}></span>
+        <div class="bg-white p-8 lg:p-12 rounded-3xl border border-slate-100 shadow-sm transition-shadow duration-[--transition-base] hover:shadow-card-hover">
+          <h3 class="font-display text-2xl font-bold text-text-dark mb-8 flex items-center gap-4">
+            <span class="w-1.5 h-8 bg-brand-blue rounded-full block shrink-0"></span>
             ¿Para quién es este curso?
           </h3>
-          <ul class={styles.infoList}>
+          <ul class="list-none p-0 m-0 flex flex-col gap-6">
             <li>
               <CheckItemSvg
                 text="Dueños de empresas con un producto consolidado o un servicio para vender."
@@ -210,12 +212,12 @@ import styles from "./index.module.css";
         </div>
 
         <!-- Card 2 -->
-        <div class={styles.infoCard}>
-          <h3 class={styles.infoCardTitle}>
-            <span class={styles.infoCardMarker}></span>
+        <div class="bg-white p-8 lg:p-12 rounded-3xl border border-slate-100 shadow-sm transition-shadow duration-[--transition-base] hover:shadow-card-hover">
+          <h3 class="font-display text-2xl font-bold text-text-dark mb-8 flex items-center gap-4">
+            <span class="w-1.5 h-8 bg-brand-blue rounded-full block shrink-0"></span>
             ¿Qué vas a aprender?
           </h3>
-          <ul class={styles.infoList}>
+          <ul class="list-none p-0 m-0 flex flex-col gap-6">
             <li>
               <CheckItemSvg text="Cómo crear una estrategia digital real." />
             </li>
@@ -239,14 +241,15 @@ import styles from "./index.module.css";
     </m-container>
   </section>
 
-  <!-- 7. BENEFITS SECTION -->
-  <section class={styles.benefitsSection}>
+  <!-- ----- BENEFITS ----- -->
+  <section id="beneficios" class="py-24 bg-white">
     <m-container>
-      <div class={styles.benefitsTitleWrapper}>
-        <h2 class={styles.benefitsTitle}>
-          <span class={styles.highlightBlue}>
+      <div class="text-center mb-16 md:mb-20">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-dark tracking-tight">
+          <span class="relative text-brand-blue">
             Beneficios
             <svg
+              class="absolute w-full h-3 -bottom-1 left-0 text-brand-blue/30"
               viewBox="0 0 200 12"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -262,7 +265,7 @@ import styles from "./index.module.css";
         </h2>
       </div>
 
-      <div class={styles.benefitsGrid}>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         <BenefitCard
           icon="vital_signs"
           title="Diagnóstico Guiado"
@@ -287,76 +290,76 @@ import styles from "./index.module.css";
     </m-container>
   </section>
 
-  <!-- 8. CTA SECTION -->
-  <section class={styles.ctaSection}>
-    <div class={styles.ctaGlow1}></div>
-    <div class={styles.ctaGlow2}></div>
+  <!-- ----- CTA ----- -->
+  <section id="cta" class="py-24 bg-brand-dark relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue opacity-10 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-indigo-500 opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
     <m-container>
-      <div class={styles.ctaContent}>
-        <h2 class={styles.ctaTitle}>
+      <div class="text-center relative z-10 max-w-4xl mx-auto">
+        <h2 class="font-display text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight leading-tight">
           ¿Listo para transformar tu generación de leads?
         </h2>
-        <p class={styles.ctaDesc}>
+        <p class="text-lg md:text-xl text-text-light mb-10 max-w-2xl mx-auto leading-relaxed">
           No dejes que otro trimestre pase con un pipeline vacío. Únete a los
           +500 profesionales que ya están usando esta metodología.
         </p>
-        <div class={styles.ctaActions}>
-          <a href="#registro" class={styles.btnCta}>EMPEZAR CURSO AHORA</a>
-          <div class={styles.socialProof}>
-            <div class={styles.avatarGroup}>
-              <div class={styles.avatar}></div>
-              <div class={styles.avatar}></div>
-              <div class={styles.avatar}></div>
-              <div class={styles.avatarMore}>+</div>
+        <div class="flex flex-col items-center justify-center">
+          <a href="#registro" class="inline-block bg-brand-blue text-white font-bold text-lg px-10 py-4 rounded-xl shadow-[0_10px_30px_-10px_rgba(30,136,229,0.5)] no-underline transition-all duration-[--transition-base] hover:bg-brand-blue-hover hover:-translate-y-1 mb-8">EMPEZAR CURSO AHORA</a>
+          <div class="flex items-center gap-4">
+            <div class="flex">
+              <div class="w-10 h-10 rounded-full border-2 border-brand-dark bg-gray-400"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-brand-dark bg-gray-400 -ml-3"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-brand-dark bg-gray-400 -ml-3"></div>
+              <div class="w-10 h-10 rounded-full border-2 border-brand-dark bg-gray-700 -ml-3 flex items-center justify-center text-xs text-white font-bold z-10">+</div>
             </div>
-            <span class={styles.socialProofText}
-              >Únete a <strong>500+</strong> líderes B2B</span
-            >
+            <span class="text-sm text-text-light font-medium">
+              Únete a <strong class="text-white font-bold">500+</strong> líderes B2B
+            </span>
           </div>
         </div>
       </div>
     </m-container>
   </section>
 
-  <!-- 9. PROMO SECTION -->
-  <section class={styles.promoSection}>
+  <!-- ----- PROMO ----- -->
+  <section id="promo" class="py-24 bg-brand-graybg">
     <m-container>
-      <div class={styles.promoBanner}>
+      <div class="bg-gradient-to-br from-brand-blue to-blue-700 rounded-[2.5rem] p-8 md:p-14 lg:pl-16 lg:pt-16 lg:pb-0 lg:pr-0 flex flex-col lg:flex-row items-center lg:items-end justify-between relative shadow-2xl overflow-hidden">
         <svg
-          class={styles.promoBgSvg}
+          class="absolute top-0 right-0 w-full h-full text-white opacity-[0.03] pointer-events-none"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
           <path d="M0 100 L100 0 L100 100 Z" fill="currentColor"></path>
         </svg>
 
-        <div class={styles.promoContent}>
-          <p class={styles.promoEyebrow}>
+        <div class="relative z-10 text-center lg:text-left mb-12 lg:mb-16 w-full lg:w-[55%]">
+          <p class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-4">
             Construye una estrategia de marketing digital efectiva
           </p>
-          <h2 class={styles.promoTitle}>
+          <h2 class="font-display text-4xl md:text-5xl font-extrabold text-white mb-6 leading-[1.15] tracking-tight">
             Genera leads de calidad para tu empresa en tiempo record
           </h2>
-          <p class={styles.promoDesc}>
+          <p class="text-blue-100 text-lg mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
             Accede al curso gratuito de MediaBros y descubre cómo elegir los
             canales adecuados y evitar errores comunes en la generación de
             demanda. Ideal para decisores que buscan resultados concretos en el
             corto plazo.
           </p>
-          <a href="#registro" class={styles.btnPromo}>¡Accede ahora!</a>
+          <a href="#registro" class="inline-block sm:inline-block bg-white text-brand-blue font-bold text-sm sm:text-base py-4 px-8 rounded-xl shadow-lg no-underline uppercase tracking-wide transition-all duration-[--transition-base] hover:bg-gray-50 hover:-translate-y-1 text-center w-full sm:w-auto">¡Accede ahora!</a>
         </div>
 
-        <div class={styles.promoVisual}>
+        <div class="relative z-10 flex justify-center lg:justify-end w-full lg:w-[45%]">
           <img
             src={`${import.meta.env.BASE_URL}cursos.webp`}
             alt="Curso Mediabros"
-            class={styles.promoImg}
+            class="max-w-[480px] w-full block self-end"
           />
         </div>
       </div>
     </m-container>
   </section>
 
-  <!-- 10. FOOTER -->
+  <!-- ----- FOOTER ----- -->
   <LandingFooter year={2026} brand="Mediabros" />
 </Layout>

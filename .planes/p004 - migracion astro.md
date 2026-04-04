@@ -9,29 +9,38 @@ El propósito de este plan es llevar los archivos principales de la plataforma a
 
 ## 1. Fase 1: Estandarización de `index.astro` y Componentes
 
-- [ ] **1.1. Refactorización del Componente: Header**
-  - [ ] 1.1.1. Auditar (`Read / Glob`) `src/components/landing/LandingHeader.astro` o equivalente.
-  - [ ] 1.1.2. Reemplazar valores de diseño estáticos por alias de `@theme` documentados (ej: `bg-brand`, `px-[--space-md]`).
-  - [ ] 1.1.3. Validar sintaxis, responsividad y modularidad.
-- [ ] **1.2. Refactorización del Componente: Footer**
-  - [ ] 1.2.1. Auditar (`Read / Glob`) `src/components/landing/LandingFooter.astro`.
-  - [ ] 1.2.2. Implementar los tokens de espaciado, jerarquías tipográficas y `@theme` pertinentes.
-- [ ] **1.3. Estandarización de la página `index.astro`**
-  - [ ] 1.3.1. Refactorizar el layout general incorporando Web Components para layouts (`<m-container>`, `<m-row>`).
-  - [ ] 1.3.2. Asegurar que las `section` apliquen separadores de comentarios `<!-- ----- NOMBRE ----- -->` e identidades `id` de forma universal.
-  - [ ] 1.3.3. Sustituir clases anticuadas por referencias Tailwind y `global.css` modernas puras.
-  - [ ] 1.3.4. Ejecutar el ciclo de `astro-reviewer` sobre el progreso del índice finalizado.
+- [x] **1.1. Refactorización del Componente: Header**
+  - [x] 1.1.1. Auditar (`Read / Glob`) `src/components/landing/LandingHeader.astro` o equivalente.
+  - [x] 1.1.2. Reemplazar valores de diseño estáticos por alias de `@theme` documentados (ej: `bg-brand`, `px-[--space-md]`).
+  - [x] 1.1.3. Validar sintaxis, responsividad y modularidad.
+- [x] **1.2. Refactorización del Componente: Footer**
+  - [x] 1.2.1. Auditar (`Read / Glob`) `src/components/landing/LandingFooter.astro`.
+  - [x] 1.2.2. Implementar los tokens de espaciado, jerarquías tipográficas y `@theme` pertinentes.
+- [x] **1.3. Estandarización de la página `index.astro`**
+  - [x] 1.3.1. Refactorizar el layout general incorporando Web Components para layouts (`<m-container>`, `<m-row>`).
+  - [x] 1.3.2. Asegurar que las `section` apliquen separadores de comentarios `<!-- ----- NOMBRE ----- -->` e identidades `id` de forma universal.
+  - [x] 1.3.3. Sustituir clases anticuadas por referencias Tailwind y `global.css` modernas puras.
+  - [x] 1.3.4. Ejecutar el ciclo de `astro-reviewer` sobre el progreso del índice finalizado.
 
 ## 2. Fase 2: Transformación de `index_3.html` a `index2.astro`
 
-- [ ] **2.1. Configuración principal de `index2.astro`**
-  - [ ] 2.1.1. Generar la estructura base apoyada en `Layout.astro` configurando el componente transversal `SEO.astro`.
-  - [ ] 2.1.2. Ensamblar los componentes globales refactorizados (Header / Footer).
-- [ ] **2.2. Migración Layout Dinámico (Hero y Secciones Centrales)**
-  - [ ] 2.2.1. Mapear la cuadrícula del grid de `index_3.html` en las equivalencias modulares (Web Components + `.astro`).
-  - [ ] 2.2.2. Convertir valores de margen y grid/columnas heredados al sistema de tokens de Tailwind.
-- [ ] **2.3. Control QA y Estandarización Final**
-  - [ ] 2.3.1. Requerir invocación del agente `astro-reviewer.md` para garantizar sanidad y validación de todas la implementaciones (paths sin baseURL, @theme, build pass).
+> **Principio de aislamiento:** `index2.astro` es una landing independiente. Sus componentes NO deben compartirse ni modificarse junto con los de `index.astro`. Si algún componente existente sirve de base, se **copia** antes de modificar — nunca se toca el original.
+
+- [x] **2.0. Preparación: Aislamiento de Componentes**
+  - [x] 2.0.1. Auditar qué componentes de `index.astro` (Header, Footer, formularios, cards, etc.) podrían reutilizarse como punto de partida para esta landing.
+  - [x] 2.0.2. Definir la estructura de carpeta para los componentes exclusivos de esta landing → `src/components/curso2/`.
+  - [x] 2.0.3. Crear componentes propios (`CourseForm2.astro`, `Footer2.astro`) — originales no modificados.
+- [x] **2.1. Configuración principal de `index2.astro`**
+  - [x] 2.1.1. Generar la estructura base apoyada en `Layout.astro` con SEO via props title/description.
+  - [x] 2.1.2. Ensamblar Header (`<header id="hero">`) y Footer (`Footer2`) propios de esta landing.
+- [x] **2.2. Migración Layout Dinámico (Hero y Secciones Centrales)**
+  - [x] 2.2.1. Mapear grid de `index_3.html` → Web Components `<m-container>` + CSS grid Tailwind.
+  - [x] 2.2.2. Convertir tokens CSS legacy → `@theme` tokens (brand-dark, brand-blue, text-muted, radius-xl, etc.).
+  - [x] 2.2.3. Crear `CourseForm2.astro` (dark glass style) — independiente de `CourseForm.astro`.
+  - [x] Secciones implementadas: Hero, Trust, Problem, Bento Grid, Cert Strip, Info Cards, Final CTA, Promo Banner.
+- [x] **2.3. Control QA y Estandarización Final**
+  - [x] 2.3.1. Verificado via `git status`: ningún componente de `landing/` ni `index.astro` fue modificado.
+  - [x] 2.3.2. Build pass: `astro build` completado sin errores — 8 páginas generadas incluyendo `/index2/`.
 
 ---
 

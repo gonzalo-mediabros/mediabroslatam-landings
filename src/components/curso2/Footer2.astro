@@ -1,0 +1,22 @@
+---
+// Footer2 — exclusive to index2 landing. Do NOT share with other landings.
+interface Props {
+  year?: number;
+}
+const { year = new Date().getFullYear() } = Astro.props;
+---
+
+<footer class="border-t border-slate-100 py-16">
+  <m-container>
+    <div class="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
+      <img
+        src={`${import.meta.env.BASE_URL}logo.svg`}
+        alt="Mediabros"
+        class="h-8 w-auto grayscale opacity-50"
+      />
+      <p class="text-sm text-text-light m-0">
+        &copy; {year} mediabroslatam.com. Todos los derechos reservados.
+      </p>
+    </div>
+  </m-container>
+</footer>
