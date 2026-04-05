@@ -9,7 +9,10 @@ import FaqAccordion from "../components/auditoria/FaqAccordion.astro";
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout>
+<Layout
+  title="Auditoría Gratis - Mediabros"
+  description="Recibe una auditoría gratuita de tu estrategia de marketing digital. Identifica oportunidades de mejora y obtén recomendaciones personalizadas."
+>
   <!-- ----- HEADER ----- -->
 
   <main>
@@ -290,7 +293,7 @@ const base = import.meta.env.BASE_URL;
 
     <!-- ----- FAQ ----- -->
     <section id="faq" class="py-24 bg-bg-light border-y border-slate-200/50">
-      <m-container class="max-w-[--width-content] mx-auto px-5 lg:px-8">
+      <m-container>
         <div class="text-center mb-16">
           <h2
             class="text-3xl lg:text-4xl font-display font-bold text-navy mb-4"
@@ -330,7 +333,7 @@ const base = import.meta.env.BASE_URL;
 
     <!-- ----- CTA BOTTOM ----- -->
     <section id="cta" class="py-24 bg-brand-dark">
-      <m-container class="max-w-[--width-content] mx-auto px-5 lg:px-8">
+      <m-container>
         <div
           class="bg-brand-blue rounded-2xl p-10 lg:p-16 text-center text-white relative overflow-hidden"
         >
