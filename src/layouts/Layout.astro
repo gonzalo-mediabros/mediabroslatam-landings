@@ -15,6 +15,15 @@ const {
   canonicalURL = Astro.url.href,
 } = Astro.props;
 const socialImage = new URL(image, Astro.site || Astro.url).href;
+
+const { pathname } = Astro.url;
+
+// Función para normalizar y comparar rutas
+const isActive = (path: string) => {
+  const normalizedPath = path.endsWith("/") ? path : `${path}/`;
+  const normalizedCurrent = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  return normalizedCurrent === normalizedPath;
+};
 ---
 
 <!doctype html>
@@ -54,13 +63,38 @@ const socialImage = new URL(image, Astro.site || Astro.url).href;
   <body>
     <!-- Menú de Navegación Dev (Se ocultará en build final) -->
     <nav
-      class="dev-nav flex gap-4 fixed top-0 left-0 z-50 bg-brand-graybg w-full px-6"
+      class="dev-nav flex gap-8 fixed top-0 left-0 z-1000 bg-brand-graybg/90 backdrop-blur-md w-full px-8 py-3 border-b border-black/5 text-sm font-medium"
     >
-      <a href={import.meta.env.BASE_URL}>Curso </a>
-      <a href={`${import.meta.env.BASE_URL}index2`}>Curso v2</a>
-      <a href={`${import.meta.env.BASE_URL}guia`}>Guía</a>
-      <a href={`${import.meta.env.BASE_URL}auditoria`}>Auditoría</a>
-      <a href={`${import.meta.env.BASE_URL}diagnostico`}>Diagnóstico</a>
+      <a
+        href={import.meta.env.BASE_URL}
+        class={isActive(import.meta.env.BASE_URL)
+          ? "underline decoration-2 underline-offset-4 text-blue"
+          : "text-gray-600 hover:text-blue transition-colors"}>Curso</a
+      >
+      <a
+        href={`${import.meta.env.BASE_URL}index2`}
+        class={isActive(`${import.meta.env.BASE_URL}index2`)
+          ? "underline decoration-2 underline-offset-4 text-blue"
+          : "text-gray-600 hover:text-blue transition-colors"}>Curso v2</a
+      >
+      <a
+        href={`${import.meta.env.BASE_URL}guia`}
+        class={isActive(`${import.meta.env.BASE_URL}guia`)
+          ? "underline decoration-2 underline-offset-4 text-blue"
+          : "text-gray-600 hover:text-blue transition-colors"}>Guía</a
+      >
+      <a
+        href={`${import.meta.env.BASE_URL}auditoria`}
+        class={isActive(`${import.meta.env.BASE_URL}auditoria`)
+          ? "underline decoration-2 underline-offset-4 text-blue"
+          : "text-gray-600 hover:text-blue transition-colors"}>Auditoría</a
+      >
+      <a
+        href={`${import.meta.env.BASE_URL}diagnostico`}
+        class={isActive(`${import.meta.env.BASE_URL}diagnostico`)
+          ? "underline decoration-2 underline-offset-4 text-blue"
+          : "text-gray-600 hover:text-blue transition-colors"}>Diagnóstico</a
+      >
     </nav>
 
     <slot />

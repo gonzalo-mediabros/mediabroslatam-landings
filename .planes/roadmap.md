@@ -42,8 +42,11 @@
   - [x] Fase 1: Hero y Agitation (Reestructuración, Formulario, Chip y Bridge integrado)
   - [x] Fase 2: Expectations (2 columnas, icono izquierda), Audience y Faqs (Componente FAQ de guia)
   - [x] Fase 3: Testimonios (Card con video) y Bonus (quitar verde)
-- [ ] **PLAN 012: Estilos Landing Auditoría**
-  - [ ] Fase 1: Arquitectura Base, Header/Footer y Hero
-  - [ ] Fase 2: Lo que vas a recibir y ¿Cómo Funciona?
-  - [ ] Fase 3: Trust (Testimonios), FAQ y CTA Bottom
+- [x] **PLAN 012: Estilos Landing Auditoría**
+  - [x] Fase 1: Arquitectura Base, Header/Footer y Hero
+  - [x] Fase 2: Lo que vas a recibir y ¿Cómo Funciona?
+  - [x] Fase 3: Trust (Testimonios), FAQ y CTA Bottom
+- [x] **PLAN 013: Subrayado de Ruta Actual en Navegación**
+  - [x] Fase 1: Implementación en Layout.astro (Dev Nav)
+  - [x] Fase 2: Implementación en Header.astro (Navegación Principal)
 - [ ] Optimización de Performance y SEO.
