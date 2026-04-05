@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import CourseForm2 from "../components/curso2/CourseForm2.astro";
 import Footer2 from "../components/curso2/Footer2.astro";
+import Chip2 from "../components/curso2/Chip2.astro";
+import BenefitCard2 from "../components/curso2/BenefitCard.astro";
 
 const BASE = import.meta.env.BASE_URL;
 ---
@@ -37,24 +39,17 @@ const BASE = import.meta.env.BASE_URL;
             />
           </div>
 
-          <span
-            class="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/30 text-blue-400 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wide mb-6"
-          >
-            <span class="material-symbols-outlined leading-none text-[14px]"
-              >verified</span
-            >
-            Multiplica tus leads
-          </span>
+          <Chip2 text="Multiplica tus leads" icon="verified" class="mb-6" />
 
           <h1
-            class="font-display font-extrabold leading-[1.1] tracking-tight text-white max-w-[600px] mb-2 text-[clamp(2.5rem,3.5vw,3.5rem)] text-balance"
+            class="font-display font-extrabold leading-[1.1] tracking-tight text-white max-w-150 mb-2 text-[clamp(2.5rem,3.5vw,3.5rem)] text-balance"
           >
             Cómo multiplicar tus <span class="text-brand-blue"
               >leads calificados</span
             >
           </h1>
 
-          <p class="text-xl text-text-light max-w-[500px] leading-relaxed">
+          <p class="text-xl text-text-light max-w-125 leading-relaxed">
             De la confusión a la claridad en tan solo 45 minutos. Te contamos
             cómo aplicarlo a tu empresa con un método probado.
           </p>
@@ -183,80 +178,32 @@ const BASE = import.meta.env.BASE_URL;
 
       <m-row class="flex-col md:flex-row flex-wrap gap-6">
         <!-- Benefit 1 -->
-        <m-col
-          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
-        >
-          <div
-            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
-          >
-            <span class="material-symbols-outlined">vital_signs</span>
-          </div>
-          <div>
-            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
-              Diagnóstico Guiado
-            </h4>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Aprenderás a identificar errores comunes.
-            </p>
-          </div>
-        </m-col>
+        <BenefitCard2
+          title="Diagnóstico Guiado"
+          description="Aprenderás a identificar errores comunes."
+          icon="vital_signs"
+        />
 
         <!-- Benefit 2 -->
-        <m-col
-          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
-        >
-          <div
-            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
-          >
-            <span class="material-symbols-outlined">map</span>
-          </div>
-          <div>
-            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
-              Claridad estratégica
-            </h4>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Descubrirás qué canales son los adecuados.
-            </p>
-          </div>
-        </m-col>
+        <BenefitCard2
+          title="Claridad estratégica"
+          description="Descubrirás qué canales son los adecuados."
+          icon="map"
+        />
 
         <!-- Benefit 3 -->
-        <m-col
-          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
-        >
-          <div
-            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
-          >
-            <span class="material-symbols-outlined">stacks</span>
-          </div>
-          <div>
-            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
-              Casos reales
-            </h4>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Casos concretos en sectores logísticos y construcción.
-            </p>
-          </div>
-        </m-col>
+        <BenefitCard2
+          title="Casos reales"
+          description="Casos concretos en sectores logísticos y construcción."
+          icon="stacks"
+        />
 
         <!-- Benefit 4 -->
-        <m-col
-          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
-        >
-          <div
-            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
-          >
-            <span class="material-symbols-outlined">bolt</span>
-          </div>
-          <div>
-            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
-              Acción inmediata
-            </h4>
-            <p class="text-text-muted text-sm leading-relaxed">
-              Llamado a la acción claro para avanzar con solidez.
-            </p>
-          </div>
-        </m-col>
+        <BenefitCard2
+          title="Acción inmediata"
+          description="Llamado a la acción claro para avanzar con solidez."
+          icon="bolt"
+        />
       </m-row>
     </m-container>
   </section>

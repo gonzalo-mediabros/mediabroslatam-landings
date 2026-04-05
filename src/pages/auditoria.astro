@@ -1,374 +1,388 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Footer from "../components/Footer.astro";
-import ContactForm from "../components/ContactForm.astro";
-import styles from "./auditoria.module.css";
+import Chip from "../components/auditoria/Chip.astro";
+import AuditoriaForm from "../components/auditoria/AuditoriaForm.astro";
+import BenefitCard from "../components/auditoria/BenefitCard.astro";
+import TestimonialCard from "../components/auditoria/TestimonialCard.astro";
+import FaqAccordion from "../components/auditoria/FaqAccordion.astro";
 
-const title = "Auditoría Gratuita - Google Ads y SEO | MediaBros";
-const description =
-  "Descubre dónde estás perdiendo dinero con Google Ads y SEO. Auditoría profesional en 48 horas.";
+const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title={title} description={description}>
+<Layout>
+  <!-- ----- HEADER ----- -->
+
   <main>
-    <!-- Hero -->
-    <section class={styles.hero}>
-      <div class="container">
-        <div class={styles.grid2Hero}>
-          <div>
-            <img
-              src={`${import.meta.env.BASE_URL}logo.svg`}
-              alt="MediaBros"
-              width="206"
-              class={styles.heroLogo}
-            />
-            <h1 class={styles.title}>
-              Descubre dónde estás perdiendo dinero con <span
-                class={styles.titleHighlight}>Google Ads y SEO</span
-              >
+    <!-- ----- HERO ----- -->
+    <section
+      id="hero"
+      class="relative pt-40 pb-24 lg:pt-52 lg:pb-32 bg-brand-dark overflow-hidden"
+    >
+      <div
+        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay pointer-events-none"
+      >
+      </div>
+      <m-container class="max-w-[--width-wide] mx-auto px-5 lg:px-8 relative">
+        <m-row class="items-center gap-12 lg:gap-16">
+          <!-- Columna Texto -->
+          <m-col class="lg:flex-[1.2] text-center lg:text-left">
+            <img src={`${base}logo.svg`} alt="Mediabros" class="h-8 lg:h-10" />
+            <h1
+              class="text-4xl lg:text-5xl xl:text-6xl font-display font-black leading-[1.1] mb-6 tracking-tight text-white text-balance"
+            >
+              Descubre dónde estás <span class="text-brand-blue"
+                >perdiendo dinero</span
+              > con Google Ads y SEO
             </h1>
-            <p class={styles.subtitle}>
+
+            <p
+              class="text-xl lg:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0 font-medium"
+            >
               Realizamos una auditoría profesional de tu cuenta publicitaria o
               posicionamiento orgánico para identificar errores clave y
               oportunidades concretas de mejora, en solo 48 horas.
             </p>
 
-            <ul class={styles.featureList}>
-              <li>
-                <span class="material-icons">search</span>
-                <div>
-                  🔎 Revisión completa de tus campañas en Google Ads o tu
+            <ul
+              class="flex flex-col gap-4 text-left max-w-xl mx-auto lg:mx-0 mb-10"
+            >
+              <li class="flex items-start gap-3">
+                <m-icon
+                  class="material-symbols-outlined text-brand-blue shrink-0 mt-0.5"
+                  >search</m-icon
+                >
+                <p class="text-slate-300 font-medium">
+                  Revisión completa de tus campañas en Google Ads o tu
                   posicionamiento SEO.
-                </div>
+                </p>
               </li>
-              <li>
-                <span class="material-icons">warning</span>
-                <div>
-                  ⚠️ Identificación de los 3 errores que más impactan en tu
+              <li class="flex items-start gap-3">
+                <m-icon
+                  class="material-symbols-outlined text-red-500 shrink-0 mt-0.5"
+                  >warning</m-icon
+                >
+                <p class="text-slate-300 font-medium">
+                  Identificación de los 3 errores que más impactan en tu
                   rendimiento.
-                </div>
+                </p>
               </li>
-              <li>
-                <span class="material-icons">rocket_launch</span>
-                <div>
-                  🚀 Plan de acción para mejorar resultados en menos de 30 días.
-                </div>
+              <li class="flex items-start gap-3">
+                <m-icon
+                  class="material-symbols-outlined text-green shrink-0 mt-0.5"
+                  >rocket_launch</m-icon
+                >
+                <p class="text-slate-300 font-medium">
+                  Plan de acción para mejorar resultados en menos de 30 días.
+                </p>
               </li>
             </ul>
-          </div>
-          <div class={styles.formCard}>
-            <div class={styles.formCardHeader}>
-              <div class={styles.heroBadgeHighlight}>
-                <span class="material-icons">payments</span> Auditoría gratis
-              </div>
-              <h2 class={styles.formTitle}>Solicita tu auditoría</h2>
-              <p class={styles.formSubtitle}>
-                Completa el formulario así nos contactamos contigo para
-                coordinar.
-              </p>
+          </m-col>
+
+          <!-- Columna Formulario -->
+          <m-col class="lg:flex-[0.8] w-full relative flex flex-col gap-6">
+            <div
+              class="flex flex-wrap items-center justify-center gap-3 w-full"
+            >
+              <Chip
+                text="Gratuito"
+                icon="money_off"
+                class="bg-brand-blue/10 border-brand-blue/30 text-blue-300"
+              />
+              <Chip
+                text="Certificado"
+                icon="verified"
+                class="bg-brand-blue/10 border-brand-blue/30 text-blue-300"
+              />
+              <Chip
+                text="Confidencial"
+                icon="lock"
+                class="bg-brand-blue/10 border-brand-blue/30 text-blue-300"
+              />
             </div>
 
-            <ContactForm
-              source="Auditoria"
-              buttonText="Solicitar Auditoría Gratis"
-              showTitle={false}
-              className={styles.nakedForm}
-            />
-
-            <div class={styles.formBadges}>
-              <div class={styles.formBadge}>
-                <span class="material-icons">monetization_on</span> Gratuito
+            <div class="relative w-full">
+              <div
+                class="absolute -right-20 -top-20 w-72 h-72 bg-brand-blue/30 rounded-full blur-[100px] pointer-events-none"
+              >
               </div>
-              <div class={styles.formBadge}>
-                <span class="material-icons">workspace_premium</span> Certificado
-              </div>
-              <div class={styles.formBadge}>
-                <span class="material-icons">lock</span> Confidencial
-              </div>
+              <AuditoriaForm />
             </div>
-          </div>
-        </div>
-      </div>
+          </m-col>
+        </m-row>
+      </m-container>
     </section>
 
-    <!-- Deliverables -->
-    <section class={styles.deliverables}>
-      <div class="container">
-        <h2 class={`text-center ${styles.sectionTitle}`}>
-          Lo que vas a recibir en 48 horas:
-        </h2>
-        <p class={`text-center ${styles.sectionSubtitle}`}>
-          Auditoría profesional para detectar errores críticos y darte una hoja
-          de ruta clara para mejorar tus resultados.
-        </p>
-
-        <div class={styles.deliverablesGrid}>
-          <div class={styles.deliverableItem}>
-            <span class={`material-icons ${styles.checkIcon}`}
-              >check_circle</span
-            >
-            <div class={styles.deliverableContent}>
-              <h3>Análisis de tu cuenta de Google Ads ó posicionamiento SEO</h3>
-              <p>
-                Revisamos campañas activas, estructura, configuraciones,
-                inversión y rendimiento actual.
-              </p>
-            </div>
-          </div>
-          <div class={styles.deliverableItem}>
-            <span class={`material-icons ${styles.checkIcon}`}
-              >check_circle</span
-            >
-            <div class={styles.deliverableContent}>
-              <h3>
-                Detección de 3 errores críticos que afectan tus resultados
-              </h3>
-              <p>
-                Te mostramos qué está mal configurado, qué está frenando tu
-                alcance o aumentando tu costo por lead.
-              </p>
-            </div>
-          </div>
-          <div class={styles.deliverableItem}>
-            <span class={`material-icons ${styles.checkIcon}`}
-              >check_circle</span
-            >
-            <div class={styles.deliverableContent}>
-              <h3>Identificación de oportunidades concretas de mejora</h3>
-              <p>
-                Detectamos ajustes rápidos que puedes aplicar para optimizar tus
-                resultados sin aumentar presupuesto.
-              </p>
-            </div>
-          </div>
-          <div class={styles.deliverableItem}>
-            <span class={`material-icons ${styles.checkIcon}`}
-              >check_circle</span
-            >
-            <div class={styles.deliverableContent}>
-              <h3>Plan de acción claro y personalizado</h3>
-              <p>
-                Te entregamos un documento con recomendaciones prácticas,
-                inversión sugerida y próximos pasos.
-              </p>
-            </div>
-          </div>
+    <!-- ----- DELIVERABLES ----- -->
+    <section id="deliverables" class="py-24 bg-white relative">
+      <m-container
+        class="max-w-[--width-content] mx-auto px-5 lg:px-8 relative z-10"
+      >
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="titleCapitalice text-brand-blue">El Reporte</p>
+          <h2
+            class="text-3xl lg:text-4xl font-display font-bold text-navy mb-4"
+          >
+            Lo que vas a recibir en 48 horas:
+          </h2>
+          <p class="text-lg text-slate-600">
+            Auditoría profesional para detectar errores críticos y darte una
+            hoja de ruta clara para mejorar tus resultados.
+          </p>
         </div>
-      </div>
+
+        <m-row class="flex-col md:flex-row flex-wrap gap-8">
+          <BenefitCard
+            title="Análisis de tu cuenta de Google Ads o posicionamiento SEO"
+            description="Revisamos campañas activas, estructura, configuraciones, inversión y rendimiento actual."
+            icon="analytics"
+            class="md:flex-[1_1_45%]"
+          />
+          <BenefitCard
+            title="Detección de 3 errores críticos que afectan tus resultados"
+            description="Te mostramos qué está mal configurado, qué está frenando tu alcance o aumentando tu costo por lead."
+            icon="error"
+            class="md:flex-[1_1_45%]"
+          />
+          <BenefitCard
+            title="Identificación de oportunidades concretas de mejora"
+            description="Detectamos ajustes rápidos que puedes aplicar para optimizar tus resultados sin aumentar presupuesto."
+            icon="tips_and_updates"
+            class="md:flex-[1_1_45%]"
+          />
+          <BenefitCard
+            title="Plan de acción claro y personalizado"
+            description="Te entregamos un documento con recomendaciones prácticas, inversión sugerida y próximos pasos."
+            icon="fact_check"
+            class="md:flex-[1_1_45%]"
+          />
+        </m-row>
+      </m-container>
     </section>
 
-    <!-- Testimonials -->
-    <section class={styles.testimonials}>
-      <div class="container">
-        <div class={styles.testimonialGrid}>
-          <!-- José Antonio -->
-          <div class={styles.testimonialCard}>
-            <div class={styles.testimonialHeader}>
-              <img
-                src={`${import.meta.env.BASE_URL}jpse.png`}
-                alt="José Antonio"
-                class={styles.authorImg}
-              />
-              <div class={styles.starsMui}>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-              </div>
-            </div>
-            <p class={styles.quote}>
-              “Nos ayudaron a optimizar las campañas activas, mejorar la calidad
-              de los leads y también entender mejor qué métricas analizar para
-              tomar decisiones.”
-            </p>
-            <div class={styles.authorInfo}>
-              <strong>José Antonio Nader Ríos</strong>
-              <span>Founder, Transvecto Logistics</span>
-            </div>
-          </div>
-          <!-- José -->
-          <div class={styles.testimonialCard}>
-            <div class={styles.testimonialHeader}>
-              <img
-                src={`${import.meta.env.BASE_URL}jose.png`}
-                alt="José"
-                class={styles.authorImg}
-              />
-              <div class={styles.starsMui}>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-              </div>
-            </div>
-            <p class={styles.quote}>
-              “Con su asesoramiento y tecnología logramos más leads calificados
-              y optimizamos la inversión desde el primer mes de trabajo
-              conjunto.”
-            </p>
-            <div class={styles.authorInfo}>
-              <strong>José Caragol</strong>
-              <span>Marketing Digital, Rentokil Initial</span>
-            </div>
-          </div>
-          <!-- Victoria -->
-          <div class={styles.testimonialCard}>
-            <div class={styles.testimonialHeader}>
-              <img
-                src={`${import.meta.env.BASE_URL}victoria.png`}
-                alt="Victoria"
-                class={styles.authorImg}
-              />
-              <div class={styles.starsMui}>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-                <span class="material-icons">star</span>
-              </div>
-            </div>
-            <p class={styles.quote}>
-              “Mejoramos la performance de nuestras campañas, bajamos el costo
-              por contacto y aumentamos las oportunidades comerciales reales.”
-            </p>
-            <div class={styles.authorInfo}>
-              <strong>Victoria Vallas</strong>
-              <span>CMO, EV Chargers</span>
-            </div>
-          </div>
+    <!-- ----- PROCESS ----- -->
+    <section
+      id="process"
+      class="py-24 bg-bg-light border-y border-slate-200/50"
+    >
+      <m-container class="max-w-[--width-wide] mx-auto px-5 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2
+            class="text-3xl lg:text-4xl font-display font-bold text-navy mb-4"
+          >
+            ¿Cómo funciona?
+          </h2>
+          <p class="text-lg text-slate-600">
+            Es simple, rápido y sin compromiso. Te entregamos el diagnóstico en
+            48 horas.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class={styles.process}>
-      <div class="container">
-        <h2 class={`text-center ${styles.sectionTitle}`} style="color: white;">
-          ¿Cómo funciona?
-        </h2>
-        <p
-          class={`text-center ${styles.sectionSubtitle}`}
-          style="color: rgba(255,255,255,0.7);"
-        >
-          Es simple, rápido y sin compromiso. Te entregamos el diagnóstico en 48
-          horas.
-        </p>
-
-        <div class={styles.stepsGrid}>
-          <div class={styles.stepItem}>
-            <div class={styles.stepNumber}>1</div>
-            <h3>Completá el formulario</h3>
-            <p>
+        <!-- cards container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <!-- card -->
+          <div
+            class="bg-white
+          rounded-xl
+          p-8
+          shadow-card
+          border
+          border-slate-100
+          flex
+          flex-col
+          items-center
+          text-center
+          relative
+          z-10
+          w-full
+          hover:-translate-y-1
+          transition-all"
+          >
+            <div
+              class="w-16 h-16 bg-white border-4 border-brand-blue/10 text-brand-blue rounded-full flex items-center justify-center mb-6"
+            >
+              <m-icon class="material-symbols-outlined text-3xl"
+                >edit_document</m-icon
+              >
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-3">
+              1. Completá el formulario
+            </h3>
+            <p class="text-slate-600 leading-relaxed text-sm">
               Contanos brevemente sobre tu empresa y el canal que querés
               auditar: Google Ads, SEO o ambos.
             </p>
           </div>
-          <div class={styles.stepItem}>
-            <div class={styles.stepNumber}>2</div>
-            <h3>Diagnóstico profesional</h3>
-            <p>
-              Nuestro equipo revisa tu cuenta ó sitio web y detecta errores
+          <!-- card -->
+          <div
+            class="bg-white rounded-xl p-8 shadow-card border border-slate-100 flex flex-col items-center text-center relative w-full hover:-translate-y-1 transition-all"
+          >
+            <div
+              class="w-16 h-16 bg-brand-blue text-white rounded-full flex items-center justify-center mb-6 shadow-blue border-4 border-white"
+            >
+              <m-icon class="material-symbols-outlined text-3xl"
+                >troubleshoot</m-icon
+              >
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-3">
+              2. Diagnóstico profesional
+            </h3>
+            <p class="text-slate-600 leading-relaxed text-sm">
+              Nuestro equipo revisa tu cuenta o sitio web y detecta errores
               críticos, oportunidades de mejora y posibles fugas de presupuesto.
             </p>
           </div>
-          <div class={styles.stepItem}>
-            <div class={styles.stepNumber}>3</div>
-            <h3>Recibí tu reporte</h3>
-            <p>
+          <!-- card -->
+          <div
+            class="bg-white rounded-xl p-8 shadow-card border border-slate-100 flex flex-col items-center text-center relative z-10 w-full hover:-translate-y-1 transition-all"
+          >
+            <div
+              class="w-16 h-16 bg-white border-4 border-brand-blue/10 text-brand-blue rounded-full flex items-center justify-center mb-6"
+            >
+              <m-icon class="material-symbols-outlined text-3xl"
+                >mark_email_read</m-icon
+              >
+            </div>
+            <h3 class="text-xl font-display font-bold text-navy mb-3">
+              3. Recibí tu reporte
+            </h3>
+            <p class="text-slate-600 leading-relaxed text-sm">
               En 48 horas te entregamos un reporte claro con problemas
               detectados, soluciones sugeridas y mejoras estimadas.
             </p>
           </div>
         </div>
-      </div>
+      </m-container>
     </section>
 
-    <!-- FAQ Section -->
-    <section class={styles.faq}>
-      <div class="container">
-        <h2 class={`text-center ${styles.sectionTitle}`}>
-          Preguntas frecuentes
-        </h2>
-        <p class={`text-center ${styles.sectionSubtitle}`}>
-          Respuestas a las dudas más comunes sobre nuestra auditoría gratuita
-        </p>
-        <div class={styles.faqList}>
-          <details class={styles.faqItem}>
-            <summary>
-              ¿Realmente es gratis o hay algún costo oculto?
-              <span class="material-icons">add</span>
-            </summary>
-            <div class={styles.faqContent}>
-              <p>
-                Sí, es 100% gratuita y sin compromiso. No hay ningún cargo por
-                el análisis ni obligación de contratar nuestros servicios
-                después. Queremos mostrarte el valor que podemos aportar.
-              </p>
-            </div>
-          </details>
-          <details class={styles.faqItem}>
-            <summary>
-              ¿Qué incluye exactamente la auditoría?
-              <span class="material-icons">add</span>
-            </summary>
-            <div class={styles.faqContent}>
-              <p>
-                Revisamos tus campañas actuales en Google Ads o tu
-                posicionamiento SEO. Detectamos errores críticos, oportunidades
-                de mejora y te entregamos un informe con recomendaciones
-                prácticas.
-              </p>
-            </div>
-          </details>
-          <details class={styles.faqItem}>
-            <summary>
-              ¿Cuánto tarda en estar lista?
-              <span class="material-icons">add</span>
-            </summary>
-            <div class={styles.faqContent}>
-              <p>
-                Recibirás el diagnóstico completo en un plazo máximo de 48 horas
-                hábiles desde que completas el formulario.
-              </p>
-            </div>
-          </details>
-          <details class={styles.faqItem}>
-            <summary>
-              ¿Qué tipo de empresas pueden solicitarla?
-              <span class="material-icons">add</span>
-            </summary>
-            <div class={styles.faqContent}>
-              <p>
-                Está pensada para empresas B2B, B2C y negocios que ya estén
-                invirtiendo o tengan interés en mejorar su presencia digital.
-                (No aplica a sitios de Ecommerce)
-              </p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class={styles.finalCta}>
-      <div class="container">
-        <div class={styles.finalCtaBox}>
-          <h2 class={styles.finalCtaTitle}>
-            ¿Listo para mejorar tus resultados?
-          </h2>
-          <p class={styles.finalCtaSubtitle}>
-            Completa el formulario y recibí tu auditoría sin costo en solo 48
-            horas.
-          </p>
-          <a href="#" class={styles.btnPrimaryLarge}
-            >Solicitar Auditoría Gratis</a
+    <!-- ----- TESTIMONIALS ----- -->
+    <section id="testimonials" class="py-24 bg-white">
+      <m-container class="max-w-[--width-wide] mx-auto px-5 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p class="titleCapitalice text-brand-blue">Casos de Éxito</p>
+          <h2
+            class="text-3xl lg:text-4xl font-display font-bold text-navy mb-4"
           >
+            Lo que dicen nuestros clientes
+          </h2>
         </div>
-      </div>
+
+        <div class="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <TestimonialCard
+            quote="Nos ayudaron a optimizar las campañas activas, mejorar la calidad de los leads y también entender mejor qué métricas analizar para tomar decisiones."
+            authorName="José Antonio Nader Ríos"
+            authorRole="Founder, Transvecto Logistics"
+            authorImage="https://d1yei2z3i6k35z.cloudfront.net/12099047/687e8df3a21f4_jpse.png"
+          />
+          <TestimonialCard
+            quote="Con su asesoramiento y tecnología logramos más leads calificados y optimizamos la inversión desde el primer mes de trabajo conjunto."
+            authorName="José Caragol"
+            authorRole="Marketing Digital, Rentokil Initial"
+            authorImage="https://d1yei2z3i6k35z.cloudfront.net/12099047/687e8e70eec8e_jose.png"
+          />
+          <TestimonialCard
+            quote="Mejoramos la performance de nuestras campañas, bajamos el costo por contacto y aumentamos las oportunidades comerciales reales."
+            authorName="Victoria Vallas"
+            authorRole="CMO, EV Chargers"
+            authorImage="https://d1yei2z3i6k35z.cloudfront.net/12099047/687e8df61123a_victoria.png"
+          />
+        </div>
+      </m-container>
+    </section>
+
+    <!-- ----- FAQ ----- -->
+    <section id="faq" class="py-24 bg-bg-light border-y border-slate-200/50">
+      <m-container class="max-w-[--width-content] mx-auto px-5 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl lg:text-4xl font-display font-bold text-navy mb-4"
+          >
+            Preguntas frecuentes
+          </h2>
+          <p class="text-lg text-slate-600">
+            Respuestas a las dudas más comunes sobre nuestra auditoría gratuita
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-0 border-t border-slate-200">
+          <FaqAccordion
+            question="¿Realmente es gratis o hay algún costo oculto?"
+          >
+            Sí, es 100% gratuita y sin compromiso. No hay ningún cargo por el
+            análisis ni obligación de contratar nuestros servicios después.
+            Queremos mostrarte el valor que podemos aportar.
+          </FaqAccordion>
+          <FaqAccordion question="¿Qué incluye exactamente la auditoría?">
+            Revisamos tus campañas actuales en Google Ads o tu posicionamiento
+            SEO. Detectamos errores críticos, oportunidades de mejora y te
+            entregamos un informe con recomendaciones prácticas.
+          </FaqAccordion>
+          <FaqAccordion question="¿Cuánto tarda en estar lista?">
+            Recibirás el diagnóstico completo en un plazo máximo de 48 horas
+            hábiles desde que completas el formulario.
+          </FaqAccordion>
+          <FaqAccordion question="¿Qué tipo de empresas pueden solicitarla?">
+            Está pensada para empresas B2B, B2C y negocios que ya estén
+            invirtiendo o tengan interés en mejorar su presencia digital. (No
+            aplica a sitios de Ecommerce)
+          </FaqAccordion>
+        </div>
+      </m-container>
+    </section>
+
+    <!-- ----- CTA BOTTOM ----- -->
+    <section id="cta" class="py-24 bg-brand-dark">
+      <m-container class="max-w-[--width-content] mx-auto px-5 lg:px-8">
+        <div
+          class="bg-brand-blue rounded-2xl p-10 lg:p-16 text-center text-white relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"
+          >
+          </div>
+          <div class="relative z-10 max-w-3xl mx-auto">
+            <h2
+              class="text-3xl lg:text-4xl font-display font-bold mb-6 leading-tight"
+            >
+              ¿Listo para mejorar tus resultados?
+            </h2>
+            <p class="text-lg lg:text-xl text-blue-100 mb-10">
+              Completa el formulario y recibí tu auditoría sin costo en solo 48
+              horas.
+            </p>
+            <a
+              href="#hero"
+              class="inline-flex items-center gap-3 bg-green text-brand-dark hover:bg-slate-50 font-bold px-8 py-5 rounded-md shadow-card transition-base text-lg"
+            >
+              <m-icon class="material-symbols-outlined">rocket_launch</m-icon>
+              Solicitar Auditoría Gratis
+            </a>
+          </div>
+        </div>
+      </m-container>
     </section>
   </main>
 
-  <Footer />
+  <!-- ----- FOOTER ----- -->
+  <footer
+    id="footer"
+    class="bg-brand-dark py-12 lg:py-16 text-slate-400 text-sm"
+  >
+    <m-container class="max-w-[--width-content] mx-auto px-5 lg:px-8">
+      <div class="flex flex-col items-center text-center gap-6">
+        <img
+          src={`${base}logo.svg`}
+          alt="Mediabros"
+          class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-base"
+        />
+        <p class="max-w-2xl leading-relaxed text-slate-500 text-xs">
+          This site is not part of the Meta website or Meta Inc. Additionally,
+          this site is NOT endorsed by Meta in any way. META is a trademark of
+          META, Inc.
+        </p>
+        <div class="w-full h-px bg-white/5 my-4"></div>
+        <p class="font-medium text-slate-500">
+          &copy; {new Date().getFullYear()} mediabroslatam.com ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </m-container>
+  </footer>
 </Layout>

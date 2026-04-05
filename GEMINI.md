@@ -1,4 +1,4 @@
-# CLAUDE.md
+# GEMINI.md
 
 ## Project Overview
 
@@ -81,12 +81,14 @@ All plan files in `.planes/` must follow this structure for maximum legibility a
 ---
 
 ## 1. Fase 1: [Phase Name]
+
 - [ ] **1.1. [Task Name]**
-    - [ ] 1.1.1. [Sub-task detail]
-    - [ ] 1.1.2. [Sub-task detail]
+  - [ ] 1.1.1. [Sub-task detail]
+  - [ ] 1.1.2. [Sub-task detail]
 - [ ] **1.2. [Task Name]**
 
 ## 2. Fase 2: [Phase Name]
+
 - [ ] **2.1. [Task Name]**
 
 ---

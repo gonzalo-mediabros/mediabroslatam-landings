@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  class?: string;
+}
+
+const { title, description, icon, class: className = "" } = Astro.props;
+---
+
+<m-col
+  class:list={[
+    "md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20",
+    className
+  ]}
+>
+  <div
+    class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
+  >
+    <span class="material-symbols-outlined">{icon}</span>
+  </div>
+  <div>
+    <h4 class="font-display text-lg font-bold text-text-dark mb-1">
+      {title}
+    </h4>
+    <p class="text-text-muted text-sm leading-relaxed">
+      {description}
+    </p>
+  </div>
+</m-col>
