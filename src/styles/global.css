@@ -9,6 +9,7 @@
   --color-blue: #148bef;
   --color-white: #ffffff;
   --color-bg-light: #f6f8f8;
+  --color-green: #c9ff93;
 
   --color-slate-50: #f8fafc;
   --color-slate-100: #f1f5f9;
@@ -83,51 +84,47 @@ h3 {
 }
 
 /* ===== LAYOUT WEB COMPONENTS ===== */
-section {
-  padding: 6rem 1rem;
-}
+/* @layer base ensures Tailwind utilities (flex-row, items-center, etc.)
+   can override these defaults when applied via class attributes. */
 
-footer {
-  padding: 2rem 1rem;
-}
+@layer base {
+  section {
+    padding: 3rem 0;
+  }
 
-m-container {
-  display: block;
-  width: 100%;
-  max-width: var(--width-content);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
+  footer {
+    padding: 2rem 0;
+  }
 
-m-row {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
+  m-container {
+    display: block;
+    width: 100%;
+    max-width: var(--width-content);
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
 
-@media (min-width: 1024px) {
-  m-row[flex] {
-    flex-direction: row;
-    align-items: stretch;
-    gap: 1rem;
+  m-row {
+    display: flex;
+    width: 100%;
+  }
+
+  m-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
   }
 }
 
-m-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  flex: 1;
-  width: 100%;
-  min-width: 0;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  m-row[flex] m-col {
-    flex-basis: calc(50% - 2rem);
+/* ===== RESPONSIVE RADIUS ===== */
+/* Reduce border-radius proportionally on small screens */
+@media (max-width: 767px) {
+  :root {
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
   }
 }
 

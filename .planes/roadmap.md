@@ -28,4 +28,11 @@
   - [x] Alineación de Web Components y `@theme` en `global.css`
   - [x] Refinamiento de variables y Flexbox en `index2.astro`
   - [x] Actualización de directrices arquitectónicas
+- [ ] **PLAN 008: Correcciones Responsive index2.astro e index.astro**
+  - [ ] Fase 1: Responsive de index2.astro (padding, beneficios, footer, colores promo, hero)
+  - [ ] Fase 2: Responsive de index.astro (validacion global.css, footer, hero, beneficios)
+  - [ ] Fase 3: Review visual y consolidacion de aprendizaje
+- [ ] **PLAN 009: Ajustes en Landing Guia2**
+  - [ ] Fase 1: Componente FaqAccordion
+  - [ ] Fase 2: Correcciones en guia2.astro (Hero, Agitation, Offer y FAQ)
 - [ ] Optimización de Performance y SEO.

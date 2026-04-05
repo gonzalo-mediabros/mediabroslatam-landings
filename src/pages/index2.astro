@@ -10,53 +10,60 @@ const BASE = import.meta.env.BASE_URL;
   title="Mediabros - Rediseño Estratégico"
   description="Genera leads de calidad para tu empresa con una estrategia de marketing digital probada. Curso online gratuito en 45 minutos."
 >
-
   <!-- ----- HERO ----- -->
-  <header id="hero" class="relative overflow-hidden bg-brand-dark min-h-screen flex items-center py-16">
+  <header
+    id="hero"
+    class="relative overflow-hidden bg-brand-dark min-h-screen flex items-center py-16"
+  >
     <div
-      class="absolute pointer-events-none rounded-full"
-      style="top:-10%;right:-10%;width:60%;height:80%;background:radial-gradient(circle,rgba(30,136,229,0.15) 0%,transparent 70%);"
-    ></div>
+      class="hidden md:block absolute pointer-events-none rounded-full top-[-10%] right-[-10%] w-[60%] h-[80%] bg-[radial-gradient(circle,rgba(30,136,229,0.15)_0%,transparent_70%)]"
+    >
+    </div>
     <m-container>
-      <m-row flex class="relative z-10 items-center justify-between gap-16 lg:gap-[4rem] xl:gap-20">
-
+      <m-row
+        class="relative z-10 flex-col lg:flex-row items-center justify-between gap-16 lg:gap-16 xl:gap-20"
+      >
         <!-- Left: Content -->
-        <m-col style="flex: 1.2;" class="items-start">
+        <m-col class="items-start flex-[1.2]">
           <div class="mb-12">
-            <img src={`${BASE}logo.svg`} alt="Mediabros" class="h-10 w-auto" />
+            <img src={`${BASE}logo.svg`} alt="Mediabros" class="h-12 w-auto" />
           </div>
 
-          <div class="mb-6">
+          <div class="mb-4 ml-0 w-full md:-ml-8 md:w-[calc(100%+120px)]">
             <img
               src={`${BASE}hero-img2.png`}
               alt="Vista previa del curso Mediabros"
-              class="w-full rounded-xl"
-              style="filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4));"
+              class="w-full"
             />
           </div>
 
-          <span class="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/30 text-blue-400 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wide mb-6">
-            <span class="material-symbols-outlined leading-none" style="font-size:14px;">verified</span>
+          <span
+            class="inline-flex items-center gap-2 bg-brand-blue/10 border border-brand-blue/30 text-blue-400 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-wide mb-6"
+          >
+            <span class="material-symbols-outlined leading-none text-[14px]"
+              >verified</span
+            >
             Multiplica tus leads
           </span>
 
           <h1
-            class="font-display font-extrabold leading-[1.1] tracking-tight text-white max-w-[600px] mb-8"
-            style="font-size:clamp(2.5rem,3.5vw,3.5rem);text-wrap:balance;"
+            class="font-display font-extrabold leading-[1.1] tracking-tight text-white max-w-[600px] mb-2 text-[clamp(2.5rem,3.5vw,3.5rem)] text-balance"
           >
-            Cómo multiplicar tus <span class="text-brand-blue">leads calificados</span>
+            Cómo multiplicar tus <span class="text-brand-blue"
+              >leads calificados</span
+            >
           </h1>
 
           <p class="text-xl text-text-light max-w-[500px] leading-relaxed">
-            De la confusión a la claridad en tan solo 45 minutos. Te contamos cómo aplicarlo a tu empresa con un método probado.
+            De la confusión a la claridad en tan solo 45 minutos. Te contamos
+            cómo aplicarlo a tu empresa con un método probado.
           </p>
         </m-col>
 
         <!-- Right: Form -->
-        <m-col style="flex: 0.8;">
+        <m-col class="flex-[0.8]">
           <CourseForm2 />
         </m-col>
-
       </m-row>
     </m-container>
   </header>
@@ -65,21 +72,23 @@ const BASE = import.meta.env.BASE_URL;
   <section id="trust" class="bg-white border-b border-slate-100 py-16">
     <m-container>
       <p class="titleCapitalice text-center mb-12">Fórmula del éxito</p>
-      <div class="flex justify-center items-center">
-        <img src={`${BASE}iconos.png`} alt="Fórmula del éxito Mediabros" class="max-h-28 w-auto" />
+      <div class="flex justify-center items-center px-4">
+        <img
+          src={`${BASE}iconos.png`}
+          alt="Fórmula del éxito Mediabros"
+          class="max-h-28 w-auto max-w-full"
+        />
       </div>
     </m-container>
   </section>
 
   <!-- ----- PROBLEM ----- -->
-  <section id="problem" class="bg-white pt-8 pb-0">
+  <section id="problem" class="bg-white py-20">
     <m-container>
-      <m-row flex class="gap-16 items-center">
-
-        <m-col>
+      <m-row class="flex-col lg:flex-row gap-16 items-center">
+        <m-col class="text-center lg:text-left items-center lg:items-start">
           <h2
-            class="font-display font-extrabold text-text-dark leading-[1.1] mb-8"
-            style="font-size:clamp(2rem,4vw,3.5rem);"
+            class="font-display font-extrabold text-text-dark leading-[1.1] mb-8 text-[clamp(2rem,4vw,3.5rem)]"
           >
             Deja de perder clientes y dinero
             <span class="text-text-light block">sin rumbo ni estrategia.</span>
@@ -87,22 +96,25 @@ const BASE = import.meta.env.BASE_URL;
           <div class="w-20 h-1.5 bg-brand-blue rounded-full"></div>
         </m-col>
 
-        <m-col class="bg-brand-graybg p-12 rounded-xl">
+        <m-col class="bg-brand-graybg p-6 md:p-12 rounded-xl">
           <h3 class="font-display text-2xl font-bold text-text-dark mb-6">
-            Tu empresa no necesita más <span class="text-brand-blue">likes</span>.<br />
+            Tu empresa no necesita más <span class="text-brand-blue">likes</span
+            >.<br />
             Necesita oportunidades reales de negocio.
           </h3>
           <p class="text-text-muted leading-[1.8] text-lg">
-            Si hoy tenés un sitio web, invertís en campañas o hacés algo de marketing digital, pero los resultados no llegan — o llegan mal — probablemente el problema no sea la inversión, sino la falta de un plan claro.
+            Si hoy tenés un sitio web, invertís en campañas o hacés algo de
+            marketing digital, pero los resultados no llegan — o llegan mal —
+            probablemente el problema no sea la inversión, sino la falta de un
+            plan claro.
           </p>
         </m-col>
-
       </m-row>
     </m-container>
   </section>
 
   <!-- ----- SOBRE EL CURSO ----- -->
-  <section id="sobre-el-curso" class="bg-white pb-8">
+  <section id="sobre-el-curso" class="bg-white py-20">
     <m-container>
       <div class="text-center mb-16">
         <h2 class="font-display text-4xl font-extrabold text-text-dark">
@@ -111,20 +123,33 @@ const BASE = import.meta.env.BASE_URL;
       </div>
 
       <div class="flex flex-col gap-6">
-
         <!-- Main block: spans full width -->
         <m-row>
-          <div class="w-full bg-white border border-slate-100 rounded-xl p-10 flex flex-col lg:flex-row items-start lg:items-center gap-12 transition-all hover:-translate-y-1 hover:shadow-card-hover">
+          <div
+            class="w-full bg-white border border-slate-100 rounded-xl p-6 md:p-10 flex flex-col lg:flex-row items-start lg:items-center gap-12 transition-all hover:-translate-y-1 hover:shadow-card-hover"
+          >
             <div>
-              <h3 class="font-display text-2xl font-bold text-text-dark mb-4">Profesionalización de la Demanda</h3>
+              <h3 class="font-display text-2xl font-bold text-text-dark mb-4">
+                Profesionalización de la Demanda
+              </h3>
               <p class="text-text-muted leading-relaxed mb-4">
-                Este curso online gratuito te permite <strong>descubrir cómo generar leads de calidad</strong> para tu empresa en tiempo récord con una sólida estrategia de marketing digital y está diseñado como una guía práctica para empresas que buscan profesionalizar su generación de demanda.
+                Este curso online gratuito te permite <strong
+                  >descubrir cómo generar leads de calidad</strong
+                > para tu empresa en tiempo récord con una sólida estrategia de marketing
+                digital y está diseñado como una guía práctica para empresas que buscan
+                profesionalizar su generación de demanda.
               </p>
               <p class="text-text-muted leading-relaxed mb-4">
-                En tan solo <strong>45 minutos</strong>, este entrenamiento gratuito ofrece una visión clara sobre el universo del marketing digital, los diferentes tipos de proveedores, cómo hacer un diagnóstico inicial del estado actual de tu empresa, y cómo diseñar una estrategia de generación de leads efectiva.
+                En tan solo <strong>45 minutos</strong>, este entrenamiento
+                gratuito ofrece una visión clara sobre el universo del marketing
+                digital, los diferentes tipos de proveedores, cómo hacer un
+                diagnóstico inicial del estado actual de tu empresa, y cómo
+                diseñar una estrategia de generación de leads efectiva.
               </p>
               <p class="text-text-muted leading-relaxed">
-                Está especialmente dirigido a decisores en empresas que quieren dejar de improvisar y comenzar a tomar decisiones basadas en resultados medibles.
+                Está especialmente dirigido a decisores en empresas que quieren
+                dejar de improvisar y comenzar a tomar decisiones basadas en
+                resultados medibles.
               </p>
             </div>
           </div>
@@ -132,13 +157,17 @@ const BASE = import.meta.env.BASE_URL;
 
         <!-- Quote block: spans full width -->
         <m-row>
-          <div class="w-full bg-brand-dark rounded-xl p-10 flex items-center justify-center text-center transition-all hover:-translate-y-1">
-            <p class="font-display text-[1.75rem] font-bold text-white leading-snug tracking-tight">
-              Generación de leads con método, foco y resultados medibles
+          <div
+            class="w-full bg-brand-dark rounded-xl p-6 md:p-10 flex items-center content-center justify-center text-center transition-all hover:-translate-y-1"
+          >
+            <p
+              class="font-display text-[1.75rem] font-bold text-white leading-snug tracking-tight"
+            >
+              <span class="size-12 text-[3.75rem] relative top-2">🎯</span> Generación
+              de leads con método, foco y resultados medibles
             </p>
           </div>
         </m-row>
-
       </div>
     </m-container>
   </section>
@@ -152,141 +181,215 @@ const BASE = import.meta.env.BASE_URL;
         </h2>
       </div>
 
-      <m-row flex class="gap-6">
+      <m-row class="flex-col md:flex-row flex-wrap gap-6">
         <!-- Benefit 1 -->
-          <m-col class="bg-brand-graybg rounded-xl p-10 flex flex-col justify-end border border-black/[0.03] transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20">
-            <div class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white mb-6">
+        <m-col
+          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
+        >
+          <div
+            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
+          >
             <span class="material-symbols-outlined">vital_signs</span>
           </div>
-          <h4 class="font-display text-lg font-bold text-text-dark mb-2">Diagnóstico Guiado</h4>
-          <p class="text-text-muted text-sm leading-relaxed">Aprenderás a identificar errores comunes.</p>
-          </m-col>
+          <div>
+            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
+              Diagnóstico Guiado
+            </h4>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Aprenderás a identificar errores comunes.
+            </p>
+          </div>
+        </m-col>
 
-          <!-- Benefit 2 -->
-          <m-col class="bg-brand-graybg rounded-xl p-10 flex flex-col justify-end border border-black/[0.03] transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20">
-          <div class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white mb-6">
+        <!-- Benefit 2 -->
+        <m-col
+          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
+        >
+          <div
+            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
+          >
             <span class="material-symbols-outlined">map</span>
           </div>
-          <h4 class="font-display text-lg font-bold text-text-dark mb-2">Claridad estratégica</h4>
-          <p class="text-text-muted text-sm leading-relaxed">Descubrirás qué canales son los adecuados.</p>
-          </m-col>
+          <div>
+            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
+              Claridad estratégica
+            </h4>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Descubrirás qué canales son los adecuados.
+            </p>
+          </div>
+        </m-col>
 
-          <!-- Benefit 3 -->
-          <m-col class="bg-brand-graybg rounded-xl p-10 flex flex-col justify-end border border-black/[0.03] transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20">
-          <div class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white mb-6">
+        <!-- Benefit 3 -->
+        <m-col
+          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
+        >
+          <div
+            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
+          >
             <span class="material-symbols-outlined">stacks</span>
           </div>
-          <h4 class="font-display text-lg font-bold text-text-dark mb-2">Casos reales</h4>
-          <p class="text-text-muted text-sm leading-relaxed">Casos concretos en sectores logísticos y construcción.</p>
-          </m-col>
+          <div>
+            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
+              Casos reales
+            </h4>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Casos concretos en sectores logísticos y construcción.
+            </p>
+          </div>
+        </m-col>
 
-          <!-- Benefit 4 -->
-          <m-col class="bg-brand-graybg rounded-xl p-10 flex flex-col justify-end border border-black/[0.03] transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20">
-          <div class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white mb-6">
+        <!-- Benefit 4 -->
+        <m-col
+          class="md:flex-[1_1_45%] bg-brand-graybg rounded-xl p-6 md:p-10 flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20"
+        >
+          <div
+            class="w-12 h-12 bg-brand-blue rounded-md flex items-center justify-center text-white shrink-0"
+          >
             <span class="material-symbols-outlined">bolt</span>
           </div>
-          <h4 class="font-display text-lg font-bold text-text-dark mb-2">Acción inmediata</h4>
-          <p class="text-text-muted text-sm leading-relaxed">Llamado a la acción claro para avanzar con solidez.</p>
-          </m-col>
-        </m-row>
-
-      </div>
+          <div>
+            <h4 class="font-display text-lg font-bold text-text-dark mb-1">
+              Acción inmediata
+            </h4>
+            <p class="text-text-muted text-sm leading-relaxed">
+              Llamado a la acción claro para avanzar con solidez.
+            </p>
+          </div>
+        </m-col>
+      </m-row>
     </m-container>
   </section>
+</Layout>
 
-  <!-- ----- CERT STRIP ----- -->
-  <section id="cert-strip" class="bg-white border-t border-slate-100 py-16">
-    <m-container>
-      <div class="flex flex-col items-center gap-6">
-        <p class="titleCapitalice">Certificaciones que nos respaldan</p>
-        <img
-          src={`${BASE}badges.jpg`}
-          alt="Google Partner Premier, Meta Business Partner, LinkedIn Marketing Partners, +15 años de experiencia"
-          class="max-w-[600px] w-full"
-        />
-      </div>
-    </m-container>
-  </section>
+<!-- ----- CERT STRIP ----- -->
+<section id="cert-strip" class="bg-white border-t border-slate-100 py-30">
+  <m-container>
+    <div class="flex flex-col items-center gap-6">
+      <p class="titleCapitalice">Certificaciones que nos respaldan</p>
+      <img
+        src={`${BASE}badges.jpg`}
+        alt="Google Partner Premier, Meta Business Partner, LinkedIn Marketing Partners, +15 años de experiencia"
+        class="max-w-[600px] w-full"
+      />
+    </div>
+  </m-container>
+</section>
+
+<!-- ----- DARK BLOCK ----- -->
+<div id="dark-block" class="bg-brand-dark relative overflow-hidden py-20">
+  <div
+    class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue opacity-10 blur-[120px] rounded-full pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#6366f1] opacity-10 blur-[100px] rounded-full pointer-events-none"
+  >
+  </div>
 
   <!-- ----- INFO CARDS ----- -->
-  <section id="info-cards" class="bg-brand-dark">
+  <section id="info-cards">
     <m-container>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-
         <!-- Card 1: Para quién -->
-        <div class="bg-white/[0.03] border border-white/[0.05] rounded-xl p-12">
-          <h3 class="font-display text-[1.75rem] font-bold text-white mb-10 flex items-center gap-4">
-            <span class="inline-block w-1.5 h-8 bg-brand-blue rounded-full shrink-0"></span>
+        <div class="bg-white/3 border border-white/5 rounded-xl p-6 md:p-12">
+          <h3
+            class="font-display text-[1.75rem] font-bold text-white mb-10 flex items-center gap-4"
+          >
+            <span
+              class="inline-block w-1.5 h-8 bg-brand-blue rounded-full shrink-0"
+            ></span>
             ¿Para quién es este curso?
           </h3>
           <ul class="flex flex-col gap-6">
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">check_circle</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >check_circle</span
+              >
               Dueños de empresas con un producto consolidado o un servicio para vender.
             </li>
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">check_circle</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >check_circle</span
+              >
               Responsables de marketing que desean desarrollar su estrategia.
             </li>
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">check_circle</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >check_circle</span
+              >
               Gerentes comerciales que desean incrementar su facturación.
             </li>
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">check_circle</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >check_circle</span
+              >
               Personas que están buscando el crecimiento sustentable de su empresa.
             </li>
           </ul>
         </div>
 
         <!-- Card 2: Qué aprenderás -->
-        <div class="bg-white/[0.03] border border-white/[0.05] rounded-xl p-12">
-          <h3 class="font-display text-[1.75rem] font-bold text-white mb-10 flex items-center gap-4">
-            <span class="inline-block w-1.5 h-8 bg-brand-blue rounded-full shrink-0"></span>
+        <div class="bg-white/3 border border-white/5 rounded-xl p-6 md:p-12">
+          <h3
+            class="font-display text-[1.75rem] font-bold text-white mb-10 flex items-center gap-4"
+          >
+            <span
+              class="inline-block w-1.5 h-8 bg-brand-blue rounded-full shrink-0"
+            ></span>
             ¿Qué vas a aprender?
           </h3>
           <ul class="flex flex-col gap-6">
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">school</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >school</span
+              >
               Cómo crear una estrategia digital real.
             </li>
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">school</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >school</span
+              >
               En qué medios y cómo invertir.
             </li>
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">school</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >school</span
+              >
               Cómo evitar errores comunes que frenan resultados.
             </li>
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">school</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >school</span
+              >
               Qué tipo de proveedor o equipo te conviene.
             </li>
             <li class="flex gap-5 text-text-light leading-snug">
-              <span class="material-symbols-outlined text-brand-blue shrink-0">school</span>
+              <span class="material-symbols-outlined text-brand-blue shrink-0"
+                >school</span
+              >
               Ejemplos reales con resultados medibles.
             </li>
           </ul>
         </div>
-
       </div>
     </m-container>
   </section>
 
   <!-- ----- FINAL CTA ----- -->
-  <section id="final-cta" class="bg-brand-dark text-center relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue opacity-10 blur-[120px] rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#6366f1] opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
+  <section id="final-cta" class="text-center py-20">
     <m-container>
       <div class="relative z-10">
         <h2
-          class="font-display font-extrabold text-white mb-6 tracking-tight"
-          style="font-size:clamp(2rem,4vw,3rem);"
+          class="font-display font-extrabold text-white mb-6 tracking-tight text-[clamp(2rem,4vw,3rem)]"
         >
           ¿Listo para transformar tu generación de leads?
         </h2>
-        <p class="text-xl text-text-light max-w-[42rem] mx-auto mb-10 leading-relaxed">
-          No dejes que otro trimestre pase con un pipeline vacío. Únete a los +500 profesionales que ya están usando esta metodología.
+        <p
+          class="text-xl text-text-light max-w-[42rem] mx-auto mb-10 leading-relaxed"
+        >
+          No dejes que otro trimestre pase con un pipeline vacío. Únete a los
+          +500 profesionales que ya están usando esta metodología.
         </p>
         <a
           href="#hero"
@@ -298,29 +401,52 @@ const BASE = import.meta.env.BASE_URL;
         <!-- Social proof -->
         <div class="flex items-center justify-center gap-4 mt-4">
           <div class="flex">
-            <div class="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-slate-600">
-              <img src={`${BASE}victoria.png`} alt="Victoria" class="w-full h-full object-cover" />
+            <div
+              class="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-slate-600"
+            >
+              <img
+                src={`${BASE}victoria.png`}
+                alt="Victoria"
+                class="w-full h-full object-cover"
+              />
             </div>
-            <div class="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-slate-600 -ml-3">
-              <img src={`${BASE}jose.png`} alt="José" class="w-full h-full object-cover" />
+            <div
+              class="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-slate-600 -ml-3"
+            >
+              <img
+                src={`${BASE}jose.png`}
+                alt="José"
+                class="w-full h-full object-cover"
+              />
             </div>
-            <div class="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-slate-600 -ml-3">
-              <img src={`${BASE}jpse.png`} alt="" class="w-full h-full object-cover" />
+            <div
+              class="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-slate-600 -ml-3"
+            >
+              <img
+                src={`${BASE}jpse.png`}
+                alt=""
+                class="w-full h-full object-cover"
+              />
             </div>
-            <div class="w-10 h-10 rounded-full border-2 border-brand-dark bg-[#c9ff93] flex items-center justify-center text-xs font-bold text-black -ml-3">+</div>
+            <div
+              class="w-10 h-10 rounded-full border-2 border-brand-dark bg-[#c9ff93] flex items-center justify-center text-xs font-bold text-black -ml-3"
+            >
+              +
+            </div>
           </div>
-          <span class="text-sm text-text-light font-medium">Únete a <strong class="text-white font-bold">500+</strong> líderes B2B</span>
+          <span class="text-sm text-text-light font-medium"
+            >Únete a <strong class="text-white font-bold">500+</strong> líderes B2B</span
+          >
         </div>
       </div>
     </m-container>
   </section>
 
   <!-- ----- PROMO BANNER ----- -->
-  <section id="promo" class="bg-brand-dark">
+  <section id="promo">
     <m-container>
       <div
-        class="relative overflow-hidden rounded-xl flex flex-col lg:flex-row items-end gap-16 text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]"
-        style="background:linear-gradient(135deg,#1E88E5 0%,#1565C0 100%);padding:4rem 4rem 0 4rem;"
+        class="relative overflow-hidden rounded-xl flex flex-col lg:flex-row items-end gap-16 text-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] bg-[linear-gradient(135deg,#1E88E5_0%,#1565C0_100%)] pt-8 px-6 pb-0 md:pt-16 md:px-16"
       >
         <!-- Decorative SVG bg -->
         <svg
@@ -328,28 +454,37 @@ const BASE = import.meta.env.BASE_URL;
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
-          <path d="M0 100 L100 0 L100 100 Z" fill="currentColor" />
+          <path d="M0 100 L100 0 L100 100 Z" fill="currentColor"></path>
         </svg>
 
         <!-- Content -->
         <div class="relative z-10 flex-1 pb-16 lg:pb-16">
-          <p class="titleCapitalice text-[#bfdbfe] text-left mb-4">Construye una estrategia de marketing digital efectiva</p>
-          <h2 class="font-display text-[2.5rem] font-extrabold leading-[1.15] tracking-tight text-white mb-6">
+          <p class="titleCapitalice text-green text-left mb-4">
+            Construye una estrategia de marketing digital efectiva
+          </p>
+          <h2
+            class="font-display text-[2.5rem] font-extrabold leading-[1.15] tracking-tight text-white mb-6"
+          >
             Genera leads de calidad para tu empresa en tiempo record
           </h2>
           <p class="text-lg text-[#dbeafe] leading-relaxed max-w-[32rem] mb-10">
-            Accede al curso gratuito de MediaBros y descubre cómo elegir los canales adecuados y evitar errores comunes en la generación de demanda. Ideal para decisores que buscan resultados concretos en el corto plazo.
+            Accede al curso gratuito de MediaBros y descubre cómo elegir los
+            canales adecuados y evitar errores comunes en la generación de
+            demanda. Ideal para decisores que buscan resultados concretos en el
+            corto plazo.
           </p>
           <a
             href="#hero"
-            class="inline-block px-10 py-5 bg-white text-brand-blue rounded-lg font-bold text-lg no-underline transition-all hover:-translate-y-1 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)]"
+            class="inline-block px-10 py-5 bg-green text-brand-dark rounded-lg font-bold text-lg no-underline transition-all hover:-translate-y-1 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)]"
           >
             ¡Accede ahora!
           </a>
         </div>
 
         <!-- Visual -->
-        <div class="relative z-10 flex items-end justify-end shrink-0 lg:w-[40%] lg:-mt-8">
+        <div
+          class="relative z-10 flex items-end justify-end shrink-0 lg:w-[40%] lg:-mt-8"
+        >
           <img
             src={`${BASE}cursos.webp`}
             alt="Curso Mediabros - Tráfico calificado y conversiones"
@@ -359,8 +494,29 @@ const BASE = import.meta.env.BASE_URL;
       </div>
     </m-container>
   </section>
+</div>
+<!-- end #dark-block -->
+<!-- ----- FOOTER ----- -->
+<footer id="footer" class="bg-brand-dark py-12 lg:py-16 text-slate-400 text-sm">
+  <m-container class="max-w-[--width-content] mx-auto px-5 lg:px-8">
+    <div class="flex flex-col items-center text-center gap-6">
+      <img
+        src={`${BASE}logo.svg`}
+        alt="Mediabros"
+        class="h-10 opacity-50 saturate-80"
+      />
 
-  <!-- ----- FOOTER ----- -->
-  <Footer2 />
-
-</Layout>
+      <p class="font-medium text-slate-500">
+        &copy; {new Date().getFullYear()} mediabroslatam.com ALL RIGHTS RESERVED.
+      </p>
+      <div class="w-full h-px bg-white/5 my-4"></div>
+      <p class="max-w-2xl leading-relaxed text-slate-500 text-xs">
+        This site is not part of the Meta website or Meta Inc. Additionally,
+        this site is NOT endorsed by Meta in any way. META is a trademark of
+        META, Inc.
+      </p>
+    </div>
+  </m-container>
+</footer>
+<!-- ----- FOOTER ----- -->
+<!-- <Footer2 /> -->

@@ -6,27 +6,30 @@ interface Props {
 const { year = new Date().getFullYear(), brand = "Mediabros" } = Astro.props;
 ---
 
-<footer class="bg-white border-t border-slate-100 py-8">
+<footer class="bg-white border-t border-slate-100 py-12">
   <m-container>
-    <m-row>
-      <div class="flex flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
+    <m-row class="flex-col md:flex-row items-center justify-between gap-8">
+      <!-- col 1: Logo -->
+      <m-col class="flex-none w-auto items-center md:items-start">
         <img
           src={`${import.meta.env.BASE_URL}logo.svg`}
           alt={brand}
-          class="h-8 w-auto grayscale opacity-60"
+          class="h-10 w-auto grayscale opacity-50"
         />
-        <p class="m-0 text-sm text-text-muted">
-          &copy; {year}
-          {brand}. Todos los derechos reservados.
+      </m-col>
+      <!-- col 2: Copyright -->
+      <m-col class="items-center">
+        <p class="m-0 text-[0.75rem] text-text-muted text-center">
+          &copy; {year} mediabroslatam.com. Todos los derechos reservados.
         </p>
-      </div>
-    </m-row>
-    <m-row>
-      <p class="m-0 text-sm text-text-muted">
-        This site is not part of the Meta website or Meta Inc. Additionally,
-        this site is NOT endorsed by Meta in any way. META is a trademark of
-        META, Inc.
-      </p>
+      </m-col>
+      <!-- col 3: Meta legal -->
+      <m-col class="items-center md:items-end">
+        <p class="m-0 text-[0.65rem] leading-relaxed text-text-muted text-center md:text-right max-w-full md:max-w-[280px]">
+          This site is not part of the Meta website or Meta Inc. Additionally,
+          this site is NOT endorsed by Meta in any way. META is a trademark of META, Inc.
+        </p>
+      </m-col>
     </m-row>
   </m-container>
 </footer>

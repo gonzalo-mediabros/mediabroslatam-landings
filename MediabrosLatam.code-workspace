@@ -4,5 +4,23 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"piny.project_settings": {
+			"open-pages": [
+				"pinyfakepage.html"
+			],
+			"app-routes": {
+				"routes": [
+					"/",
+					"/auditoria",
+					"/diagnostico",
+					"/guia",
+					"/index2",
+					"/mediabroslatam-landings/index",
+					"/mediabroslatam-landings/index2"
+				],
+				"current_route": "/mediabroslatam-landings/index2"
+			}
+		}
+	}
 }

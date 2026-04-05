@@ -1,0 +1,307 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ContactForm from "../components/ContactForm.astro";
+import styles from "./diagnostico.module.css";
+
+const title = "Sesión de Diagnóstico Gratuita | MediaBros";
+const description =
+  "De la confusión a la claridad en solo 25 minutos. Agenda tu sesión estratégica gratuita.";
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class={styles.hero}>
+      <div class="container">
+        <div class={styles.grid2Hero}>
+          <div>
+            <h1 class={styles.title}>Sesión de diagnóstico y asesoramiento</h1>
+            <p class={styles.subtitle}>
+              Deja de perder clientes y presupuesto por falta de estrategia.<br
+              />De la confusión a la claridad en solo 25 minutos.
+            </p>
+            <div class={styles.badges}>
+              <span class={styles.badge}
+                ><span class="material-icons">videocam</span> Sesión 1 a 1</span
+              >
+              <span class={styles.badge}
+                ><span class="material-icons">paid</span> Gratuita</span
+              >
+              <span class={styles.badge}
+                ><span class="material-icons">verified</span> Experto</span
+              >
+            </div>
+            <div class={`${styles.ctaHero} ${styles.mt2}`}>
+              <p>
+                <strong>Agenda tu sesión:</strong> Completa el formulario y nos contactamos
+                contigo para agendar tu sesión gratuita 1 a 1 con un experto de Mediabros.
+              </p>
+            </div>
+          </div>
+          <div class={styles.formWrapper}>
+            <ContactForm
+              title="Agendar Sesión Gratuita"
+              buttonText="Solicitar Agenda"
+              source="Diagnostico"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class={styles.bgLight}>
+      <div class="container">
+        <h2 class={`text-center ${styles.mb2}`}>¿Esto te suena familiar?</h2>
+        <div class={styles.painPointsGrid}>
+          <div class={styles.painPoint}>
+            <span class={`material-icons ${styles.painPointIcon}`}
+              >sentiment_dissatisfied</span
+            >
+            <p>
+              Sientes que tu marketing digital no funciona y no entiendes por
+              qué.
+            </p>
+          </div>
+          <div class={styles.painPoint}>
+            <span class={`material-icons ${styles.painPointIcon}`}
+              >trending_down</span
+            >
+            <p>
+              Estás invirtiendo en campañas, pero no ves resultados concretos.
+            </p>
+          </div>
+          <div class={styles.painPoint}>
+            <span class={`material-icons ${styles.painPointIcon}`}
+              >sync_problem</span
+            >
+            <p>
+              Probaste varias agencias o freelancers, pero seguís sin generar
+              oportunidades reales.
+            </p>
+          </div>
+          <div class={styles.painPoint}>
+            <span class="material-icons">groups</span>
+            <p>
+              Tu equipo está haciendo “de todo un poco”, pero sin una estrategia
+              clara ni foco.
+            </p>
+          </div>
+          <div class={styles.painPoint}>
+            <span class="material-icons">help_outline</span>
+            <p>
+              No sabes qué ajustar para atraer más clientes sin seguir quemando
+              presupuesto.
+            </p>
+          </div>
+        </div>
+        <p class={`text-center ${styles.mt2} ${styles.lead}`}>
+          Si alguna de estas situaciones te suena familiar, necesitas claridad.
+        </p>
+        <p class="text-center">
+          En esta sesión 1:1, trabajaremos juntos para crear un plan accionable
+          con pasos concretos que te permitirán atraer clientes con estrategia y
+          seguridad.
+        </p>
+      </div>
+    </section>
+
+    <!-- Session Details -->
+    <section class={styles.sessionDetails}>
+      <div class="container">
+        <h2 class={`text-center ${styles.mb2}`}>
+          ¿Qué vamos a trabajar en la sesión?
+        </h2>
+        <div class={styles.stepsGrid}>
+          <div class={styles.step}>
+            <h3>Diagnóstico personalizado del estado actual</h3>
+            <p>
+              Revisamos cómo está funcionando tu marketing hoy: canales,
+              rendimiento, inversión y coherencia estratégica.
+            </p>
+          </div>
+          <div class={styles.step}>
+            <h3>Identificación de errores y oportunidades de mejora</h3>
+            <p>
+              Detectamos los puntos ciegos que te están frenando y mostramos
+              dónde puedes mejorar para generar más oportunidades.
+            </p>
+          </div>
+          <div class={styles.step}>
+            <h3>Plan de acción inicial</h3>
+            <p>
+              Te llevas una propuesta concreta con acciones recomendadas,
+              plataformas sugeridas y secuencia de ejecución.
+            </p>
+          </div>
+          <div class={styles.step}>
+            <h3>Proyección de resultados</h3>
+            <p>
+              Te mostramos escenarios reales: inversión recomendada, resultados
+              estimados y próximos pasos según tu etapa digital.
+            </p>
+          </div>
+        </div>
+
+        <div class={`${styles.bonusCard} ${styles.mt2}`}>
+          <div>
+            <h3>🎁 ¡Y DE REGALO! Plan de acción estratégico</h3>
+            <p>
+              Si nos dejas una reseña en audio tras la sesión. Te prepararemos
+              un documento detallado con el análisis de la sesión y pasos
+              concretos para implementar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class={`${styles.testimonials} ${styles.bgLight}`}>
+      <div class="container">
+        <h2 class={`text-center ${styles.mb2}`}>
+          Escucha a los que tuvieron la sesión
+        </h2>
+        <div class={styles.grid3}>
+          <div class={styles.testimonialCard}>
+            <p class={styles.quote}>
+              "Redujimos el costo por lead un 35% y duplicamos la tasa de
+              conversión en solo cuatro semanas, sin aumentar la inversión
+              mensual."
+            </p>
+            <div class={styles.author}>
+              <strong>Luis Suarez</strong>
+              <span>COO, EVA México</span>
+            </div>
+          </div>
+          <div class={styles.testimonialCard}>
+            <p class={styles.quote}>
+              "En el primer mes mejoramos las campañas, aumentamos los leads
+              útiles y recibimos asesoramiento clave para ajustar todo a
+              tiempo."
+            </p>
+            <div class={styles.author}>
+              <strong>Sara Zambrano Morón</strong>
+              <span>Jefa de Markeing, Llegó</span>
+            </div>
+          </div>
+          <div class={styles.testimonialCard}>
+            <p class={styles.quote}>
+              "Gracias a su enfoque en performance logramos más contactos útiles
+              y mejoramos el retorno de inversión rápidamente."
+            </p>
+            <div class={styles.author}>
+              <strong>Adrían Reyes</strong>
+              <span>Director de markeing, Caliza</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class={`${styles.target} ${styles.bgDark} ${styles.textWhite}`}>
+      <div class="container">
+        <div class={styles.grid2Target}>
+          <div>
+            <h3>¿Para quién es esta sesión?</h3>
+            <ul class={styles.checkListWhite}>
+              <li>
+                <span class="material-icons">check</span> Empresas que ya invierten
+                en publicidad pero no logran los resultados esperados.
+              </li>
+              <li>
+                <span class="material-icons">check</span> Dueños de negocio y equipos
+                comerciales que quieren generar más oportunidades reales, no likes.
+              </li>
+              <li>
+                <span class="material-icons">check</span> Empresas B2B o B2C con productos
+                o servicios concretos, y que tienen sitio web activo.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>¿Para quién NO es esta sesión?</h3>
+            <ul class={styles.crossListWhite}>
+              <li>
+                <span class="material-icons">close</span> Emprendimientos en etapa
+                de idea, sin validación ni estructura comercial.
+              </li>
+              <li>
+                <span class="material-icons">close</span> Proyectos personales, artísticos
+                o sin fines comerciales.
+              </li>
+              <li>
+                <span class="material-icons">close</span> Empresas que buscan solo
+                presencia en redes o no están listas para invertir.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class={styles.faq}>
+      <div class="container">
+        <h2 class={`text-center ${styles.mb2}`}>Preguntas frecuentes</h2>
+        <div class={styles.grid2Faq}>
+          <div class={styles.faqItem}>
+            <h4>¿Es realmente gratuita?</h4>
+            <p>
+              Sí, 100% gratuita y sin compromiso. No tienes que contratar nada
+              después. Es una forma de mostrarte cómo trabajamos y cómo
+              podríamos ayudarte.
+            </p>
+          </div>
+          <div class={styles.faqItem}>
+            <h4>¿Qué obtengo al final?</h4>
+            <p>
+              Un análisis concreto de tu situación, un plan de acción
+              estratégico y una estimación de resultados posibles. Todo
+              personalizado, en base a tus objetivos y etapa digital.
+            </p>
+          </div>
+          <div class={styles.faqItem}>
+            <h4>¿Cómo es la dinámica?</h4>
+            <p>
+              La sesión dura 20 minutos, se hace por videollamada (Google Meet o
+              Zoom), y está dividida en dos partes: te conocemos y luego te
+              asesoramos con propuestas concretas.
+            </p>
+          </div>
+          <div class={styles.faqItem}>
+            <h4>¿Con quién es la sesión?</h4>
+            <p>
+              Un estratega de nuestro equipo de MediaBros, con experiencia real
+              gestionando campañas en toda LATAM para empresas como la tuya. No
+              es un bot, ni un vendedor junior.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section
+      class={`${styles.finalCta} ${styles.bgPrimary} ${styles.textWhite} text-center`}
+    >
+      <div class="container">
+        <h2>No te sigas perdiendo oportunidades por falta de estrategia.</h2>
+        <p class={styles.mb2}>
+          Agenda tu sesión gratuita y descubre qué está frenando tus resultados,
+          qué puedes mejorar y cómo hacerlo con foco.
+        </p>
+        <a href="#" class={styles.btnCtaWhite}
+          >📅 Quiero agendar mi sesión estratégica</a
+        >
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -7,10 +7,12 @@ interface Props {
 const { icon, title, description } = Astro.props;
 ---
 
-<div class="group bg-white rounded-lg border border-slate-100 p-8 flex flex-col gap-4 transition-all duration-[--transition-base] hover:-translate-y-1 hover:shadow-card-hover">
-  <div class="w-14 h-14 rounded-[1rem] bg-blue-50 text-brand-blue flex items-center justify-center transition-all duration-[--transition-base] group-hover:bg-brand-blue group-hover:text-white">
-    <span class="material-symbols-outlined text-[1.75rem]">{icon}</span>
+<div class="group bg-brand-graybg rounded-xl border border-black/3 p-6 md:p-8 flex flex-row items-start gap-4 transition-all duration-[--transition-base] hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20">
+  <div class="w-12 h-12 rounded-md bg-brand-blue text-white flex items-center justify-center shrink-0 transition-all duration-[--transition-base] group-hover:bg-brand-blue-hover">
+    <span class="material-symbols-outlined text-[1.5rem]">{icon}</span>
   </div>
-  <h3 class="font-display text-[1.1rem] font-bold text-text-dark m-0 tracking-tight">{title}</h3>
-  <p class="text-[0.9rem] text-text-muted m-0 leading-relaxed">{description}</p>
+  <div>
+    <h3 class="font-display text-lg font-bold text-text-dark m-0 mb-1 tracking-tight">{title}</h3>
+    <p class="text-sm text-text-muted m-0 leading-relaxed">{description}</p>
+  </div>
 </div>
