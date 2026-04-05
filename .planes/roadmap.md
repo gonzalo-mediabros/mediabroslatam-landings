@@ -53,21 +53,20 @@
 
 ## Fase 3: Unificacion y Pulido (PLAN MAESTRO - PLAN.md)
 
-- [ ] **FASE 0: Limpieza previa**
-  - [ ] Eliminar componentes huerfanos (8 archivos)
-  - [ ] Fix index2.astro contenido fuera de Layout
-  - [ ] Fix auditoria.astro title prop
-  - [ ] Eliminar clases redundantes en m-container
+- [x] **FASE 0: Limpieza previa**
+  - [x] Eliminar componentes huerfanos (8 archivos)
+  - [x] Fix index2.astro contenido fuera de Layout
+  - [x] Fix auditoria.astro title prop
+  - [x] Eliminar clases redundantes en m-container
 
-- [ ] **FASE 1: Componentes UI compartidos**
-  - [ ] FaqAccordion unificado (3 copias -> 1)
-  - [ ] Chip unificado (3 copias -> 1)
-  - [ ] Footer unificado (5 inline + 2 componentes -> 1)
-  - [ ] BenefitCard unificado (4 versiones -> 1)
+- [x] **FASE 1: Componentes UI compartidos**
+  - [x] FaqAccordion unificado (3 copias -> 1)
+  - [x] Chip unificado (3 copias -> 1)
+  - [x] Footer unificado (5 inline + 2 components -> 1)
+  - [x] BenefitCard unificado (4 versiones -> 1)
 
-- [ ] **FASE 2: Formularios**
-  - [ ] FormDark (basado en CourseForm2)
-  - [ ] FormLight (basado en CourseForm)
+- [x] **FASE 2: Formularios**
+  - [x] LeadForm.astro (Componente unificado con theme prop)
 
 - [ ] **FASE 3: Design tokens y consistencia visual**
   - [ ] Border-radius con tokens --radius-md/lg/xl

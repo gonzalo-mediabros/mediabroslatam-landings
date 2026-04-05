@@ -54,14 +54,14 @@ Crear componentes unificados en `src/components/ui/` a partir de duplicados exac
 - **Agents:** astro-ui-builder, astro-reviewer
 - **Recommended-IA:** Sonnet (requiere criterio para unificar variantes, pero no es arquitectura compleja)
 
-- [ ] **1.1. Crear src/components/ui/FaqAccordion.astro**
+- [x] **1.1. Crear src/components/ui/FaqAccordion.astro**
   - Fuentes: `src/components/auditoria/FaqAccordion.astro`, `src/components/diagnostico/FaqAccordion.astro`, `src/components/guia2/FaqAccordion.astro`
   - Las 3 copias son identicas byte-por-byte. Copiar una a `src/components/ui/`, eliminar las 3 originales.
   - Actualizar imports en: `guia.astro`, `diagnostico.astro`, `auditoria.astro`
   - **Riesgo:** Bajo. Copias identicas.
   - **Dependencias:** Ninguna.
 
-- [ ] **1.2. Crear src/components/ui/Chip.astro**
+- [x] **1.2. Crear src/components/ui/Chip.astro**
   - Fuentes: `src/components/diagnostico/Chip.astro`, `src/components/curso2/Chip2.astro` (identicos), `src/components/auditoria/Chip.astro` (ligeramente diferente)
   - Crear version unificada que acepte props para cubrir ambas variantes (ej: `variant` prop o `class` pass-through)
   - Eliminar las 3 originales.
@@ -69,7 +69,7 @@ Crear componentes unificados en `src/components/ui/` a partir de duplicados exac
   - **Riesgo:** Bajo-medio. La variante de auditoria tiene diferencias menores que deben cubrirse con props.
   - **Dependencias:** Ninguna.
 
-- [ ] **1.3. Crear src/components/ui/Footer.astro**
+- [x] **1.3. Crear src/components/ui/Footer.astro**
   - Referencia: footer inline de `index2.astro` (lineas 447-468) como base
   - Props necesarias:
     - `variant`: "dark" (default) | "light" (para index.astro que usa bg-brand-graybg)
@@ -80,7 +80,7 @@ Crear componentes unificados en `src/components/ui/` a partir de duplicados exac
   - **Riesgo:** Medio. Los footers inline tienen inconsistencias que hay que resolver (orden de elementos, colores, logo sizes). Requiere decision de diseno.
   - **Dependencias:** 0.4 (limpiar clases redundantes del m-container del footer antes de unificar).
 
-- [ ] **1.4. Crear src/components/ui/BenefitCard.astro**
+- [x] **1.4. Crear src/components/ui/BenefitCard.astro**
   - Fuentes:
     - `src/components/landing/BenefitCard.astro` (div root, p-6 md:p-8)
     - `src/components/auditoria/BenefitCard.astro` (m-col root, p-6 lg:p-8)
@@ -101,33 +101,30 @@ Crear componentes unificados en `src/components/ui/` a partir de duplicados exac
 
 Crear componentes de formulario unificados. Los forms actuales son solo HTML/CSS (sin logica de submit funcional). Si algun form tiene JS residual, se puede borrar — la logica de envio se implementara en una fase posterior.
 
+**nota**, los formularios originales no se borraran hasta que esta fase sea aprobada por el usuario.
+
 - **Agents:** astro-ui-builder, astro-designer, astro-reviewer
 - **Recommended-IA:** Sonnet (son componentes puramente visuales, sin logica compleja)
 
-- [ ] **2.1. Crear src/components/ui/FormDark.astro**
-  - Referencia: `src/components/curso2/CourseForm2.astro` (index2, mejor diseno)
-  - Es solo diseno, no hay logica de submit funcional. Si algun form tiene JS residual, borrarlo.
-  - Debe incluir:
-    - Glass-dark aesthetic (bg-white/5 backdrop-blur)
-    - Props: `buttonText`, `title`, `subtitle`, `class`
-    - Campos: nombre, email, empresa, cargo (hardcoded por ahora, parametrizar luego si hace falta)
-    - Rounded estandarizado con token `rounded-lg` (mapeado a --radius-lg via @theme)
-  - Reemplazar:
-    - `src/components/curso2/CourseForm2.astro` en index2.astro
-    - `src/components/auditoria/AuditoriaForm.astro` en auditoria.astro
-    - Form inline en diagnostico.astro (~200 lineas)
-  - **Riesgo:** Medio. Es solo visual, pero hay que verificar que se vea bien en cada contexto.
-  - **Dependencias:** Ninguna, pero validar visualmente despues de FASE 3 (border-radius).
+- [x] **2.1. Crear src/components/ui/LeadForm.astro (Componente Unificado)**
+  - Referencia: Forma `CourseForm2.astro` y forma `CourseForm.astro`.
+  - Crear un solo componente que soporte las 2 variantes usando una prop de tema.
+  - Props:
+    - `title` (opcional)
+    - `subtitle` (opcional)
+    - `buttonText` (opcional)
+    - `theme`: `"light"` | `"dark"` (default `"dark"`)
+  - Variante Dark: Estilos de `diagnostico.astro` e `index2.astro`.
+  - Variante Light: Estilos del form actual en `guia.astro`.
+  - Slot: Un slot (p. ej. `<slot name="footer" />`) debajo del botón para inyectar textos de seguridad o chips de forma dinámica.
+  - Opcional: Soporte para mensajes de suceso o error integrados (JS de form request).
+  - Reemplazar en:
+    - `index2.astro` (Variante Dark)
+    - `diagnostico.astro` (Variante Dark)
+    - `guia.astro` (Variante Light)
+    - `index.astro` (Variante Light)
 
-- [ ] **2.2. Crear src/components/ui/FormLight.astro**
-  - Referencia: `src/components/landing/CourseForm.astro` (white card, 2-col grid)
-  - Es solo diseno, no hay logica de submit funcional. Borrar JS residual si existe.
-  - Props: `buttonText`, `title`, `subtitle`, `class`
-  - Campos: nombre, email, empresa, cargo (hardcoded por ahora)
-  - Reemplazar:
-    - `src/components/landing/CourseForm.astro` en index.astro
-    - Form inline en guia.astro (~200 lineas)
-  - **Riesgo:** Medio. Misma razon que 2.1.
+  - **Riesgo:** Medio. Debe verse bien en contextos oscuros y claros con el mismo HTML devuelto.
   - **Dependencias:** Ninguna.
 
 ---
@@ -151,7 +148,7 @@ Limpiar global.css para seguir las mejores practicas de Tailwind v4, activar tok
     ```
     Con esto, `rounded-md`, `rounded-lg`, `rounded-xl` usan nuestros valores automaticamente. NO usar `rounded-[--radius-md]` — eso es un workaround innecesario.
   - **Limpiar reglas base redundantes:** las reglas `button, input { border-radius: var(--radius-md) }` e `img, video { border-radius: var(--radius-md) }` en global.css son problematicas — aplican radius a TODOS los inputs/imgs incluso cuando no se quiere. Evaluar si eliminarlas y confiar en las clases de Tailwind por componente.
-  - **Revisar `section { padding: 3rem 0 }` y `footer { padding: 2rem 0 }`:** estas reglas base se sobreescriben en cada seccion con py-*. Evaluar si eliminarlas o si sirven como fallback util.
+  - **Revisar `section { padding: 3rem 0 }` y `footer { padding: 2rem 0 }`:** estas reglas base se sobreescriben en cada seccion con py-\*. Evaluar si eliminarlas o si sirven como fallback util.
   - **Revisar colores duplicados:** `--color-slate-*` duplica colores que Tailwind v4 ya tiene nativamente (slate-50, slate-100, etc). Eliminar los duplicados y usar los nativos de Tailwind.
   - **Revisar `.titleCapitalice`:** clase utilitaria custom con typo en el nombre. Evaluar si convertir a clases de Tailwind o renombrar.
   - Archivos: `src/styles/global.css`
@@ -298,18 +295,18 @@ Revision cruzada de consistencia y calidad. La revision responsive ya se hizo en
 
 ### Decisiones de estandarizacion
 
-| Elemento | Valor estandar | Clase Tailwind v4 | Referencia |
-|----------|---------------|-------------------|-----------|
-| Logo hero | h-10 | `h-10` | index2.astro |
-| Logo footer | h-8 | `h-8` | Nuevo estandar |
-| Section spacing | py-16 (ligero) / py-20 (contenido) | `py-16` / `py-20` | index2.astro |
-| Border-radius inputs/buttons | 12px | `rounded-md` (via @theme --radius-md) | global.css token |
-| Border-radius cards/forms | 24px | `rounded-lg` (via @theme --radius-lg) | global.css token |
-| Border-radius decorativo | 32px | `rounded-xl` (via @theme --radius-xl) | global.css token |
-| Glow opacity | 10% estandar | `opacity-10` | index2.astro |
-| Footer variant default | dark (bg-brand-dark) | `bg-brand-dark` | Mayoria de paginas |
-| Form dark glass | bg-white/5 backdrop-blur | `bg-white/5 backdrop-blur-xl` | CourseForm2.astro |
-| Layout pattern | section > m-container > m-row > m-col | N/A (web components) | CLAUDE.md regla |
+| Elemento                     | Valor estandar                        | Clase Tailwind v4                     | Referencia         |
+| ---------------------------- | ------------------------------------- | ------------------------------------- | ------------------ |
+| Logo hero                    | h-10                                  | `h-10`                                | index2.astro       |
+| Logo footer                  | h-8                                   | `h-8`                                 | Nuevo estandar     |
+| Section spacing              | py-16 (ligero) / py-20 (contenido)    | `py-16` / `py-20`                     | index2.astro       |
+| Border-radius inputs/buttons | 12px                                  | `rounded-md` (via @theme --radius-md) | global.css token   |
+| Border-radius cards/forms    | 24px                                  | `rounded-lg` (via @theme --radius-lg) | global.css token   |
+| Border-radius decorativo     | 32px                                  | `rounded-xl` (via @theme --radius-xl) | global.css token   |
+| Glow opacity                 | 10% estandar                          | `opacity-10`                          | index2.astro       |
+| Footer variant default       | dark (bg-brand-dark)                  | `bg-brand-dark`                       | Mayoria de paginas |
+| Form dark glass              | bg-white/5 backdrop-blur              | `bg-white/5 backdrop-blur-xl`         | CourseForm2.astro  |
+| Layout pattern               | section > m-container > m-row > m-col | N/A (web components)                  | CLAUDE.md regla    |
 
 ### Tailwind v4: como funcionan los tokens de radius
 
@@ -317,9 +314,9 @@ En Tailwind v4, al definir `--radius-md: 12px` en `@theme {}`, la clase `rounded
 
 ```css
 @theme {
-  --radius-md: 12px;   /* -> rounded-md = 12px */
-  --radius-lg: 24px;   /* -> rounded-lg = 24px */
-  --radius-xl: 32px;   /* -> rounded-xl = 32px */
+  --radius-md: 12px; /* -> rounded-md = 12px */
+  --radius-lg: 24px; /* -> rounded-lg = 24px */
+  --radius-xl: 32px; /* -> rounded-xl = 32px */
 }
 ```
 

@@ -1,9 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import CourseForm2 from "../components/curso2/CourseForm2.astro";
-import Footer2 from "../components/curso2/Footer2.astro";
-import Chip2 from "../components/curso2/Chip2.astro";
-import BenefitCard2 from "../components/curso2/BenefitCard.astro";
+import LeadForm from "../components/ui/LeadForm.astro";
+import Footer from "../components/ui/Footer.astro";
+import Chip from "../components/ui/Chip.astro";
+import BenefitCard from "../components/ui/BenefitCard.astro";
 
 const BASE = import.meta.env.BASE_URL;
 ---
@@ -39,7 +39,7 @@ const BASE = import.meta.env.BASE_URL;
             />
           </div>
 
-          <Chip2 text="Multiplica tus leads" icon="verified" class="mb-6" />
+          <Chip text="Multiplica tus leads" icon="verified" class="mb-6 bg-brand-blue/10 border-brand-blue/30 text-blue-400" />
 
           <h1
             class="font-display font-extrabold leading-[1.1] tracking-tight text-white max-w-150 mb-2 text-[clamp(2.5rem,3.5vw,3.5rem)] text-balance"
@@ -57,7 +57,17 @@ const BASE = import.meta.env.BASE_URL;
 
         <!-- Right: Form -->
         <m-col class="flex-[0.8]">
-          <CourseForm2 />
+          <LeadForm 
+            theme="dark" 
+            title="Acceder al curso gratuito" 
+            subtitle="Completa tus datos para empezar ahora mismo y recibir la guía estratégica." 
+            buttonText="ACCEDER AL CURSO GRATUITO"
+          >
+            <div slot="footer" class="footer-item w-full justify-center">
+              <m-icon class="material-symbols-outlined">lock</m-icon>
+              <span>Tus datos están seguros y no enviamos spam.</span>
+            </div>
+          </LeadForm>
         </m-col>
       </m-row>
     </m-container>
@@ -178,31 +188,35 @@ const BASE = import.meta.env.BASE_URL;
 
       <m-row class="flex-col md:flex-row flex-wrap gap-6">
         <!-- Benefit 1 -->
-        <BenefitCard2
+        <BenefitCard
           title="Diagnóstico Guiado"
           description="Aprenderás a identificar errores comunes."
           icon="vital_signs"
+          class="md:flex-[1_1_45%] p-6 md:p-10"
         />
 
         <!-- Benefit 2 -->
-        <BenefitCard2
+        <BenefitCard
           title="Claridad estratégica"
           description="Descubrirás qué canales son los adecuados."
           icon="map"
+          class="md:flex-[1_1_45%] p-6 md:p-10"
         />
 
         <!-- Benefit 3 -->
-        <BenefitCard2
+        <BenefitCard
           title="Casos reales"
           description="Casos concretos en sectores logísticos y construcción."
           icon="stacks"
+          class="md:flex-[1_1_45%] p-6 md:p-10"
         />
 
         <!-- Benefit 4 -->
-        <BenefitCard2
+        <BenefitCard
           title="Acción inmediata"
           description="Llamado a la acción claro para avanzar con solidez."
           icon="bolt"
+          class="md:flex-[1_1_45%] p-6 md:p-10"
         />
       </m-row>
     </m-container>
@@ -443,28 +457,5 @@ const BASE = import.meta.env.BASE_URL;
   </section>
   <!-- end #dark-block -->
 
-  <!-- ----- FOOTER ----- -->
-  <footer id="footer" class="bg-brand-dark py-12 lg:py-16 text-slate-400 text-sm">
-    <m-container>
-      <div class="flex flex-col items-center text-center gap-6">
-        <img
-          src={`${BASE}logo.svg`}
-          alt="Mediabros"
-          class="h-10 opacity-50 saturate-80"
-        />
-
-        <p class="font-medium text-slate-500">
-          &copy; {new Date().getFullYear()} mediabroslatam.com ALL RIGHTS RESERVED.
-        </p>
-        <div class="w-full h-px bg-white/5 my-4"></div>
-        <p class="max-w-2xl leading-relaxed text-slate-500 text-xs">
-          This site is not part of the Meta website or Meta Inc. Additionally,
-          this site is NOT endorsed by Meta in any way. META is a trademark of
-          META, Inc.
-        </p>
-      </div>
-    </m-container>
-  </footer>
-  <!-- ----- FOOTER ----- -->
-  <!-- <Footer2 /> -->
+  <Footer />
 </Layout>

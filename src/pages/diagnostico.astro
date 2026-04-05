@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Chip from "../components/diagnostico/Chip.astro";
-import BenefitCard from "../components/diagnostico/BenefitCard.astro";
+import LeadForm from "../components/ui/LeadForm.astro";
+import Chip from "../components/ui/Chip.astro";
+import BenefitCard from "../components/ui/BenefitCard.astro";
 import TestimonialCard from "../components/diagnostico/TestimonialCard.astro";
-import FaqAccordion from "../components/diagnostico/FaqAccordion.astro";
+import FaqAccordion from "../components/ui/FaqAccordion.astro";
+import Footer from "../components/ui/Footer.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -68,123 +70,25 @@ const base = import.meta.env.BASE_URL;
 
           <!-- Form Card -->
           <m-col class="w-full lg:max-w-[480px] shrink-0">
-            <div
-              class="bg-[rgba(22,26,41,0.8)] backdrop-blur-xl border border-white/10 rounded-xl p-8 lg:p-10 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]"
+            <LeadForm
+              theme="dark"
+              title="Agenda tu sesión"
+              subtitle="Completa el formulario y nos contactamos contigo para agendar tu sesión gratuita 1 a 1 con un experto."
+              buttonText="¡Quiero mi sesión!"
             >
-              <h3
-                class="text-2xl font-display font-bold text-white mb-2 text-center"
-              >
-                Agenda tu sesión
-              </h3>
-              <p class="text-text-light text-center mb-8 text-sm">
-                Completa el formulario y nos contactamos contigo para agendar tu
-                sesión gratuita 1 a 1 con un experto.
-              </p>
-
-              <form
-                class="flex flex-col gap-4"
-                onsubmit="event.preventDefault();"
-              >
-                <div class="flex flex-col gap-1.5">
-                  <label
-                    for="nombre"
-                    class="block text-xs font-semibold text-text-light uppercase tracking-wide ml-1"
-                    >Nombre completo</label
-                  >
-                  <input
-                    id="nombre"
-                    name="nombre"
-                    type="text"
-                    placeholder="Ej. Juan Pérez"
-                    class="w-full py-4 px-5 bg-white/5 border border-white/10 rounded-md text-white placeholder:text-white/30 outline-none transition-all focus:border-brand-blue focus:bg-white/8"
-                    required
-                  />
-                </div>
-
-                <div class="flex flex-col gap-1.5">
-                  <label
-                    for="website"
-                    class="block text-xs font-semibold text-text-light uppercase tracking-wide ml-1"
-                    >Sitio web</label
-                  >
-                  <input
-                    id="website"
-                    name="website"
-                    type="url"
-                    placeholder="Ej. www.tuempresa.com"
-                    class="w-full py-4 px-5 bg-white/5 border border-white/10 rounded-md text-white placeholder:text-white/30 outline-none transition-all focus:border-brand-blue focus:bg-white/8"
-                    required
-                  />
-                </div>
-
-                <div class="flex flex-col gap-1.5">
-                  <label
-                    for="email"
-                    class="block text-xs font-semibold text-text-light uppercase tracking-wide ml-1"
-                    >Correo corporativo</label
-                  >
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="juan@tuempresa.com"
-                    class="w-full py-4 px-5 bg-white/5 border border-white/10 rounded-md text-white placeholder:text-white/30 outline-none transition-all focus:border-brand-blue focus:bg-white/8"
-                    required
-                  />
-                </div>
-
-                <div class="flex flex-col gap-1.5">
-                  <label
-                    for="telefono"
-                    class="block text-xs font-semibold text-text-light uppercase tracking-wide ml-1"
-                    >Teléfono (WhatsApp)</label
-                  >
-                  <input
-                    id="telefono"
-                    name="telefono"
-                    type="tel"
-                    placeholder="+54 9 11 1234-5678"
-                    class="w-full py-4 px-5 bg-white/5 border border-white/10 rounded-md text-white placeholder:text-white/30 outline-none transition-all focus:border-brand-blue focus:bg-white/8"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  class="w-full mt-4 py-5 bg-brand-blue text-white border-none rounded-lg font-display font-bold uppercase tracking-wide cursor-pointer transition-all hover:bg-brand-blue-hover hover:-translate-y-0.5 shadow-blue"
-                >
-                  ¡Quiero mi sesión!
-                </button>
-              </form>
-
-              <!-- Badges -->
-              <div class="flex flex-wrap justify-center gap-3 mt-8">
-                <span
-                  class="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full"
-                >
-                  <m-icon
-                    class="material-symbols-outlined text-[16px] text-green"
-                    >paid</m-icon
-                  > Gratuito
-                </span>
-                <span
-                  class="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full"
-                >
-                  <m-icon
-                    class="material-symbols-outlined text-[16px] text-brand-blue"
-                    >verified</m-icon
-                  > Validado
-                </span>
-                <span
-                  class="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full"
-                >
-                  <m-icon
-                    class="material-symbols-outlined text-[16px] text-slate-400"
-                    >security</m-icon
-                  > Asegurado
-                </span>
+              <div slot="footer" class="footer-item">
+                <m-icon class="material-symbols-outlined">paid</m-icon>
+                <span>Gratuito</span>
               </div>
-            </div>
+              <div slot="footer" class="footer-item">
+                <m-icon class="material-symbols-outlined">verified</m-icon>
+                <span>Validado</span>
+              </div>
+              <div slot="footer" class="footer-item">
+                <m-icon class="material-symbols-outlined">security</m-icon>
+                <span>Asegurado</span>
+              </div>
+            </LeadForm>
           </m-col>
         </m-row>
       </m-container>
@@ -630,31 +534,5 @@ const base = import.meta.env.BASE_URL;
     </section>
   </main>
 
-  <!-- ----- FOOTER ----- -->
-  <footer
-    id="footer"
-    class="bg-brand-dark py-12 lg:py-16 text-slate-400 text-sm"
-  >
-    <m-container class="max-w-[--width-content] mx-auto px-5 lg:px-8">
-      <div class="flex flex-col items-center text-center gap-6">
-        <img
-          src={`${base}logo.svg`}
-          alt="Mediabros"
-          class="h-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-base"
-        />
-
-        <p class="max-w-2xl leading-relaxed text-slate-500 text-xs">
-          This site is not part of the Meta website or Meta Inc. Additionally,
-          this site is NOT endorsed by Meta in any way. META is a trademark of
-          META, Inc.
-        </p>
-
-        <div class="w-full h-px bg-white/5 my-4"></div>
-
-        <p class="font-medium text-slate-500">
-          &copy; {new Date().getFullYear()} mediabroslatam.com ALL RIGHTS RESERVED.
-        </p>
-      </div>
-    </m-container>
-  </footer>
+  <Footer />
 </Layout>
