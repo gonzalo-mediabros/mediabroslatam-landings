@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import LeadForm from "../components/ui/LeadForm.astro";
 import BenefitCard from "../components/ui/BenefitCard.astro";
-import TestimonialCard from "../components/auditoria/TestimonialCard.astro";
+import TestimonialCard from "../components/ui/TestimonialCard.astro";
 import FaqAccordion from "../components/ui/FaqAccordion.astro";
 import Footer from "../components/ui/Footer.astro";
 
@@ -27,7 +27,11 @@ const base = import.meta.env.BASE_URL;
         <m-row class="flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <!-- Columna Texto -->
           <m-col class="flex-[1.2] items-start">
-            <img src={`${base}logo.svg`} alt="Mediabros" class="h-10 w-auto mb-12" />
+            <img
+              src={`${base}logo.svg`}
+              alt="Mediabros"
+              class="h-10 w-auto mb-12"
+            />
             <h1
               class="text-[clamp(2.5rem,3.5vw,3.5rem)] font-display font-black leading-[1.1] mb-6 tracking-tight text-white text-balance"
             >
@@ -36,9 +40,7 @@ const base = import.meta.env.BASE_URL;
               > con Google Ads y SEO
             </h1>
 
-            <p
-              class="text-lg text-text-light mb-8 max-w-2xl leading-relaxed"
-            >
+            <p class="text-lg text-text-light mb-8 max-w-2xl leading-relaxed">
               Realizamos una auditoría profesional de tu cuenta publicitaria o
               posicionamiento orgánico para identificar errores clave y
               oportunidades concretas de mejora, en solo 48 horas.
@@ -86,11 +88,11 @@ const base = import.meta.env.BASE_URL;
                 class="absolute -right-20 -top-20 w-72 h-72 bg-brand-blue/10 rounded-full blur-[100px] pointer-events-none"
               >
               </div>
-              <LeadForm 
-                theme="dark" 
-                title="Solicita tu Auditoría" 
-                subtitle="Completa los datos y te contactaremos para coordinar." 
-                buttonText="Solicitar Auditoría Gratis" 
+              <LeadForm
+                theme="dark"
+                title="Solicita tu Auditoría"
+                subtitle="Completa los datos y te contactaremos para coordinar."
+                buttonText="Solicitar Auditoría Gratis"
               >
                 <div slot="footer" class="footer-item">
                   <m-icon class="material-symbols-outlined">money_off</m-icon>
@@ -113,9 +115,7 @@ const base = import.meta.env.BASE_URL;
 
     <!-- ----- DELIVERABLES ----- -->
     <section id="deliverables" class="py-20 bg-white relative">
-      <m-container
-        class="relative z-10"
-      >
+      <m-container class="relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-16">
           <p class="titleCapitalice text-brand-blue">El Reporte</p>
           <h2
