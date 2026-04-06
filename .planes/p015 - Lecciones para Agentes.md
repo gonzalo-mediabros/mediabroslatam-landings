@@ -1,6 +1,8 @@
-# P014 — Lecciones Aprendidas para Agentes
+# P015 — Lecciones Aprendidas para Agentes
 
-Aprendizajes genericos extraidos del plan P014 (Unificacion y Pulido). No son especificos de este proyecto — son patrones reutilizables para cualquier proyecto Astro con Tailwind v4.
+Aprendizajes genericos extraidos del plan P014 (Unificacion y Pulido) y refinamientos aplicados al set de agentes en Abril 2026. No son especificos de este proyecto — son patrones reutilizables para cualquier proyecto Astro con Tailwind v4.
+
+**Estado:** Aplicado a los agentes en `C:\Users\Gonzalo\.claude\agents\` el 2026-04-06.
 
 ---
 
@@ -167,3 +169,24 @@ Limpieza -> Componentes UI -> Formularios -> Tokens/Design -> Layout/Estructura 
 ```
 
 Este orden minimiza regresiones porque cada fase opera sobre una base mas limpia que la anterior.
+
+---
+
+## Actualizaciones de agentes — 2026-04-06
+
+### astro-architect
+- Incorpora el contenido completo de `astro-gh-pages.md` como skill de referencia.
+- Ahora genera **siempre** la sección `## INDICE DE CONTROL GH PAGES (Checklist)` en cada PLAN.md (4 fases: despegue, imagenes, forms, dominio custom).
+
+### astro-designer
+- Nueva seccion explicita de **Tailwind v4 best practices**: orden de `@import`, prohibicion de tokens duplicados, sintaxis correcta de opacidades, prohibicion de `@apply`, consistencia de spacing entre secciones.
+
+### astro-ui-builder
+- Nueva regla: **deteccion proactiva de componentes**. Si un patron visual se repite 2+ veces, el agente debe pausar y proponer la extraccion como componente antes de continuar. Siempre con confirmacion del usuario.
+
+### astro-reviewer
+- Nuevo **CHECK 0**: antes de auditar, leer CLAUDE.md y todos los agentes. Documenta que versiones leyo. Evita auditorias basadas en contratos desactualizados.
+
+### planner
+- La regla de modelo ahora es mas granular: Haiku (boilerplate/mecanico), Sonnet (balance, mayoria del trabajo), Opus (solo arquitectura critica o trade-offs complejos). Instrucciones para agrupar subtareas y minimizar arranques de contexto.
+- **Cada fase del plan ahora termina con un punto de revision** que invoca a `astro-reviewer` para auditar antes de pasar a la siguiente fase.

@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Navigation from "../components/ui/Navigation.astro";
 
 interface Props {
   title: string;
@@ -31,13 +32,6 @@ const socialImage = new URL(finalImage, Astro.site || Astro.url).href;
 const shouldNoIndex = GLOBAL_NOINDEX || noindex;
 
 const { pathname } = Astro.url;
-
-// Función para normalizar y comparar rutas
-const isActive = (path: string) => {
-  const normalizedPath = path.endsWith("/") ? path : `${path}/`;
-  const normalizedCurrent = pathname.endsWith("/") ? pathname : `${pathname}/`;
-  return normalizedCurrent === normalizedPath;
-};
 ---
 
 <!doctype html>
@@ -81,42 +75,7 @@ const isActive = (path: string) => {
     />
   </head>
   <body>
-    <nav
-      class="dev-nav flex gap-8 top-0 left-0 z-1000 bg-brand-graybg w-full px-8 py-3 text-sm font-medium"
-    >
-      <span class="text-blue">Menu temporal de desarrollo</span>
-      <a
-        href={import.meta.env.BASE_URL}
-        class={isActive(import.meta.env.BASE_URL)
-          ? "underline decoration-2 underline-offset-4 text-blue"
-          : "text-gray-600 hover:text-blue transition-colors"}>Curso</a
-      >
-      <a
-        href={`${import.meta.env.BASE_URL}index2`}
-        class={isActive(`${import.meta.env.BASE_URL}index2`)
-          ? "underline decoration-2 underline-offset-4 text-blue"
-          : "text-gray-600 hover:text-blue transition-colors"}>Curso v2</a
-      >
-      <a
-        href={`${import.meta.env.BASE_URL}guia`}
-        class={isActive(`${import.meta.env.BASE_URL}guia`)
-          ? "underline decoration-2 underline-offset-4 text-blue"
-          : "text-gray-600 hover:text-blue transition-colors"}>Guía</a
-      >
-      <a
-        href={`${import.meta.env.BASE_URL}auditoria`}
-        class={isActive(`${import.meta.env.BASE_URL}auditoria`)
-          ? "underline decoration-2 underline-offset-4 text-blue"
-          : "text-gray-600 hover:text-blue transition-colors"}>Auditoría</a
-      >
-      <a
-        href={`${import.meta.env.BASE_URL}diagnostico`}
-        class={isActive(`${import.meta.env.BASE_URL}diagnostico`)
-          ? "underline decoration-2 underline-offset-4 text-blue"
-          : "text-gray-600 hover:text-blue transition-colors"}>Diagnóstico</a
-      >
-    </nav>
-
+    <Navigation pathname={pathname} />
     <slot />
   </body>
 </html>

@@ -1,0 +1,128 @@
+---
+interface Props {
+  pathname?: string;
+}
+
+const { pathname = "/" } = Astro.props;
+
+// Función para normalizar y comparar rutas
+const isActive = (path: string) => {
+  const normalizedPath = path.endsWith("/") ? path : `${path}/`;
+  const normalizedCurrent = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  return normalizedCurrent === normalizedPath;
+};
+
+const navItems = [
+  { label: "Curso", href: import.meta.env.BASE_URL },
+  { label: "Curso v2", href: `${import.meta.env.BASE_URL}index2` },
+  { label: "Guía", href: `${import.meta.env.BASE_URL}guia` },
+  { label: "Auditoría", href: `${import.meta.env.BASE_URL}auditoria` },
+  { label: "Diagnóstico", href: `${import.meta.env.BASE_URL}diagnostico` },
+];
+---
+
+<nav class="dev-nav bg-brand-graybg text-sm font-medium">
+  <!-- Desktop Navigation -->
+  <div class="hidden md:flex gap-8 w-full px-8 py-3 items-center">
+    <span class="text-blue">MENU DEV</span>
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class={
+            isActive(item.href)
+              ? "underline decoration-2 underline-offset-4 text-blue"
+              : "text-gray-600 hover:text-blue transition-colors"
+          }
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div
+    class="md:hidden flex justify-between items-center w-full px-8 py-3 relative"
+  >
+    <span class="text-blue text-xs"></span>
+    <button
+      id="burger-btn"
+      class="material-icons text-blue cursor-pointer"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      menu
+    </button>
+  </div>
+
+  <!-- Mobile Slide Menu -->
+  <div
+    id="mobile-menu"
+    class="fixed top-0 right-0 h-full w-3/4 max-w-xs bg-brand-graybg shadow-lg translate-x-full transition-transform duration-300 z-50 md:hidden flex flex-col"
+  >
+    <div class="flex justify-end p-4">
+      <button
+        id="close-btn"
+        class="material-icons text-blue cursor-pointer"
+        aria-label="Close menu"
+      >
+        close
+      </button>
+    </div>
+    <nav class="flex flex-col gap-0">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class={`px-8 py-4 border-b border-gray-200 transition-colors ${
+              isActive(item.href)
+                ? "text-blue bg-gray-100 font-semibold"
+                : "text-gray-600 hover:text-blue hover:bg-gray-50"
+            }`}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    id="menu-overlay"
+    class="fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-40 md:hidden"
+  >
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burgerBtn = document.getElementById("burger-btn");
+    const closeBtn = document.getElementById("close-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuOverlay = document.getElementById("menu-overlay");
+    const navLinks = mobileMenu?.querySelectorAll("a");
+
+    const openMenu = () => {
+      mobileMenu?.classList.remove("translate-x-full");
+      menuOverlay?.classList.remove("opacity-0", "invisible");
+      burgerBtn?.setAttribute("aria-expanded", "true");
+    };
+
+    const closeMenu = () => {
+      mobileMenu?.classList.add("translate-x-full");
+      menuOverlay?.classList.add("opacity-0", "invisible");
+      burgerBtn?.setAttribute("aria-expanded", "false");
+    };
+
+    burgerBtn?.addEventListener("click", openMenu);
+    closeBtn?.addEventListener("click", closeMenu);
+    menuOverlay?.addEventListener("click", closeMenu);
+
+    // Close menu when clicking a link
+    navLinks?.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  });
+</script>

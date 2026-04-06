@@ -1,4 +1,4 @@
-# GEMINI.md
+# Astro Landing Pages
 
 ## Project Overview
 
@@ -12,23 +12,13 @@ The goal of this project is to build a scalable system of landing pages for diff
 - Diagnóstico (Diagnosis)
 - Additional campaign-specific pages
 
-## Current Status
-
-The project is currently in a **migration phase** from a previous platform.
-
-During this process, the team is:
-
-- Refactoring and cleaning the codebase
-- Improving design consistency
-- Enhancing layout structure and spacing
-- Making components modular and reusable
-- Optimizing content for clarity and conversion
-
-A temporary **quick navigation menu** has been implemented to support development and internal navigation across multiple landing pages.
-
 ## Deployment
 
 The project will be deployed using **GitHub Pages (gh-pages)**.
+
+## Current Status
+
+./planes/roadmap.md
 
 ## Tech & Architecture
 
@@ -63,38 +53,9 @@ The workflow is supported by specialized Astro agents, each responsible for a sp
 - **planner.md**
   The agent must identify the highest number in .planes/, create the next pNNN + 1 file, and document the execution plan there before starting.
 
-## Mandatory Protocol
+## Objective
 
-**MANDATORY:** Never proceed from the planning phase (writing/editing files in `.planes/`) to the execution phase (creating or modifying project code files) without explicit authorization from the user. The approval of a plan document does NOT constitute an automatic green light for execution.
-
----
-
-## Plan Format Standard
-
-All plan files in `.planes/` must follow this structure for maximum legibility and tracking:
-
-# PLAN [ID]: [Short Description]
-
-[Introductory paragraph explaining the purpose, scope, and technical context of the plan.]
-
-- **Agents:** [List of agents involved]
-- **Skills/Tools:** [Relevant skills to be used]
-- **Recommended IA:** [Model recommendation for execution (e.g., Gemini Pro/Ultra)]
-
----
-
-## 1. Fase 1: [Phase Name]
-
-- [ ] **1.1. [Task Name]**
-  - [ ] 1.1.1. [Sub-task detail]
-  - [ ] 1.1.2. [Sub-task detail]
-- [ ] **1.2. [Task Name]**
-
-## 2. Fase 2: [Phase Name]
-
-- [ ] **2.1. [Task Name]**
-
----
+Deliver a clean, scalable, and high-converting landing page system aligned with Mediabros' growth and marketing needs.
 
 ## Component Isolation per Landing
 
@@ -113,17 +74,7 @@ Each landing page is **independent**. Components (Header, Footer, forms, etc.) b
 - Max-widths must use centralized tokens: `--width-content`, `--width-wide`, `--width-full`.
 - No CSS Modules (`.module.css` files). No inline styles.
 - Use Web Components for layout: `<m-container>`, `<m-row>`, `<m-col>`.
-- Every `<section>` must have a comment separator (`<!-- ----- NAME ----- -->`) and a unique `id`.
+- Every `<section>` must have a comment separator (`<!-- --------------------------- NAME --------------------------- -->`) and a unique `id`.
 - When adapting external Tailwind designs, replace hardcoded values with project @theme tokens.
 - Use Google Fonts Icons.
 - Deploy using GitHub Pages (gh-pages).
-
-## Notes
-
-- The HTML structure may be constrained in some areas due to migration limitations.
-- Improvements should prioritize token-based Tailwind patterns when structural changes are not possible.
-- The system should remain flexible to support rapid iteration and future campaign pages.
-
-## Objective
-
-Deliver a clean, scalable, and high-converting landing page system aligned with Mediabros' growth and marketing needs.
