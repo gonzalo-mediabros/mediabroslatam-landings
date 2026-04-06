@@ -136,7 +136,7 @@ Limpiar global.css para seguir las mejores practicas de Tailwind v4, activar tok
 - **Agents:** astro-designer, astro-reviewer
 - **Recommended-IA:** Sonnet (aplicacion sistematica de reglas, no requiere razonamiento complejo)
 
-- [ ] **3.0. Limpiar global.css y alinear con Tailwind v4 best practices**
+- [x] **3.0. Limpiar global.css y alinear con Tailwind v4 best practices**
   - Tailwind v4 mapea automaticamente los tokens de `@theme` a clases utilitarias. Los tokens `--radius-*` ya definidos en `@theme` generan las clases `rounded-md`, `rounded-lg`, `rounded-xl` automaticamente.
   - **Verificar que Tailwind v4 esta usando nuestros tokens:** al definir `--radius-md: 12px` en `@theme`, la clase `rounded-md` deberia aplicar 12px (no el default de Tailwind de 6px). Si no funciona asi, usar la sintaxis correcta de Tailwind v4:
     ```css
@@ -155,7 +155,7 @@ Limpiar global.css para seguir las mejores practicas de Tailwind v4, activar tok
   - **Riesgo:** Medio-alto. Cambiar tokens puede afectar todo el sitio. Hacer build + revision visual despues.
   - **Dependencias:** Antes de 3.1 (los demas cambios de radius dependen de que el theme este limpio).
 
-- [ ] **3.1. Estandarizar border-radius con tokens nativos de Tailwind v4**
+- [x] **3.1. Estandarizar border-radius con tokens nativos de Tailwind v4**
   - Una vez que 3.0 confirme que `rounded-md/lg/xl` usan nuestros tokens:
   - Regla de aplicacion (basada en index2 como referencia):
     - `rounded-md` (12px): inputs, buttons, chips, tags, imagenes
@@ -169,7 +169,7 @@ Limpiar global.css para seguir las mejores practicas de Tailwind v4, activar tok
   - **Riesgo:** Medio. Cambio visual amplio pero predecible. Requiere revision visual pagina por pagina.
   - **Dependencias:** 3.0 completada.
 
-- [ ] **3.2. Estandarizar logo sizes**
+- [x] **3.2. Estandarizar logo sizes**
   - Regla: h-10 en hero, h-8 en footer
   - Archivos:
     - `index.astro`: verificar hero logo (deberia ser h-10), footer logo (h-8)
@@ -180,7 +180,7 @@ Limpiar global.css para seguir las mejores practicas de Tailwind v4, activar tok
   - **Riesgo:** Bajo. Cambio aislado.
   - **Dependencias:** 1.3 (si el Footer unificado ya estandariza esto, solo queda el hero).
 
-- [ ] **3.3. Estandarizar spacing entre secciones**
+- [x] **3.3. Estandarizar spacing entre secciones**
   - Referencia: index2.astro usa `py-16` y `py-20` (mas ligero, mejor ritmo visual)
   - Las demas paginas usan `py-24` de forma uniforme, index.astro usa `py-24 md:py-32` (excesivo)
   - Propuesta: estandarizar a `py-16` para secciones ligeras (trust strips, cert strips) y `py-20` para secciones de contenido principal
@@ -189,7 +189,7 @@ Limpiar global.css para seguir las mejores practicas de Tailwind v4, activar tok
   - **Riesgo:** Medio. Cambio visual perceptible. Requiere revision por pagina.
   - **Dependencias:** Ninguna.
 
-- [ ] **3.4. Estandarizar glow/gradient patterns**
+- [x] **3.4. Estandarizar glow/gradient patterns**
   - Referencia: index2.astro usa buenos gradientes (dark-block: blue opacity-10 + purple opacity-10)
   - Inconsistencias actuales: opacidades de 5%, 10%, 15%, 20%, 30% usadas sin criterio
   - Propuesta: definir 2-3 patrones de glow reutilizables:
@@ -212,7 +212,7 @@ Refactorizar paginas que no respetan el patron `section > m-container > m-row > 
 - **Agents:** astro-architect, astro-ui-builder, astro-reviewer
 - **Recommended-IA:** Opus (refactor estructural con riesgo de romper layouts, requiere razonamiento sobre semantica y layout)
 
-- [ ] **4.1. Refactorizar index.astro hero**
+- [x] **4.1. Refactorizar index.astro hero**
   - Estado actual: usa `<section>`, `div.grid`, grid de 12 columnas con divs
   - Objetivo: `<header> > m-container > m-row > m-col` (como index2.astro)
   - Mantener el diseno visual, cambiar solo la estructura HTML
@@ -220,33 +220,33 @@ Refactorizar paginas que no respetan el patron `section > m-container > m-row > 
   - **Riesgo:** Alto. El hero es lo primero que se ve. Cualquier regresion visual es inmediatamente visible.
   - **Dependencias:** FASE 1 completada (menos componentes duplicados que complicar el refactor).
 
-- [ ] **4.2. Refactorizar index.astro form section**
+- [x] **4.2. Refactorizar index.astro form section**
   - Estado actual: usa `div + max-w-4xl` hardcoded
   - Objetivo: `section > m-container > m-row > m-col`
   - Eliminar max-w-4xl hardcoded, usar el width de m-container
   - **Riesgo:** Medio.
   - **Dependencias:** 2.2 (FormLight ya deberia estar creado).
 
-- [ ] **4.3. Refactorizar index.astro course section**
+- [x] **4.3. Refactorizar index.astro course section**
   - Estado actual: usa `div.grid.grid-cols-12`
   - Objetivo: `section > m-container > m-row > m-col`
   - **Riesgo:** Medio.
   - **Dependencias:** Ninguna.
 
-- [ ] **4.4. Corregir diagnostico.astro agitation section**
+- [x] **4.4. Corregir diagnostico.astro agitation section**
   - Estado actual: usa raw grid con `max-w-5xl mx-auto`
   - Objetivo: `section > m-container > m-row > m-col`
   - **Riesgo:** Medio.
   - **Dependencias:** Ninguna.
 
-- [ ] **4.5. Corregir auditoria.astro: estructura y responsive**
+- [x] **4.5. Corregir auditoria.astro: estructura y responsive**
   - Process section: usa raw grid -> refactorizar a `section > m-container > m-row > m-col`
   - Testimonials grid: `grid-cols-3` se aplica en mobile (bug) -> corregir a `grid-cols-1 md:grid-cols-2 lg:grid-cols-3`
   - **Revision responsive integral de auditoria.astro**: esta pagina tiene multiples problemas de responsive conocidos. Verificar en 320px, 375px, 768px, 1024px, 1440px despues de aplicar todos los cambios de esta fase y las anteriores.
   - **Riesgo:** Medio-alto. Es la pagina con mas problemas acumulados.
   - **Dependencias:** Fases 1-3 completadas (muchos fixes de responsive vienen de la unificacion de componentes y tokens).
 
-- [ ] **4.6. Revision responsive de todas las paginas**
+- [x] **4.6. Revision responsive de todas las paginas**
   - Verificar todas las paginas en: 320px, 375px, 768px, 1024px, 1440px
   - Puntos criticos:
     - Hero layouts en tablet (m-row debe hacer flex-col en mobile)
@@ -266,22 +266,22 @@ Revision cruzada de consistencia y calidad. La revision responsive ya se hizo en
 - **Agents:** astro-reviewer, astro-designer
 - **Recommended-IA:** Opus (revision critica integral, debe detectar regresiones y inconsistencias sutiles)
 
-- [ ] **5.1. Revision de heroes**
+- [x] **5.1. Revision de heroes**
   - Verificar que todos los heroes sigan la estructura de index2: `<header> > m-container > m-row > m-col` con contenido a la izquierda y form/CTA a la derecha
   - No necesitan ser identicos visualmente, pero si estructuralmente consistentes
-  - Verificar: logo presente en todos los heroes (diagnostico no lo tiene actualmente)
+  - Verificar: logo presente en todos los heroes (diagnostico no lo tiene actualmente) alineado a la izquierda.
   - Archivos: todas las paginas
   - **Riesgo:** Bajo (es revision, no refactor).
   - **Dependencias:** FASE 4 completada.
 
-- [ ] **5.2. Revision de cards y secciones de contenido**
+- [x] **5.2. Revision de cards y secciones de contenido**
   - Verificar consistencia de: padding interno, border-radius (tokens), hover effects, sombras
   - Referencia: index2.astro problem section, info-cards, benefit cards
   - Archivos: todas las paginas
   - **Riesgo:** Bajo.
   - **Dependencias:** FASE 3 completada.
 
-- [ ] **5.3. Verificacion final**
+- [x] **5.3. Verificacion final**
   - Ejecutar `astro build` sin errores ni warnings
   - Verificar que no queden imports rotos por componentes eliminados
   - Verificar que no queden archivos huerfanos nuevos

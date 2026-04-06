@@ -60,6 +60,9 @@ The workflow is supported by specialized Astro agents, each responsible for a sp
 - **astro-reviewer.md**
   Reviews code, structure, and design to ensure quality and consistency.
 
+- **planner.md**
+  The agent must identify the highest number in .planes/, create the next pNNN + 1 file, and document the execution plan there before starting.
+
 ## Notes
 
 - The HTML structure may be constrained in some areas due to migration limitations.

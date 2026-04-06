@@ -50,6 +50,7 @@
   - [x] Fase 1: Implementación en Layout.astro (Dev Nav)
   - [x] Fase 2: Implementación en Header.astro (Navegación Principal)
 - [ ] Optimización de Performance y SEO.
+- [ ] **PLAN 017: SEO Audit & Control de Indexación** (Fase 1 completada)
 
 ## Fase 3: Unificacion y Pulido (PLAN MAESTRO - PLAN.md)
 

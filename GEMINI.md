@@ -60,6 +60,9 @@ The workflow is supported by specialized Astro agents, each responsible for a sp
 - **astro-reviewer.md**
   Reviews code, structure, and design to ensure quality and consistency.
 
+- **planner.md**
+  The agent must identify the highest number in .planes/, create the next pNNN + 1 file, and document the execution plan there before starting.
+
 ## Mandatory Protocol
 
 **MANDATORY:** Never proceed from the planning phase (writing/editing files in `.planes/`) to the execution phase (creating or modifying project code files) without explicit authorization from the user. The approval of a plan document does NOT constitute an automatic green light for execution.

@@ -6,12 +6,12 @@ interface Props {
   class?: string;
 }
 
-const { icon, title, description, class: className = "p-6 md:p-8" } = Astro.props;
+const { icon, title, description, class: className = "" } = Astro.props;
 ---
 
 <m-col
   class:list={[
-    "bg-brand-graybg rounded-xl flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20",
+    "bg-brand-graybg rounded-xl flex-row items-start gap-4 border border-black/3 transition-all hover:-translate-y-1 hover:shadow-card-hover hover:border-brand-blue/20 p-6 md:p-8",
     className,
   ]}
 >

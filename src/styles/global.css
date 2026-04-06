@@ -11,26 +11,21 @@
   --color-bg-light: #f6f8f8;
   --color-green: #c9ff93;
 
-  --color-slate-50: #f8fafc;
-  --color-slate-100: #f1f5f9;
-  --color-slate-200: #e2e8f0;
-  --color-slate-400: #94a3b8;
-  --color-slate-500: #64748b;
-  --color-slate-600: #475569;
-
+  /* Brand */
   --color-brand-dark: #141724;
   --color-brand-blue: #1e88e5;
   --color-brand-blue-hover: #1565c0;
   --color-brand-graybg: #f8fafc;
 
+  /* Text */
   --color-text-dark: #111827;
   --color-text-muted: #6b7280;
   --color-text-light: #9ca3af;
 
-  /* Radius */
-  --radius-md: 12px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  /* Radius — overrides Tailwind v4 defaults via @theme */
+  --radius-md: 12px; /* rounded-md */
+  --radius-lg: 24px; /* rounded-lg */
+  --radius-xl: 32px; /* rounded-xl */
 
   /* Shadows */
   --shadow-premium: 0 20px 40px -10px rgba(31, 33, 61, 0.12);
@@ -63,18 +58,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img,
-video {
-  border-radius: var(--radius-md);
-}
-
-button,
-input,
-select,
-textarea {
-  border-radius: var(--radius-md);
-}
-
 h1,
 h2,
 h3 {
@@ -88,14 +71,6 @@ h3 {
    can override these defaults when applied via class attributes. */
 
 @layer base {
-  section {
-    padding: 3rem 0;
-  }
-
-  footer {
-    padding: 2rem 0;
-  }
-
   m-container {
     display: block;
     width: 100%;
@@ -119,7 +94,8 @@ h3 {
 }
 
 /* ===== RESPONSIVE RADIUS ===== */
-/* Reduce border-radius proportionally on small screens */
+/* Reduce border-radius proportionally on small screens.
+   Works because @theme tokens are CSS custom properties consumed by Tailwind. */
 @media (max-width: 767px) {
   :root {
     --radius-md: 8px;
@@ -130,7 +106,7 @@ h3 {
 
 /* ===== UTILITY CLASSES ===== */
 .titleCapitalice {
-  color: var(--color-slate-400);
+  color: var(--color-text-light);
   font-family: var(--font-sans);
   font-weight: 600;
   text-transform: uppercase;
