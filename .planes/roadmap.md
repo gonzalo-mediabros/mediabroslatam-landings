@@ -50,3 +50,38 @@
   - [x] Fase 1: Implementación en Layout.astro (Dev Nav)
   - [x] Fase 2: Implementación en Header.astro (Navegación Principal)
 - [ ] Optimización de Performance y SEO.
+- [ ] **PLAN 017: SEO Audit & Control de Indexación** (Fase 1 completada)
+
+## Fase 3: Unificacion y Pulido (PLAN MAESTRO - PLAN.md)
+
+- [x] **FASE 0: Limpieza previa**
+  - [x] Eliminar componentes huerfanos (8 archivos)
+  - [x] Fix index2.astro contenido fuera de Layout
+  - [x] Fix auditoria.astro title prop
+  - [x] Eliminar clases redundantes en m-container
+
+- [x] **FASE 1: Componentes UI compartidos**
+  - [x] FaqAccordion unificado (3 copias -> 1)
+  - [x] Chip unificado (3 copias -> 1)
+  - [x] Footer unificado (5 inline + 2 components -> 1)
+  - [x] BenefitCard unificado (4 versiones -> 1)
+
+- [x] **FASE 2: Formularios**
+  - [x] LeadForm.astro (Componente unificado con theme prop)
+
+- [ ] **FASE 3: Design tokens y consistencia visual**
+  - [ ] Border-radius con tokens --radius-md/lg/xl
+  - [ ] Logo sizes estandarizados
+  - [ ] Spacing entre secciones
+  - [ ] Glow/gradient patterns
+
+- [ ] **FASE 4: Estructura y layout**
+  - [ ] index.astro: hero, form section, course section
+  - [ ] diagnostico.astro: agitation section
+  - [ ] auditoria.astro: process section, testimonials grid bug
+
+- [ ] **FASE 5: Pulido final**
+  - [ ] Revision de heroes
+  - [ ] Revision de cards
+  - [ ] Revision responsive
+  - [ ] Verificacion final (build, imports, IDs)

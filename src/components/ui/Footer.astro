@@ -1,0 +1,48 @@
+---
+interface Props {
+  variant?: "dark" | "light";
+}
+
+const { variant = "dark" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const isDark = variant === "dark";
+---
+
+<!-- ----- FOOTER ----- -->
+<footer
+  id="footer"
+  class:list={[
+    "py-12 lg:py-16 text-sm",
+    isDark ? "bg-brand-dark text-slate-400" : "bg-brand-graybg text-slate-600",
+  ]}
+>
+  <m-container>
+    <div class="flex flex-col items-center text-center gap-6">
+      <img
+        src={`${base}logo.svg`}
+        alt="Mediabros"
+        class:list={[
+          "h-8 transition-base",
+          isDark
+            ? "opacity-50 grayscale hover:grayscale-0 hover:opacity-100"
+            : "opacity-100",
+        ]}
+      />
+      <p class="font-medium text-slate-500">
+        &copy; {new Date().getFullYear()} mediabroslatam.com ALL RIGHTS RESERVED.
+      </p>
+      <div
+        class:list={[
+          "w-full h-px my-4",
+          isDark ? "bg-white/5" : "bg-brand-dark/8",
+        ]}
+      ></div>
+      <p class="max-w-2xl leading-relaxed text-slate-500 text-xs">
+        This site is not part of the Meta website or Meta Inc. Additionally,
+        this site is NOT endorsed by Meta in any way. META is a trademark of
+        META, Inc.
+      </p>
+    </div>
+  </m-container>
+</footer>
+<!-- ----- FOOTER ----- -->

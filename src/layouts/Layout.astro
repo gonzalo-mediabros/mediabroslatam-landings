@@ -4,17 +4,31 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
-  image?: string;
+  ogImage?: string;
+  image?: string; // Para compatibilidad
   canonicalURL?: string;
+  noindex?: boolean;
+  ogType?: string;
 }
+
+// MASTER SWITCH: Si es true, fuerza noindex en todo el sitio
+const GLOBAL_NOINDEX = true;
 
 const {
   title,
   description,
-  image = "assets/og-image.jpg",
+  ogImage,
+  image,
+  noindex = true,
+  ogType = "website",
   canonicalURL = Astro.url.href,
 } = Astro.props;
-const socialImage = new URL(image, Astro.site || Astro.url).href;
+
+// Prioridad: ogImage > image > default
+const finalImage = ogImage || image || "assets/og-image.jpg";
+const socialImage = new URL(finalImage, Astro.site || Astro.url).href;
+
+const shouldNoIndex = GLOBAL_NOINDEX || noindex;
 
 const { pathname } = Astro.url;
 
@@ -30,7 +44,7 @@ const isActive = (path: string) => {
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="robots" content="noindex,nofollow" />
+    {shouldNoIndex && <meta name="robots" content="noindex,nofollow" />}
     <meta name="viewport" content="width=device-width" />
     <link
       rel="icon"
@@ -47,8 +61,14 @@ const isActive = (path: string) => {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={Astro.url.href} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
 
     <!-- Google Material Icons & Symbols -->
     <link
@@ -61,10 +81,10 @@ const isActive = (path: string) => {
     />
   </head>
   <body>
-    <!-- Menú de Navegación Dev (Se ocultará en build final) -->
     <nav
-      class="dev-nav flex gap-8 fixed top-0 left-0 z-1000 bg-brand-graybg/90 backdrop-blur-md w-full px-8 py-3 border-b border-black/5 text-sm font-medium"
+      class="dev-nav flex gap-8 top-0 left-0 z-1000 bg-brand-graybg w-full px-8 py-3 text-sm font-medium"
     >
+      <span class="text-blue">Menu temporal de desarrollo</span>
       <a
         href={import.meta.env.BASE_URL}
         class={isActive(import.meta.env.BASE_URL)
